@@ -1,0 +1,7 @@
+.cache
+.eslintcache
+.idea
+
+node_modules/
+
+docs/
