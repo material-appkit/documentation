@@ -53,7 +53,6 @@ function HomePage(props) {
   const classes = styles();
 
   const samples = props.data.samples.nodes;
-  console.log(fileContent(samples, 'quickstart.sh'));
 
   return (
     <Layout
