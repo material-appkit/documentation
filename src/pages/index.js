@@ -26,7 +26,6 @@ import GatsbyLogo from 'media/gatsby-logo.svg';
 const quickstartStyles = makeStyles((theme) => ({
   listItemIcon: {
     marginRight: theme.spacing(1),
-    width: 80,
   },
 
   link: {
@@ -48,35 +47,35 @@ function Quickstart() {
 
       <List>
         <ListItem disableGutters>
-          <ListItemIcon
-            className={classes.listItemIcon}
-            style={{ padding: 6 }}
-          >
-            <img alt="Gatsby Logo" src={GatsbyLogo} width="100%" />
+          <ListItemIcon className={classes.listItemIcon}>
+            <img alt="Create-React-App Logo" src={CRALogo} width="90" />
           </ListItemIcon>
           <ListItemText
             disableTypography
-            primary={(<Typography variant="h3" gutterBottom>Gatsby</Typography>)}
+            primary={<Typography variant="h3" gutterBottom>Create React App</Typography>}
             secondary={(
-              <div className={classes.linkContainer}>
+              <div>
+                <Link href="#" className={classes.link}>Source</Link>
                 <Link href="#" className={classes.link}>Demo</Link>
-                <Link href="#">Source</Link>
               </div>
             )}
           />
         </ListItem>
 
         <ListItem disableGutters>
-          <ListItemIcon className={classes.listItemIcon}>
-            <img alt="Create-React-App Logo" src={CRALogo} width="100%" />
+          <ListItemIcon
+            className={classes.listItemIcon}
+            style={{ padding: 6 }}
+          >
+            <img alt="Gatsby Logo" src={GatsbyLogo} width="78" />
           </ListItemIcon>
           <ListItemText
             disableTypography
-            primary={<Typography variant="h3" gutterBottom>Create-React-App</Typography>}
+            primary={(<Typography variant="h3" gutterBottom>Gatsby</Typography>)}
             secondary={(
-              <div className={classes.linkContainer}>
+              <div>
+                <Link href="#" className={classes.link}>Source</Link>
                 <Link href="#" className={classes.link}>Demo</Link>
-                <Link href="#">Source</Link>
               </div>
             )}
           />
