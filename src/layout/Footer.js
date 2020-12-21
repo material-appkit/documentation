@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 
 import Link from '@material-ui/core/Link';
@@ -118,17 +118,17 @@ function Footer(props) {
           <Link component={GatsbyLink} to="/">Home</Link>
 
           {navLinks.previous &&
-            <Fragment>
+            <>
               <span>·</span>
               {navLinks.previous}
-            </Fragment>
+            </>
           }
 
           {navLinks.next &&
-            <Fragment>
+            <>
               <span>·</span>
               {navLinks.next}
-            </Fragment>
+            </>
           }
         </div>
       </div>

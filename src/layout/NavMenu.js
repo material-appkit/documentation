@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Fragment, useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 
 import Drawer from '@material-ui/core/Drawer';
@@ -49,7 +49,7 @@ function NavMenu(props) {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <IconButton
         className={classes.menuButton}
         onClick={handleDrawerToggleButtonClick}
@@ -123,7 +123,7 @@ function NavMenu(props) {
           })}
         </List>
       </Drawer>
-    </Fragment>
+    </>
   );
 }
 

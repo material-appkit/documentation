@@ -2,6 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -9,11 +14,79 @@ import Layout from 'layout/Layout';
 
 import CodeView from 'components/CodeView';
 
-import ApplicationLogo from 'media/application-logo.svg';
 import { ContentHeading } from 'components/typography';
 import { COMMON_PAGE_PROPS } from 'variables';
 import { fileContent } from 'util/shortcuts';
 
+import ApplicationLogo from 'media/application-logo.svg';
+import CRALogo from 'media/cra-logo.svg';
+import GatsbyLogo from 'media/gatsby-logo.svg';
+
+//------------------------------------------------------------------------------
+const quickstartStyles = makeStyles((theme) => ({
+  listItemIcon: {
+    marginRight: theme.spacing(1),
+    width: 80,
+  },
+
+  link: {
+    marginRight: theme.spacing(1),
+  }
+}));
+
+function Quickstart() {
+  const classes = quickstartStyles();
+
+  return (
+    <>
+      <ContentHeading gutterBottom>
+        Quickstart
+      </ContentHeading>
+      <Typography>
+        Start coding immediately using one of the following project templates:
+      </Typography>
+
+      <List>
+        <ListItem disableGutters>
+          <ListItemIcon
+            className={classes.listItemIcon}
+            style={{ padding: 6 }}
+          >
+            <img alt="Gatsby Logo" src={GatsbyLogo} width="100%" />
+          </ListItemIcon>
+          <ListItemText
+            disableTypography
+            primary={(<Typography variant="h3" gutterBottom>Gatsby</Typography>)}
+            secondary={(
+              <div className={classes.linkContainer}>
+                <Link href="#" className={classes.link}>Demo</Link>
+                <Link href="#">Source</Link>
+              </div>
+            )}
+          />
+        </ListItem>
+
+        <ListItem disableGutters>
+          <ListItemIcon className={classes.listItemIcon}>
+            <img alt="Create-React-App Logo" src={CRALogo} width="100%" />
+          </ListItemIcon>
+          <ListItemText
+            disableTypography
+            primary={<Typography variant="h3" gutterBottom>Create-React-App</Typography>}
+            secondary={(
+              <div className={classes.linkContainer}>
+                <Link href="#" className={classes.link}>Demo</Link>
+                <Link href="#">Source</Link>
+              </div>
+            )}
+          />
+        </ListItem>
+      </List>
+    </>
+  );
+}
+
+//------------------------------------------------------------------------------
 const styles = makeStyles((theme) => ({
   contentContainer: {
     margin: 'auto',
@@ -27,7 +100,7 @@ const styles = makeStyles((theme) => ({
 
   title: {
     fontSize: theme.typography.pxToRem(28),
-    letterSpacing: '0.5rem',
+    letterSpacing: '0.45rem',
     marginTop: theme.spacing(2),
     textTransform: 'uppercase',
   },
@@ -44,7 +117,7 @@ const styles = makeStyles((theme) => ({
   },
 
   instructionArticle: {
-    padding: theme.spacing(2, 0),
+    padding: theme.spacing(2, 0, 1),
   }
 }));
 
@@ -90,15 +163,7 @@ function HomePage(props) {
               </article>
 
               <article className={classes.instructionArticle}>
-                <ContentHeading gutterBottom>
-                  Quickstart
-                </ContentHeading>
-                <Typography>
-                  Start coding immediately using one of the following project templates:
-                </Typography>
-                <CodeView language="bash">
-                  {fileContent(samples, 'quickstart.sh')}
-                </CodeView>
+                <Quickstart />
               </article>
             </section>
           </Grid>

@@ -3,7 +3,7 @@
  */
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { Fragment, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import Container from '@material-ui/core/Container';
 import Drawer from '@material-ui/core/Drawer';
@@ -142,7 +142,7 @@ const Layout = (props) => {
   const applicationNavTree = <ApplicationNavTree location={location} />;
 
   return (
-    <Fragment>
+    <>
       <SEO title={props.pageTitle || props.title} />
 
       {fabButton}
@@ -192,7 +192,7 @@ const Layout = (props) => {
           {applicationNavTree}
         </Drawer>
       </Hidden>
-    </Fragment>
+    </>
   );
 };
 
