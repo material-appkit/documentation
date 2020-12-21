@@ -55,8 +55,18 @@ function Quickstart() {
             primary={<Typography variant="h3" gutterBottom>Create React App</Typography>}
             secondary={(
               <div>
-                <Link href="#" className={classes.link}>Source</Link>
-                <Link href="#" className={classes.link}>Demo</Link>
+                <Link
+                  className={classes.link}
+                  href="#"
+                >
+                  Source
+                </Link>
+                <Link
+                  className={classes.link}
+                  href="https://material-appkit.github.io/quickstart-create-react-app/"
+                >
+                  Demo
+                </Link>
               </div>
             )}
           />
