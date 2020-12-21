@@ -5,8 +5,7 @@ import { useWidth } from '@material-appkit/core/util/hooks';
 
 import AppContext from 'AppContext';
 
-import SitemapData from 'media/sitemap.json';
-
+import Sitemap from 'sitemap';
 
 function Application(props) {
   const [appContext, setAppContext] = useState(() => {
@@ -28,7 +27,7 @@ function Application(props) {
       }
     }
 
-    const sitemap = SitemapData;
+    const sitemap = Sitemap;
     sitemap.children.forEach((node, rootNodeIndex) => {
       processNode(node, `${rootNodeIndex}`, '');
     });
