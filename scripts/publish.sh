@@ -7,7 +7,7 @@ BUILD_PATH=$ROOT_PATH/public/
 TARGET_PATH=$ROOT_PATH/docs/
 
 # Generate the documentation build products
-cd ROOT_PATH
+cd $ROOT_PATH
 npm run build
 
 # RSync the build products to their destination directory

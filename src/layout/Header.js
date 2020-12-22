@@ -69,7 +69,7 @@ const Header = (props) => {
   }, {
     title: 'Public Repository',
     Icon: GitHubIcon,
-    href: 'https://github.com/allanhart/material-appkit',
+    href: 'https://github.com/material-appkit',
   }];
 
   let view = (
