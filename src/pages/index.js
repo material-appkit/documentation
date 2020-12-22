@@ -48,7 +48,7 @@ function Quickstart() {
       <List>
         <ListItem disableGutters>
           <ListItemIcon className={classes.listItemIcon}>
-            <img alt="Create-React-App Logo" src={CRALogo} width="90" />
+            <img alt="Create-React-App Logo" src={CRALogo} width="90px" height="100%" />
           </ListItemIcon>
           <ListItemText
             disableTypography
@@ -77,7 +77,7 @@ function Quickstart() {
             className={classes.listItemIcon}
             style={{ padding: 6 }}
           >
-            <img alt="Gatsby Logo" src={GatsbyLogo} width="78" />
+            <img alt="Gatsby Logo" src={GatsbyLogo} width="78" height="100%" />
           </ListItemIcon>
           <ListItemText
             disableTypography
