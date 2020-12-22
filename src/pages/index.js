@@ -57,7 +57,7 @@ function Quickstart() {
               <div>
                 <Link
                   className={classes.link}
-                  href="#"
+                  href="https://github.com/material-appkit/quickstart-create-react-app"
                 >
                   Source
                 </Link>
