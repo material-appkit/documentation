@@ -23,7 +23,6 @@ module.exports = {
         cache_busting_mode: 'none',
         display: 'standalone',
         icon: 'data/images/application-logo.png',
-        legacy: false,
         name: process.env.GATSBY_APP_TITLE,
         theme_color: '#fff',
         short_name: process.env.GATSBY_APP_TITLE,
