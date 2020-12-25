@@ -25,7 +25,7 @@ module.exports = {
         icon: 'data/images/application-logo.png',
         name: process.env.GATSBY_APP_TITLE,
         theme_color: '#fff',
-        short_name: process.env.GATSBY_APP_TITLE,
+        short_name: 'MUI AppKit',
         start_url: '/',
       }
     },
