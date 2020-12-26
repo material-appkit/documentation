@@ -63,7 +63,7 @@ function Quickstart() {
                 </Link>
                 <Link
                   className={classes.link}
-                  href="http://cra.material-appkit.com/"
+                  href="https://material-appkit.github.io/quickstart-create-react-app/"
                 >
                   Demo
                 </Link>
