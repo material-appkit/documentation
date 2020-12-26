@@ -22,10 +22,10 @@ module.exports = {
         background_color: '#fafafa',
         cache_busting_mode: 'none',
         display: 'standalone',
-        icon: 'data/images/favicon-192x192.png',
+        icon: 'data/images/application-logo.png',
         name: process.env.GATSBY_APP_TITLE,
         theme_color: '#fff',
-        short_name: process.env.GATSBY_APP_TITLE,
+        short_name: 'MUI AppKit',
         start_url: '/',
       }
     },

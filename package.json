@@ -2,7 +2,7 @@
   "name": "@material-appkit/documentation",
   "private": true,
   "description": "Material-AppKit Documentation",
-  "version": "2.9.5",
+  "version": "2.9.9",
   "author": "Allan Hart",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
