@@ -115,7 +115,7 @@ const styles = makeStyles((theme) => ({
 
   title: {
     fontSize: theme.typography.pxToRem(28),
-    letterSpacing: '0.45rem',
+    letterSpacing: '0.40rem',
     marginTop: theme.spacing(2),
     textTransform: 'uppercase',
   },
