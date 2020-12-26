@@ -107,6 +107,12 @@ const styles = makeStyles((theme) => ({
     textAlign: 'center',
   },
 
+  logo: {
+    display: 'inline-block',
+    height: 286,
+    width: 300,
+  },
+
   title: {
     fontSize: theme.typography.pxToRem(28),
     letterSpacing: '0.45rem',
@@ -145,7 +151,11 @@ function HomePage(props) {
     >
       <main className={classes.main}>
         <header className={classes.header}>
-          <img alt="Material-AppKit Logo" src={ApplicationLogo} width="300" />
+          <img
+            alt="Material-AppKit Logo"
+            className={classes.logo}
+            src={ApplicationLogo}
+          />
 
           <Typography component="h1" color="primary" className={classes.title}>
             {process.env.GATSBY_APP_TITLE}
