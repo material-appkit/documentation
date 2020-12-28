@@ -195,7 +195,8 @@ function HomePage(props) {
 
             <Typography className={classes.introduction}>
               An easy-to-use library of essential components and utilities proven
-              to simplify and supercharge web apps built upon Material-UI.
+              to simplify and supercharge web apps built
+              upon <Link href="https://www.material-ui.com">Material-UI</Link>.
             </Typography>
           </Grid>
         </Grid>
