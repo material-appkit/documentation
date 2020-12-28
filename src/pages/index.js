@@ -99,11 +99,11 @@ function Quickstart() {
 const styles = makeStyles((theme) => ({
   contentContainer: {
     margin: 'auto',
-    padding: theme.spacing(6, 2, 2),
+    padding: theme.spacing(4, 2, 2),
   },
 
   header: {
-    marginBottom: 32,
+    marginBottom: theme.spacing(4),
     textAlign: 'center',
   },
 
@@ -116,13 +116,33 @@ const styles = makeStyles((theme) => ({
   title: {
     fontSize: theme.typography.pxToRem(28),
     letterSpacing: '0.40rem',
-    marginTop: theme.spacing(2),
+    lineHeight: 1.2,
+    textAlign: 'center',
     textTransform: 'uppercase',
+
+    [theme.breakpoints.up('md')]: {
+      fontSize: theme.typography.pxToRem(40),
+    }
   },
 
   version: {
     fontSize: theme.typography.pxToRem(20),
     letterSpacing: '0.2rem',
+  },
+
+  introductionCell: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  introduction: {
+    marginTop: theme.spacing(2),
+
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'justify',
+    },
   },
 
   instructionSection: {
@@ -149,22 +169,36 @@ function HomePage(props) {
       title="Introduction"
       {...props}
     >
-      <main className={classes.main}>
-        <header className={classes.header}>
-          <img
-            alt="Material-AppKit Logo"
-            className={classes.logo}
-            src={ApplicationLogo}
-          />
+      <main>
+        <Grid
+          className={classes.header}
+          container
+          component="header"
+          spacing={2}
+        >
+          <Grid item xs={12} md={6} className={classes.introductionCell}>
+            <img
+              alt="Material-AppKit Logo"
+              className={classes.logo}
+              src={ApplicationLogo}
+            />
 
-          <Typography component="h1" color="primary" className={classes.title}>
-            {process.env.GATSBY_APP_TITLE}
-          </Typography>
+          </Grid>
+          <Grid item xs={12} md={6} className={classes.introductionCell}>
+            <Typography component="h1" color="primary" className={classes.title}>
+              {process.env.GATSBY_APP_TITLE}
+            </Typography>
 
-          <Typography component="h2" className={classes.version}>
-            v{process.env.GATSBY_APP_VERSION}
-          </Typography>
-        </header>
+            <Typography component="h2" className={classes.version}>
+              v{process.env.GATSBY_APP_VERSION}
+            </Typography>
+
+            <Typography className={classes.introduction}>
+              An easy-to-use library of essential components and utilities proven
+              to simplify and supercharge web apps built upon Material-UI.
+            </Typography>
+          </Grid>
+        </Grid>
 
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
