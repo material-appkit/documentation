@@ -61,6 +61,7 @@ function Quickstart() {
                 >
                   Source
                 </Link>
+
                 <Link
                   className={classes.link}
                   href="https://cra.quickstart.material-appkit.com/"
@@ -84,8 +85,18 @@ function Quickstart() {
             primary={(<Typography variant="h3" gutterBottom>Gatsby</Typography>)}
             secondary={(
               <div>
-                <Link href="#" className={classes.link}>Source</Link>
-                <Link href="#" className={classes.link}>Demo</Link>
+                <Link
+                  href="https://github.com/material-appkit/quickstart-gatsby"
+                  className={classes.link}>
+                  Source
+                </Link>
+
+                <Link
+                  href="https://gatsby.quickstart.material-appkit.com"
+                  className={classes.link}
+                >
+                  Demo
+                </Link>
               </div>
             )}
           />
