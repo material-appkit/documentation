@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from 'layout/Layout';
@@ -14,19 +11,26 @@ const styles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
     textAlign: 'center',
   },
+
+  emoji: {
+    fontSize: theme.typography.pxToRem(200),
+  },
 }));
 
 function NotFoundPage(props) {
   const classes = styles();
 
   return (
-    <Layout
-      title="Page Not Found"
-      {...props}
-    >
+    <Layout title="Page Not Found" {...props}>
       <main>
         <div className={classes.contentContainer}>
-          <Img fixed={props.data.sadFace.childImageSharp.fixed} />
+          <span
+            aria-label="Exploding Head Emoji"
+            className={classes.emoji}
+            role="img"
+          >
+             🤯
+          </span>
         </div>
       </main>
     </Layout>
@@ -36,15 +40,3 @@ function NotFoundPage(props) {
 NotFoundPage.propTypes = COMMON_PAGE_PROPS;
 
 export default NotFoundPage;
-
-export const query = graphql`
-  query {
-    sadFace: file(relativePath: { eq: "images/sad-face.png" }) {
-      childImageSharp {
-        fixed(width: 192, height: 192) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`;

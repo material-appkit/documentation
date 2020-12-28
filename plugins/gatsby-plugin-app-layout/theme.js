@@ -44,60 +44,6 @@ const theme = createMuiTheme({
       fontWeight: 600,
       padding: baseTheme.spacing(1.25, 1),
     },
-
-    filterFieldLabel: {
-      color: baseTheme.palette.text.secondary,
-      fontSize: baseTheme.typography.pxToRem(12),
-    },
-
-    filterFieldValue: {
-      fontSize: baseTheme.typography.pxToRem(12),
-      marginRight: baseTheme.spacing(0.5),
-      textAlign: 'right',
-    },
-
-    fullScreenDialog: {
-      dialogTitle: {
-        alignItems: 'center',
-        display: 'flex',
-        padding: baseTheme.spacing(1, 2),
-      },
-
-      heading: {
-        flex: 1,
-      },
-
-      dialogContent: {
-        padding: baseTheme.spacing(1, 2),
-      },
-
-      dialogActions: {
-        display: 'flex',
-        flexDirection: 'column',
-        padding: baseTheme.spacing(1),
-
-        [baseTheme.breakpoints.up('md')]: {
-          flexDirection: 'row',
-        }
-      },
-
-      actionButton: {
-        flex: 1,
-        fontSize: baseTheme.typography.pxToRem(20),
-        height: baseTheme.spacing(7),
-        margin: baseTheme.spacing(0.5, 0),
-
-        [baseTheme.breakpoints.up('md')]: {
-          margin: baseTheme.spacing(0, 0.5),
-        }
-      },
-
-      commitButton: {
-        [baseTheme.breakpoints.up('md')]: {
-          order: 1,
-        }
-      },
-    },
   },
 
   typography: {
@@ -122,19 +68,6 @@ const theme = createMuiTheme({
     h4: {
       fontSize: baseTheme.typography.pxToRem(16),
     }
-  },
-
-  layout: {
-    fixedHeightRootContainer: {
-      [baseTheme.breakpoints.up('md')]: {
-        height: '100vh',
-      },
-    },
-
-    fixedHeightContentContainer: {
-      padding: 0,
-      height: 'calc(100% - 111px)',
-    },
   },
 
   overrides: {

@@ -6,7 +6,7 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { TreeEnumerator } from 'util/tree';
+import TreeEnumerator from '@material-appkit/core/util/tree/TreeEnumerator';
 
 import { pathnameForUrl } from 'util/shortcuts';
 
