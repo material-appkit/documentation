@@ -27,38 +27,3 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
 
   actions.setWebpackConfig(extraWebpackConfig);
 };
-
-
-// Implement the Gatsby API “onCreatePage”. This is
-// called after every page is created.
-
-// page.matchPath is a special key that's used for matching pages
-// with corresponding routes only on the client.
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions;
-
-  if (page.path.match(/^\/vehicle\/(.*)/)) {
-    page.matchPath = "/vehicle/:uuid";
-    createPage(page);
-  }
-
-  if (page.path.match(/^\/campaign\/(.*)/)) {
-    page.matchPath = "/campaign/:uuid";
-    createPage(page);
-  }
-
-  if (page.path.match(/^\/campaign-item\/(.*)/)) {
-    page.matchPath = "/campaign-item/:uuid";
-    createPage(page);
-  }
-
-  if (page.path.match(/^\/sign-up\/activate\/(.*)/)) {
-    page.matchPath = "/sign-up/activate/:uid/:token";
-    createPage(page);
-  }
-
-  if (page.path.match(/^\/set_password\/(.*)/)) {
-    page.matchPath = "/set_password/:uid/:token";
-    createPage(page);
-  }
-};

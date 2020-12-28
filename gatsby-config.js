@@ -29,17 +29,6 @@ module.exports = {
         start_url: '/',
       }
     },
-    // {
-    //   resolve: 'gatsby-plugin-offline',
-    //   options: {
-    //     precachePages: ['/vehicles', '/sold-row'],
-    //     workboxConfig: {
-    //       globIgnores: ['sw-update-manager.js'],
-    //       globPatterns: ['**/*'],
-    //       skipWaiting: false,
-    //     },
-    //   },
-    // },
 
     //--------------------------------------------------------------------------
     {
