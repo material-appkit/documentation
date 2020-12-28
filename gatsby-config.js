@@ -29,7 +29,6 @@ module.exports = {
         start_url: '/',
       }
     },
-    'gatsby-plugin-remove-serviceworker',
     // {
     //   resolve: 'gatsby-plugin-offline',
     //   options: {
@@ -78,12 +77,6 @@ module.exports = {
         mediaTypes: ['text/javascript', 'text/jsx'],
       }
     },
-
-    //--------------------------------------------------------------------------
-    'gatsby-plugin-sharp',
-
-    //--------------------------------------------------------------------------
-    'gatsby-transformer-sharp',
 
     //--------------------------------------------------------------------------
     'gatsby-plugin-app-layout',
