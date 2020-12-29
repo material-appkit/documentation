@@ -8,7 +8,14 @@ import { withStyles } from '@material-ui/core/styles';
 
 //------------------------------------------------------------------------------
 export const PageTitle = withStyles((theme) => ({
-  title: theme.mixins.pageTitle,
+  title: {
+    fontSize: theme.typography.pxToRem(28),
+    marginBottom: theme.spacing(3),
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  }
 }))((props) => {
   return (
     <Typography

@@ -33,19 +33,6 @@ const theme = createMuiTheme({
     },
   },
 
-  mixins: {
-    pageTitle: {
-      fontSize: baseTheme.typography.pxToRem(28),
-      marginBottom: baseTheme.spacing(3),
-    },
-
-    submitButton: {
-      fontSize: baseTheme.typography.pxToRem(16),
-      fontWeight: 600,
-      padding: baseTheme.spacing(1.25, 1),
-    },
-  },
-
   typography: {
     button: {
       textTransform: 'none',
