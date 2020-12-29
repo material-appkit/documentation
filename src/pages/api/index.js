@@ -15,6 +15,7 @@ import { COMMON_PAGE_PROPS } from 'variables';
 function ReferencePage(props) {
   useEffect(() => {
     const sources = props.data.sources.nodes;
+    console.log(sources);
 
 
   }, []);
@@ -61,17 +62,32 @@ export const query = graphql`
     sources: allFile(filter: {sourceInstanceName: {eq: "source"}}) {
       nodes {
         childrenComponentMetadata {
-          docblock
           doclets
+          methods {
+            name
+            params {
+              name
+              type
+            }
+            description
+          }
+          displayName
           props {
             name
             defaultValue {
               value
+              computed
             }
             description {
               text
             }
             required
+            parentType {
+              name
+            }
+            type {
+              name
+            }
           }
           description {
             text
