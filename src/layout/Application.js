@@ -13,11 +13,12 @@ function Application(props) {
       const { anchor, children, path } = node;
 
       node.id = indexPathPrefix;
+      node.url = urlPrefix;
 
       if (anchor) {
-        node.url = `${urlPrefix}#${anchor}`;
-      } else {
-        node.url = `${urlPrefix}/${path}`;
+        node.url += `#${anchor}`;
+      } else if (path) {
+        node.url += `${path}/`;
       }
 
       if (children) {
@@ -29,7 +30,7 @@ function Application(props) {
 
     const sitemap = Sitemap;
     sitemap.children.forEach((node, rootNodeIndex) => {
-      processNode(node, `${rootNodeIndex}`, '');
+      processNode(node, `${rootNodeIndex}`, '/');
     });
 
     return {
