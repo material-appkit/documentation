@@ -61,6 +61,15 @@ module.exports = {
 
     //--------------------------------------------------------------------------
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'source',
+        path: `${__dirname}/../core/src/`,
+      },
+    },
+
+    //--------------------------------------------------------------------------
+    {
       resolve: 'gatsby-transformer-filecontent',
       options: {
         mediaTypes: ['text/javascript', 'text/jsx'],
@@ -73,6 +82,9 @@ module.exports = {
 
     //--------------------------------------------------------------------------
     'gatsby-plugin-react-helmet-async',
+
+    //--------------------------------------------------------------------------
+    'gatsby-transformer-react-docgen',
 
     //--------------------------------------------------------------------------
     {
