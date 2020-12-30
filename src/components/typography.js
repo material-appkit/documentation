@@ -50,16 +50,12 @@ const CONTENT_HEADING_FONT_SIZES = {
   'h4': 16,
 };
 
-export const ContentHeading = withStyles((theme) => ({
-  heading: {
-    flex: 1,
-    fontWeight: 300,
-  },
-}))(({ children, classes, component, gutterBottom, underline }) => {
-  const _component = component || 'h2';
+export function ContentHeading(props) {
+  const { children, gutterBottom, underline, variant } = props;
+  const _variant = variant || 'h2';
 
   const style = {
-    fontSize: CONTENT_HEADING_FONT_SIZES[_component],
+    fontSize: CONTENT_HEADING_FONT_SIZES[_variant],
   };
 
   if (underline) {
@@ -71,12 +67,10 @@ export const ContentHeading = withStyles((theme) => ({
 
   return (
     <Typography
-      className={classes.heading}
-      component={_component}
       style={style}
+      variant={_variant}
     >
       {children}
     </Typography>
   );
-});
-
+}
