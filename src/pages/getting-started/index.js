@@ -76,9 +76,9 @@ function GettingStartedPage(props) {
             Peer Dependencies
           </ContentHeading>
           <Typography>
-            Naturally, {MuiCoreLink} must be installed as a peer dependency. Less obvious is the
-            fact that Material-AppKit relies on {MuiIconsLink} and {MuiLablLink} for a number of its
-            components and so they too should be installed. Finally, if you wish to use the
+            Naturally, {MuiCoreLink} must be installed as a peer dependency.
+            In addition, {MuiIconsLink} and {MuiLablLink} are relied upon by a number of components
+            and so they too should be installed. Finally, if you wish to use the
             SnackbarManager to coveniently present {MuiSnackbarLink} notifications, you must also
             include the very awesome {NotistackLink} library.
           </Typography>
