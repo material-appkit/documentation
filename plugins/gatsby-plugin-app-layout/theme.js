@@ -1,11 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import AirbnbCerealBlack from './font/AirbnbCerealBook.woff';
 
-const BOTTOM_BAR_HEIGHT = 56;
 const APP_BAR_HEIGHT = 56;
 const NAVBAR_WIDTH = 220;
 const SIDEBAR_WIDTH = 260;
-const FOOTER_HEIGHT = 56;
 
 const baseTheme = createMuiTheme();
 
@@ -34,27 +32,7 @@ const theme = createMuiTheme({
   },
 
   typography: {
-    button: {
-      textTransform: 'none',
-    },
-
     fontFamily: 'Cereal, Roboto, Helvetica, Arial, sans-serif',
-
-    h1: {
-      fontSize: baseTheme.typography.pxToRem(40),
-    },
-
-    h2: {
-      fontSize: baseTheme.typography.pxToRem(24),
-    },
-
-    h3: {
-      fontSize: baseTheme.typography.pxToRem(20),
-    },
-
-    h4: {
-      fontSize: baseTheme.typography.pxToRem(16),
-    }
   },
 
   overrides: {
@@ -69,6 +47,12 @@ const theme = createMuiTheme({
         },
       },
     },
+
+    MuiTypography: {
+      gutterBottom: {
+        marginBottom: baseTheme.spacing(2),
+      },
+    }
   },
 
   //----------------------------------------------------------------------------
@@ -77,20 +61,12 @@ const theme = createMuiTheme({
     height: APP_BAR_HEIGHT,
   },
 
-  bottomBar: {
-    height: BOTTOM_BAR_HEIGHT,
-  },
-
   navbar: {
     width: NAVBAR_WIDTH,
   },
 
   sidebar: {
     width: SIDEBAR_WIDTH,
-  },
-
-  footer: {
-    height: FOOTER_HEIGHT,
   },
 
 
