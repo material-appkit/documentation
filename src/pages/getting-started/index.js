@@ -17,6 +17,12 @@ import {
 import { COMMON_PAGE_PROPS } from 'variables';
 import paths from 'paths';
 
+const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core">@material-ui/core</Link>;
+const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons">@material-ui/icons</Link>;
+const MuiLablLink = <Link href="https://www.npmjs.com/package/@material-ui/lab">@material-ui/lab</Link>;
+const MuiSnackbarLink = <Link href="https://material-ui.com/components/snackbars/#snackbar">Snackbar</Link>
+const NotistackLink = <Link href="https://www.npmjs.com/package/notistack">notistack</Link>
+
 function GettingStartedPage(props) {
   return (
     <Layout
@@ -63,7 +69,23 @@ function GettingStartedPage(props) {
           <CodeView language="bash">
             $ npm install @material-appkit/core
           </CodeView>
+        </ContentSection>
 
+        <ContentSection>
+          <ContentHeading variant="h3">
+            Peer Dependencies
+          </ContentHeading>
+          <Typography>
+            Naturally, {MuiCoreLink} must be installed as a peer dependency. Less obvious is the
+            fact that Material-AppKit relies on {MuiIconsLink} and {MuiLablLink} for a number of its
+            components and so they too should be installed. Finally, if you wish to use the
+            SnackbarManager to coveniently present {MuiSnackbarLink} notifications, you must also
+            include the very awesome {NotistackLink} library.
+          </Typography>
+
+          <CodeView language="bash">
+            $ npm install @material-ui/core @material-ui/icons @material-ui/lab notistack
+          </CodeView>
 
         </ContentSection>
 
