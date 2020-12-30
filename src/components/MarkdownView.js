@@ -25,7 +25,7 @@ const styles = makeStyles((theme) => ({
 
     '& p': {
       ...theme.typography.body1,
-      margin: theme.spacing(1, 0, 2),
+      margin: theme.spacing(0, 0, 2),
     },
 
     '& ul': {

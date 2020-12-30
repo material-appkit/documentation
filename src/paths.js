@@ -2,12 +2,12 @@ import { include } from '@material-appkit/core/util/path';
 
 export default {
   index: '/',
-
-  gettingStarted: include('getting-started/', {
+  gettingStarted: include('/getting-started/', {
     index: '',
+    examples: 'examples/',
   }),
 
-  api: include('api/', {
+  api: include('/api/', {
     index: '',
   }),
 

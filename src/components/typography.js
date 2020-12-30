@@ -51,24 +51,28 @@ const CONTENT_HEADING_FONT_SIZES = {
 };
 
 export function ContentHeading(props) {
-  const { children, gutterBottom, underline, variant } = props;
+  const {
+    children,
+    underline,
+    variant,
+    ...typographyProps
+  } = props;
   const _variant = variant || 'h2';
 
   const style = {
     fontSize: CONTENT_HEADING_FONT_SIZES[_variant],
+    marginBottom: 8,
   };
 
   if (underline) {
     style.borderBottom = `1px solid #424242`;
-  }
-  if (gutterBottom) {
-    style.marginBottom = 8;
   }
 
   return (
     <Typography
       style={style}
       variant={_variant}
+      {...typographyProps}
     >
       {children}
     </Typography>

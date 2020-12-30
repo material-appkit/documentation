@@ -1,35 +1,21 @@
 import React from 'react';
 
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
+import { Link as GatsbyLink } from 'gatsby';
+
 import Layout from 'layout/Layout';
 
-import { COMMON_PAGE_PROPS } from 'variables';
+import CodeView from 'components/CodeView';
 
-import MarkdownView from 'components/MarkdownView';
 import {
   PageTitle,
   ContentHeading,
   ContentSection,
 } from 'components/typography';
 
-
-const INTRODUCTION = `
- When considering the adoption of a third-party toolkit into your workflow, the first thing
- you should ask yourself is, _"Will my dependence on these tools ultimately help or hinder 
- the long-term growth of my application?"_. It is a heavyweight decision that will impact you, your 
- team, and your company for years to come and should hence be made with a certain degree of caution.
- 
- A good way to begin this evaluation is with a cursory review of the [API Reference](/api) which 
- outlines all of the available components and utilities. Try out the examples to see things in 
- action, then fire up one of the [example applications](/getting-started/examples/) to get an idea 
- of how it all works in concert. 
- 
- Once you've completed this evaluation and are ready to take the plunge, fire your favorite editor 
- and let's get started!
-`;
-
-const INSTALLATION = `
-Yoooo
-`;
+import { COMMON_PAGE_PROPS } from 'variables';
+import paths from 'paths';
 
 function GettingStartedPage(props) {
   return (
@@ -40,19 +26,49 @@ function GettingStartedPage(props) {
     >
       <main>
         <ContentSection>
-          <PageTitle>Getting started</PageTitle>
-          <MarkdownView markdown={INTRODUCTION} />
+          <PageTitle>
+            Getting started
+          </PageTitle>
+          <Typography gutterBottom>
+            When considering the adoption of a third-party toolkit into your workflow, the first
+            thing you should ask yourself is, <em>"Will my dependence on these tools ultimately help or
+            hinder the long-term growth of my application?"</em>. It is a heavyweight decision that will
+            impact you, your team, and your company for years to come and should hence be made with
+            a certain degree of caution.
+          </Typography>
+
+          <Typography gutterBottom>
+            A good way to begin this evaluation is with a cursory review of
+            the <Link component={GatsbyLink} to={paths.api.index}>API Reference</Link> which
+            details all of the available components and utilities. Try out the examples to see
+            things in action, then fire up one of
+            the <Link component={GatsbyLink} to={paths.gettingStarted.examples}>starter applications</Link> to
+            get an idea of how it all works in concert.
+          </Typography>
+
+          <Typography gutterBottom>
+            Once you've completed this evaluation and are ready to take the plunge, fire your
+            favorite editor and let's get started!
+          </Typography>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading>
+          <ContentHeading id="installation">
             Installation
           </ContentHeading>
-          <MarkdownView markdown={INSTALLATION} />
+          <Typography>
+            Material-AppKit is distributed via NPM. To integrate it with your existing Material-UI
+            project, install it as you would any other npm package:
+          </Typography>
+          <CodeView language="bash">
+            $ npm install @material-appkit/core
+          </CodeView>
+
+
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading>
+          <ContentHeading id="usage">
             Usage
           </ContentHeading>
         </ContentSection>

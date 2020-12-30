@@ -38,7 +38,7 @@ function Quickstart() {
 
   return (
     <>
-      <ContentHeading gutterBottom>
+      <ContentHeading>
         Quickstart
       </ContentHeading>
       <Typography>
@@ -216,7 +216,7 @@ function HomePage(props) {
           <Grid item xs={12} md={6}>
             <section className={classes.instructionSection}>
               <article className={classes.instructionArticle}>
-                <ContentHeading gutterBottom>
+                <ContentHeading>
                   Installation
                 </ContentHeading>
                 <Typography>
@@ -236,7 +236,7 @@ function HomePage(props) {
           <Grid item xs={12} md={6}>
             <section className={classes.instructionSection}>
               <article className={classes.instructionArticle}>
-                <ContentHeading gutterBottom>
+                <ContentHeading>
                   Usage
                 </ContentHeading>
                 <Typography>
