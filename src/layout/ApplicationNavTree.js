@@ -12,8 +12,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import StorageManager from '@material-appkit/core/managers/StorageManager';
-
 import AppContext from 'AppContext';
 
 const styles = makeStyles((theme) => ({
@@ -48,21 +46,11 @@ function ApplicationNavTree({ location }) {
   const { sitemap } = context;
 
   const [expandedNodeIds, setExpandedNodeIds] = useState(() => {
-    let nodeIds = StorageManager.localValue('navTreeExpandedNodeIds');
-    if (nodeIds) {
-      nodeIds = JSON.parse(nodeIds);
-    } else {
-      nodeIds = ['1', '2', '3', '4'];
-    }
-    return nodeIds;
+    return ['1', '2', '3', '4'];
   });
 
   const handleNodeToggle = (e, nodeIds) => {
     setExpandedNodeIds(nodeIds);
-    StorageManager.setLocalValue(
-      'navTreeExpandedNodeIds',
-      JSON.stringify(nodeIds)
-    );
   };
 
   const renderTree = (node, depth) => {
