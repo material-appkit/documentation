@@ -13,11 +13,22 @@ import {
 
 
 const INTRODUCTION = `
-  When considering the adoption of a third-party toolkit into your workflow, the number one
-  question you should be asking yourself is, _"Do I expect my dependence on these tools
-  will help or hinder progress on my application?"_.
-  
-  The decision can seem a bit daunting at first.  
+ When considering the adoption of a third-party toolkit into your workflow, the first thing
+ you should ask yourself is, _"Will my dependence on these tools ultimately help or hinder 
+ the long-term growth of my application?"_. It is a heavyweight decision that will impact you, your 
+ team, and your company for years to come and should hence be made with a certain degree of caution.
+ 
+ A good way to begin this evaluation is with a cursory review of the [API Reference](/api) which 
+ outlines all of the available components and utilities. Try out the examples to see things in 
+ action, then fire up one of the [example applications](/getting-started/examples/) to get an idea 
+ of how it all works in concert. 
+ 
+ Once you've completed this evaluation and are ready to take the plunge, fire your favorite editor 
+ and let's get started!
+`;
+
+const INSTALLATION = `
+Yoooo
 `;
 
 function GettingStartedPage(props) {
@@ -29,10 +40,7 @@ function GettingStartedPage(props) {
     >
       <main>
         <ContentSection>
-          <PageTitle>
-            Getting started
-          </PageTitle>
-
+          <PageTitle>Getting started</PageTitle>
           <MarkdownView markdown={INTRODUCTION} />
         </ContentSection>
 
@@ -40,6 +48,7 @@ function GettingStartedPage(props) {
           <ContentHeading>
             Installation
           </ContentHeading>
+          <MarkdownView markdown={INSTALLATION} />
         </ContentSection>
 
         <ContentSection>
