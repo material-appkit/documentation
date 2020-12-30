@@ -55,7 +55,6 @@ const styles = makeStyles((theme) => ({
 
   contentContainer: {
     flex: 1,
-    margin: 0,
     paddingTop: theme.spacing(2),
   },
 

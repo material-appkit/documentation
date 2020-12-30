@@ -17,6 +17,9 @@ import {
 import { COMMON_PAGE_PROPS } from 'variables';
 import paths from 'paths';
 
+const APIReferenceLink = <Link component={GatsbyLink} to={paths.api.index}>API Reference</Link>;
+const ExamplesLink = <Link component={GatsbyLink} to={paths.gettingStarted.examples}>starter applications</Link>;
+
 const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core">@material-ui/core</Link>;
 const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons">@material-ui/icons</Link>;
 const MuiLablLink = <Link href="https://www.npmjs.com/package/@material-ui/lab">@material-ui/lab</Link>;
@@ -44,12 +47,10 @@ function GettingStartedPage(props) {
           </Typography>
 
           <Typography gutterBottom>
-            A good way to begin this evaluation is with a cursory review of
-            the <Link component={GatsbyLink} to={paths.api.index}>API Reference</Link> which
+            A good way to begin this evaluation is with a cursory review of the {APIReferenceLink} which
             details all of the available components and utilities. Try out the examples to see
-            things in action, then fire up one of
-            the <Link component={GatsbyLink} to={paths.gettingStarted.examples}>starter applications</Link> to
-            get an idea of how it all works in concert.
+            things in action, then fire up one of the {ExamplesLink} to get an idea of how it all
+            works in concert.
           </Typography>
 
           <Typography gutterBottom>

@@ -109,7 +109,6 @@ function Quickstart() {
 //------------------------------------------------------------------------------
 const styles = makeStyles((theme) => ({
   contentContainer: {
-    margin: 'auto',
     padding: theme.spacing(4, 2, 2),
   },
 
