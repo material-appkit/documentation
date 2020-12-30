@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Showdown from 'react-showdown';
 
 const DEFAULT_OPTIONS = {
-  openLinksInNewWindow: true,
+  openLinksInNewWindow: false,
   simplifiedAutoLink: true,
   simpleLineBreaks: false,
 };
@@ -25,7 +25,7 @@ const styles = makeStyles((theme) => ({
 
     '& p': {
       ...theme.typography.body1,
-      margin: theme.spacing(0, 0, 2),
+      margin: theme.spacing(1, 0, 2),
     },
 
     '& ul': {
