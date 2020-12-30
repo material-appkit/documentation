@@ -53,9 +53,9 @@ function ApplicationNavTree({ location }) {
         key={node.id}
         label={(
           <Link
+            className={clsx(classes.link, classes[`d${depth}Link`])}
             color="textPrimary"
             component={GatsbyLink}
-            className={clsx(classes.link, classes[`d${depth}Link`])}
             to={node.url}
             underline="hover"
           >

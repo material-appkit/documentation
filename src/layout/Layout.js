@@ -3,7 +3,7 @@
  */
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import Container from '@material-ui/core/Container';
 import Drawer from '@material-ui/core/Drawer';
@@ -111,6 +111,12 @@ const Layout = (props) => {
   if (!desktopDrawerOpen) {
     rootContainerClasses.push(classes.rootContainerShift);
   }
+
+
+  useEffect(() => {
+    setMobileDrawerOpen(false);
+  }, [location]);
+
 
   const handleApplicationLogoClick = () => {
     if (isWidthMediumUp) {
