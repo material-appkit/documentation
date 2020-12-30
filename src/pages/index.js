@@ -225,7 +225,7 @@ function HomePage(props) {
                 <Typography>
                   Install Material-AppKit via npm:
                 </Typography>
-                <CodeView language="bash">
+                <CodeView language="bash" singleline>
                   $ npm install @material-appkit/core
                 </CodeView>
               </article>

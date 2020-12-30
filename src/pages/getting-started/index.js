@@ -40,17 +40,17 @@ function GettingStartedPage(props) {
           </PageTitle>
           <Typography gutterBottom>
             When considering the adoption of a third-party toolkit into your workflow, the first
-            thing you should ask yourself is, <em>"Will my dependence on these tools ultimately help or
-            hinder the long-term growth of my application?"</em>. It is a heavyweight decision that will
-            impact you, your team, and your company for years to come and should hence be made with
-            a certain degree of caution.
+            thing you should ask yourself is, <em>"Will my dependence on these tools ultimately help
+            or hinder the long-term growth of my application?"</em>. It is a heavyweight decision
+            that will impact you, your team, and your company for years to come and should hence be
+            made with a certain degree of caution.
           </Typography>
 
           <Typography gutterBottom>
-            A good way to begin this evaluation is with a cursory review of the {APIReferenceLink} which
-            details all of the available components and utilities. Try out the examples to see
-            things in action, then fire up one of the {ExamplesLink} to get an idea of how it all
-            works in concert.
+            A good way to begin this evaluation is with a cursory review of the {APIReferenceLink}
+            which details all of the available components and utilities. Try out the examples to see
+            things in action, then fire up one of the {ExamplesLink} to get an idea of how the
+            various components may be used in concert.
           </Typography>
 
           <Typography gutterBottom>
@@ -67,7 +67,7 @@ function GettingStartedPage(props) {
             Material-AppKit is distributed via NPM. To integrate it with your existing Material-UI
             project, install it as you would any other npm package:
           </Typography>
-          <CodeView language="bash">
+          <CodeView language="bash" singleline>
             $ npm install @material-appkit/core
           </CodeView>
         </ContentSection>
@@ -84,10 +84,9 @@ function GettingStartedPage(props) {
             include the excellent {NotistackLink} library.
           </Typography>
 
-          <CodeView language="bash">
+          <CodeView language="bash" singleline>
             $ npm install @material-ui/core @material-ui/icons @material-ui/lab notistack
           </CodeView>
-
         </ContentSection>
 
         <ContentSection>
