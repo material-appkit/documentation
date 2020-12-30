@@ -4,10 +4,13 @@ export default {
   index: '/',
   gettingStarted: include('/getting-started/', {
     index: '',
-    examples: 'examples/',
   }),
 
   api: include('/api/', {
+    index: '',
+  }),
+
+  examples: include('/examples/', {
     index: '',
   }),
 

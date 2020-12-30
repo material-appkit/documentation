@@ -18,7 +18,7 @@ import { COMMON_PAGE_PROPS } from 'variables';
 import paths from 'paths';
 
 const APIReferenceLink = <Link component={GatsbyLink} to={paths.api.index}>API Reference</Link>;
-const ExamplesLink = <Link component={GatsbyLink} to={paths.gettingStarted.examples}>starter applications</Link>;
+const ExamplesLink = <Link component={GatsbyLink} to={paths.examples.index}>starter applications</Link>;
 
 const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core">@material-ui/core</Link>;
 const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons">@material-ui/icons</Link>;

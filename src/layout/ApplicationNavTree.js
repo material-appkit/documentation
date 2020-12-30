@@ -52,7 +52,7 @@ function ApplicationNavTree({ location }) {
     if (nodeIds) {
       nodeIds = JSON.parse(nodeIds);
     } else {
-      nodeIds = ['1', '1.2', '2', '3'];
+      nodeIds = ['1', '2', '3', '4'];
     }
     return nodeIds;
   });
