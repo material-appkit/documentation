@@ -24,7 +24,7 @@ const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core"
 const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons">@material-ui/icons</Link>;
 const MuiLablLink = <Link href="https://www.npmjs.com/package/@material-ui/lab">@material-ui/lab</Link>;
 const MuiSnackbarLink = <Link href="https://material-ui.com/components/snackbars/#snackbar">Snackbar</Link>
-const NotistackLink = <Link href="https://www.npmjs.com/package/notistack">notistack</Link>
+const NotistackLink = <Link href="https://iamhosseindhv.com/notistack/demos">notistack</Link>
 
 function GettingStartedPage(props) {
   return (
@@ -80,8 +80,8 @@ function GettingStartedPage(props) {
             Naturally, {MuiCoreLink} must be installed as a peer dependency.
             In addition, {MuiIconsLink} and {MuiLablLink} are relied upon by a number of components
             and so they too should be installed. Finally, if you wish to use the
-            SnackbarManager to coveniently present {MuiSnackbarLink} notifications, you must also
-            include the very awesome {NotistackLink} library.
+            SnackbarManager to coveniently present {MuiSnackbarLink} notifications you must also
+            include the excellent {NotistackLink} library.
           </Typography>
 
           <CodeView language="bash">

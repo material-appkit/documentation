@@ -28,6 +28,10 @@ const quickstartStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
 
+  quickstartLinkContainer: {
+    margin: theme.spacing(0.5, 0),
+  },
+
   link: {
     marginRight: theme.spacing(1),
   }
@@ -52,9 +56,9 @@ function Quickstart() {
           </ListItemIcon>
           <ListItemText
             disableTypography
-            primary={<Typography variant="h3" gutterBottom>Create React App</Typography>}
+            primary={<Typography variant="h3">Create React App</Typography>}
             secondary={(
-              <div>
+              <div className={classes.quickstartLinkContainer}>
                 <Link
                   className={classes.link}
                   href="https://github.com/material-appkit/quickstart-create-react-app"
@@ -82,9 +86,9 @@ function Quickstart() {
           </ListItemIcon>
           <ListItemText
             disableTypography
-            primary={(<Typography variant="h3" gutterBottom>Gatsby</Typography>)}
+            primary={(<Typography variant="h3">Gatsby</Typography>)}
             secondary={(
-              <div>
+              <div className={classes.quickstartLinkContainer}>
                 <Link
                   href="https://github.com/material-appkit/quickstart-gatsby"
                   className={classes.link}>

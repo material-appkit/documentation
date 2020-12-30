@@ -33,6 +33,22 @@ const theme = createMuiTheme({
 
   typography: {
     fontFamily: 'Cereal, Roboto, Helvetica, Arial, sans-serif',
+
+    h1: {
+      fontSize: baseTheme.typography.pxToRem(40),
+    },
+
+    h2: {
+      fontSize: baseTheme.typography.pxToRem(24),
+    },
+
+    h3: {
+      fontSize: baseTheme.typography.pxToRem(20),
+    },
+
+    h4: {
+      fontSize: baseTheme.typography.pxToRem(16),
+    }
   },
 
   overrides: {
