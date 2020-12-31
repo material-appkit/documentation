@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
 import { Link as GatsbyLink } from 'gatsby';
 
 import Layout from 'layout/Layout';
@@ -9,9 +8,10 @@ import Layout from 'layout/Layout';
 import CodeView from 'components/CodeView';
 
 import {
-  PageTitle,
   ContentHeading,
   ContentSection,
+  PageTitle,
+  Paragraph,
 } from 'components/typography';
 
 import { COMMON_PAGE_PROPS } from 'variables';
@@ -38,35 +38,35 @@ function GettingStartedPage(props) {
           <PageTitle>
             Getting started
           </PageTitle>
-          <Typography gutterBottom>
+          <Paragraph>
             When considering the adoption of a third-party toolkit into your workflow, the first
             thing you should ask yourself is, <em>"Will my dependence on these tools ultimately help
             or hinder the long-term growth of my application?"</em>. It is a heavyweight decision
             that will impact you, your team, and your company for years to come and should hence be
             made with a certain degree of caution.
-          </Typography>
+          </Paragraph>
 
-          <Typography gutterBottom>
+          <Paragraph>
             A good way to begin this evaluation is with a cursory review of the {APIReferenceLink}
             which details all of the available components and utilities. Try out the examples to see
             things in action, then fire up one of the {ExamplesLink} to get an idea of how the
             various components may be used in concert.
-          </Typography>
+          </Paragraph>
 
-          <Typography gutterBottom>
+          <Paragraph>
             Once you've completed this evaluation and are ready to take the plunge, fire your
             favorite editor and let's get started!
-          </Typography>
+          </Paragraph>
         </ContentSection>
 
         <ContentSection>
           <ContentHeading id="installation" underline>
             Installation
           </ContentHeading>
-          <Typography>
+          <Paragraph>
             Material-AppKit is distributed via NPM. To integrate it with your existing Material-UI
             project, install it as you would any other npm package:
-          </Typography>
+          </Paragraph>
           <CodeView language="bash" singleline>
             $ npm install @material-appkit/core
           </CodeView>
@@ -76,13 +76,13 @@ function GettingStartedPage(props) {
           <ContentHeading variant="h3">
             Peer Dependencies
           </ContentHeading>
-          <Typography>
+          <Paragraph>
             Naturally, {MuiCoreLink} must be installed as a peer dependency.
             In addition, {MuiIconsLink} and {MuiLablLink} are relied upon by a number of components
             and so they too should be installed. Finally, if you wish to use the
             SnackbarManager to coveniently present {MuiSnackbarLink} notifications you must also
             include the excellent {NotistackLink} library.
-          </Typography>
+          </Paragraph>
 
           <CodeView language="bash" singleline>
             $ npm install @material-ui/core @material-ui/icons @material-ui/lab notistack

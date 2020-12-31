@@ -27,22 +27,8 @@ export const PageTitle = withStyles((theme) => ({
   );
 });
 
-export const ContentSection = (props) => {
-  const {className, children, ...boxProps} = props;
-  if (!boxProps.marginBottom) {
-    boxProps.marginBottom = 4;
-  }
-  return (
-    <Box
-      component="section"
-      className={className}
-      {...boxProps}
-    >
-      {children}
-    </Box>
-  );
-};
 
+//------------------------------------------------------------------------------
 const CONTENT_HEADING_FONT_SIZES = {
   'h1': 24,
   'h2': 20,
@@ -79,3 +65,42 @@ export function ContentHeading(props) {
     </Typography>
   );
 }
+
+
+//------------------------------------------------------------------------------
+export function ContentSection(props) {
+  const { className, children, ...boxProps } = props;
+  if (!boxProps.marginBottom) {
+    boxProps.marginBottom = 4;
+  }
+  return (
+    <Box
+      component="section"
+      className={className}
+      {...boxProps}
+    >
+      {children}
+    </Box>
+  );
+}
+
+//------------------------------------------------------------------------------
+export const Paragraph = withStyles((theme) => ({
+  typography: {
+    lineHeight: 1.7,
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  }
+}))((props) => {
+  return (
+    <Typography
+      className={clsx(props.classes.typography, props.className)}
+      gutterBottom
+    >
+      {props.children}
+    </Typography>
+  );
+});
+
