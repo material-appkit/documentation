@@ -88,10 +88,6 @@ export function ContentSection(props) {
 export const Paragraph = withStyles((theme) => ({
   typography: {
     lineHeight: 1.7,
-
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
   }
 }))((props) => {
   return (
