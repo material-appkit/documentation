@@ -60,7 +60,7 @@ function GettingStartedPage(props) {
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading id="installation">
+          <ContentHeading id="installation" underline>
             Installation
           </ContentHeading>
           <Typography>
@@ -90,7 +90,7 @@ function GettingStartedPage(props) {
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading id="usage">
+          <ContentHeading id="usage" underline>
             Usage
           </ContentHeading>
         </ContentSection>

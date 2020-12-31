@@ -66,6 +66,7 @@ export function ContentHeading(props) {
 
   if (underline) {
     style.borderBottom = `1px solid #424242`;
+    style.paddingBottom = 4;
   }
 
   return (
