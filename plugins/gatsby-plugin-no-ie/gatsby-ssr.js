@@ -14,10 +14,11 @@ export const onRenderBody = (args, options) => {
 
   setHeadComponents([
     <script
-      type="text/javascript"
       dangerouslySetInnerHTML={{
         __html: `if ((false || !!document.documentMode) && window.location.pathname !== "${pathname}") window.location = "${pathname}";`,
       }}
+      key="gatsby-plugin-no-ie"
+      type="text/javascript"
     />,
   ])
 };
