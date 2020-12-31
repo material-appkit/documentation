@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{kcki:function(e,n,a){"use strict";a.r(n);var t=a("q1tI"),c=a.n(t),r=a("5w8u"),s=a("8TZf");a("fqwK");n.default=function(e){return c.a.createElement(r.a,Object.assign({showBackButton:!1,title:"Managers"},e),c.a.createElement("main",null,c.a.createElement(s.d,null,"Managers")))}}}]);
