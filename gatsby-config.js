@@ -35,26 +35,6 @@ module.exports = {
 
     //--------------------------------------------------------------------------
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: gaTrackingId,
-        // Defines where to place the tracking script - 'true' in the head and 'false' in the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: false,
-        // Defers execution of google analytics script after page load
-        defer: false,
-        // This setting determines how often site speed beacons will be sent.
-        // By default, 1% of users will be automatically be measured.
-        siteSpeedSampleRate: 10,
-      },
-    },
-
-    //--------------------------------------------------------------------------
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
@@ -80,9 +60,6 @@ module.exports = {
     },
 
     //--------------------------------------------------------------------------
-    'gatsby-theme-app-layout',
-
-    //--------------------------------------------------------------------------
     'gatsby-transformer-remark',
 
     //--------------------------------------------------------------------------
@@ -90,5 +67,28 @@ module.exports = {
 
     //--------------------------------------------------------------------------
     'gatsby-transformer-documentationjs',
+
+    //--------------------------------------------------------------------------
+    'gatsby-theme-app-layout',
+
+    //--------------------------------------------------------------------------
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: gaTrackingId,
+        // Defines where to place the tracking script - 'true' in the head and 'false' in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: false,
+        // Defers execution of google analytics script after page load
+        defer: true,
+        // This setting determines how often site speed beacons will be sent.
+        // By default, 1% of users will be automatically be measured.
+        siteSpeedSampleRate: 10,
+      },
+    },
   ],
 };
