@@ -59,6 +59,12 @@ const theme = createMuiTheme({
     },
 
     MuiTypography: {
+      button: {
+        fontSize: 'inherit',
+        fontWeight: 600,
+        lineHeight: 'inherit',
+      },
+
       gutterBottom: {
         marginBottom: baseTheme.spacing(2),
       },

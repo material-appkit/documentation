@@ -18,15 +18,15 @@ import {
 import { COMMON_PAGE_PROPS } from 'variables';
 import paths from 'paths';
 
-const MUIDocumentationLink = <Link href="https://material-ui.com/getting-started/learn/">documentation pages</Link>;
-const APIReferenceLink = <Link  to={paths.api.index}>API Reference</Link>;
-const ExamplesLink = <Link to={paths.examples.index}>demo applications</Link>;
+const MUIDocumentationLink = <Link href="https://material-ui.com/getting-started/learn/" variant="button">documentation pages</Link>;
+const APIReferenceLink = <Link to={paths.api.index} variant="button">API Reference</Link>;
+const ExamplesLink = <Link to={paths.examples.index} variant="button">demo applications</Link>;
 
-const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core">@material-ui/core</Link>;
-const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons">@material-ui/icons</Link>;
-const MuiLablLink = <Link href="https://www.npmjs.com/package/@material-ui/lab">@material-ui/lab</Link>;
-const MuiSnackbarLink = <Link href="https://material-ui.com/components/snackbars/#snackbar">Snackbar</Link>
-const NotistackLink = <Link href="https://iamhosseindhv.com/notistack/demos">notistack</Link>
+const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core" variant="button">@material-ui/core</Link>;
+const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons" variant="button">@material-ui/icons</Link>;
+const MuiLablLink = <Link href="https://www.npmjs.com/package/@material-ui/lab" variant="button">@material-ui/lab</Link>;
+const MuiSnackbarLink = <Link href="https://material-ui.com/components/snackbars/#snackbar" variant="button">Snackbar</Link>
+const NotistackLink = <Link href="https://iamhosseindhv.com/notistack/demos" variant="button">notistack</Link>
 
 const styles = makeStyles((theme) => ({
   quickstartList: {
