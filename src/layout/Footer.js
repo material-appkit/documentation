@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import TreeEnumerator from '@material-appkit/core/util/tree/TreeEnumerator';
+
+import { Link } from 'components/typography';
 
 import { pathnameForUrl } from 'util/shortcuts';
 
@@ -77,7 +77,7 @@ function Footer(props) {
       if (pathname === locationPathname) {
         if (previousPathname) {
           links.previous = (
-            <Link component={GatsbyLink} to={previousPathname}>
+            <Link to={previousPathname}>
               Previous
             </Link>
           );
@@ -89,7 +89,7 @@ function Footer(props) {
           const nextPathname = pathnameForUrl(nextNode.url);
           if (nextPathname !== pathname) {
             links.next = (
-              <Link component={GatsbyLink} to={nextPathname}>
+              <Link to={nextPathname}>
                 Next
               </Link>
             );
@@ -115,7 +115,7 @@ function Footer(props) {
 
         <div className={classes.linkList}>
           <span>·</span>
-          <Link component={GatsbyLink} to="/">Home</Link>
+          <Link to="/">Home</Link>
 
           {navLinks.previous &&
             <>

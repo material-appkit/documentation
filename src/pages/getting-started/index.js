@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Link from '@material-ui/core/Link';
-import { Link as GatsbyLink } from 'gatsby';
 
 import Layout from 'layout/Layout';
 
@@ -10,6 +8,7 @@ import CodeView from 'components/CodeView';
 import {
   ContentHeading,
   ContentSection,
+  Link,
   PageTitle,
   Paragraph,
 } from 'components/typography';
@@ -17,8 +16,9 @@ import {
 import { COMMON_PAGE_PROPS } from 'variables';
 import paths from 'paths';
 
-const APIReferenceLink = <Link component={GatsbyLink} to={paths.api.index}>API Reference</Link>;
-const ExamplesLink = <Link component={GatsbyLink} to={paths.examples.index}>demo applications</Link>;
+const MUIDocumentationLink = <Link href="https://material-ui.com/getting-started/learn/">documentation pages</Link>;
+const APIReferenceLink = <Link  to={paths.api.index}>API Reference</Link>;
+const ExamplesLink = <Link to={paths.examples.index}>demo applications</Link>;
 
 const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core">@material-ui/core</Link>;
 const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons">@material-ui/icons</Link>;
@@ -42,7 +42,7 @@ function GettingStartedPage(props) {
             When considering the adoption of a third-party toolkit, it is helpful to begin with
             a cursory review of the {APIReferenceLink} which details all of the available components
             and utilities. If you're new to the Material-UI community you should first head over to
-            their own documentation pages to find out what it has to offer, then come back here
+            their own {MUIDocumentationLink} to find out what it has to offer, then come back here
             and see what Material-AppKit provides above and beyond that solid foundation.
           </Paragraph>
 

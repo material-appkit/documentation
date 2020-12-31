@@ -1,8 +1,10 @@
 import clsx from 'clsx';
 
 import React from 'react';
+import { Link as GatsbyLink } from 'gatsby';
 
 import Box from '@material-ui/core/Box';
+import MuiLink from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -99,4 +101,21 @@ export const Paragraph = withStyles((theme) => ({
     </Typography>
   );
 });
+
+//------------------------------------------------------------------------------
+export function Link(props) {
+  const { children, ...linkProps } = props;
+
+  if (linkProps.to) {
+    linkProps.component = GatsbyLink;
+  }
+  if (linkProps.target === '_blank') {
+    linkProps.rel = 'noopener';
+  }
+  return (
+    <MuiLink {...linkProps}>
+      {children}
+    </MuiLink>
+  );
+}
 
