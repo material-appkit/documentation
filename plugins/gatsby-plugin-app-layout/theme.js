@@ -48,7 +48,11 @@ const theme = createMuiTheme({
 
     h4: {
       fontSize: baseTheme.typography.pxToRem(16),
-    }
+    },
+
+    body1: {
+      lineHeight: 1.7,
+    },
   },
 
   overrides: {
