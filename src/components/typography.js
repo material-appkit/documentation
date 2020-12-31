@@ -106,10 +106,11 @@ export const Paragraph = withStyles((theme) => ({
 export function Link(props) {
   const { children, ...linkProps } = props;
 
-  if (linkProps.to) {
+  if (linkProps.onClick) {
+    linkProps.component = 'button';
+  } else if (linkProps.to) {
     linkProps.component = GatsbyLink;
-  }
-  if (linkProps.target === '_blank') {
+  } else if (linkProps.target === '_blank') {
     linkProps.rel = 'noopener';
   }
   return (

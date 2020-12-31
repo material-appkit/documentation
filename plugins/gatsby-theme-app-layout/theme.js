@@ -20,12 +20,7 @@ const theme = createMuiTheme({
   },
 
   typography: {
-    fontFamily: [
-        'Open Sans',
-        'Helvetica',
-        'Arial',
-        'sans-serif'
-      ].join(','),
+    fontFamily: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'].join(','),
 
     h1: {
       fontSize: baseTheme.typography.pxToRem(40),
@@ -63,7 +58,15 @@ const theme = createMuiTheme({
       gutterBottom: {
         marginBottom: baseTheme.spacing(2),
       },
-    }
+    },
+
+    MuiLink: {
+      button: {
+        fontFamily: 'inherit',
+        fontSize: baseTheme.typography.button.fontSize,
+        verticalAlign: 'unset',
+      }
+    },
   },
 
   //----------------------------------------------------------------------------
