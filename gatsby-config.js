@@ -25,7 +25,7 @@ module.exports = {
         background_color: '#fafafa',
         cache_busting_mode: 'none',
         display: 'standalone',
-        icon: 'data/images/application-logo.png',
+        icon: 'data/images/favicon.png',
         name: process.env.GATSBY_APP_TITLE,
         theme_color: '#fff',
         short_name: 'MUI AppKit',
