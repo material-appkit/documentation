@@ -16,7 +16,7 @@ export const onRenderBody = (args, options) => {
     <script
       type="text/javascript"
       dangerouslySetInnerHTML={{
-        __html: `if (${(false || !!document.documentMode)} && window.location.pathname !== "${pathname}") window.location = "${pathname}";`,
+        __html: `if ((false || !!document.documentMode) && window.location.pathname !== "${pathname}") window.location = "${pathname}";`,
       }}
     />,
   ])
