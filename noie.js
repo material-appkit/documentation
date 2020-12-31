@@ -1,5 +1,5 @@
-var isIE = /*@cc_on!@*/false || !!document.documentMode;
+let isIE = /*@cc_on!@*/true || !!document.documentMode;
 
-if (window.location.pathname !== '/noie.html' && isIE) {
-    window.location = 'noie.html'; //URL to redirect to
+if (window.location.pathname !== '/noie' && isIE) {
+    window.location = '/noie'; //URL to redirect to
 }
