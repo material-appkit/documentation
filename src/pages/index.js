@@ -129,7 +129,7 @@ const styles = makeStyles((theme) => ({
 
   title: {
     fontSize: theme.typography.pxToRem(28),
-    letterSpacing: '0.40rem',
+    letterSpacing: '0.38rem',
     lineHeight: 1.2,
     textAlign: 'center',
     textTransform: 'uppercase',

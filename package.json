@@ -5,10 +5,10 @@
   "version": "2.9.9",
   "author": "Allan Hart",
   "dependencies": {
+    "@fontsource/open-sans": "^4.1.0",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "fontsource-open-sans": "^4.0.0",
     "gatsby": "^2.29.2",
     "gatsby-plugin-google-analytics": "2.8.0",
     "gatsby-plugin-manifest": "^2.9.1",
