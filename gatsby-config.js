@@ -80,11 +80,7 @@ module.exports = {
     },
 
     //--------------------------------------------------------------------------
-    'gatsby-plugin-app-layout',
-    'gatsby-plugin-material-ui',
-
-    //--------------------------------------------------------------------------
-    'gatsby-plugin-react-helmet-async',
+    'gatsby-theme-app-layout',
 
     //--------------------------------------------------------------------------
     'gatsby-transformer-remark',
