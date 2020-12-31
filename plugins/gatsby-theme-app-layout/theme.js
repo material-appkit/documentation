@@ -46,23 +46,11 @@ const theme = createMuiTheme({
       fontSize: baseTheme.typography.pxToRem(16),
       fontWeight: 400,
     },
-
-    body1: {
-      lineHeight: 1.7,
-    },
   },
 
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [
-          // openSansLightFontFace,
-          // openSansRegularFontFace,
-          // openSansItalicFontFace,
-          // openSansDarkFontFace,
-          // openSansBoldFontFace,
-        ],
-
         'html, body, #___gatsby, #gatsby-focus-wrapper': {
           [baseTheme.breakpoints.up('md')]: {
             height: '100vh',
