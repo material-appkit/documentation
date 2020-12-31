@@ -80,8 +80,21 @@ module.exports = {
     },
 
     //--------------------------------------------------------------------------
-    'gatsby-plugin-app-layout',
-    'gatsby-plugin-material-ui',
+    {
+      resolve: 'gatsby-theme-material-ui',
+      options: {
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: 'Open+Sans',
+                variants: ['400', '600'],
+              },
+            ],
+          },
+        },
+      },
+    },
 
     //--------------------------------------------------------------------------
     'gatsby-plugin-react-helmet-async',

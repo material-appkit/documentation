@@ -1,21 +1,10 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import AirbnbCerealBook from './font/AirbnbCerealBook.woff';
 
 const APP_BAR_HEIGHT = 56;
 const NAVBAR_WIDTH = 220;
 const SIDEBAR_WIDTH = 260;
 
 const baseTheme = createMuiTheme();
-
-const cerealFontFace = {
-  fontFamily: 'Cereal',
-  fontStyle: 'normal',
-  fontDisplay: 'swap',
-  src: `
-    local('AirbnbCerealBook'),
-    url(${AirbnbCerealBook}) format('woff')
-  `,
-};
 
 const theme = createMuiTheme({
   //----------------------------------------------------------------------------
@@ -32,7 +21,12 @@ const theme = createMuiTheme({
   },
 
   typography: {
-    fontFamily: 'Cereal, Roboto, Helvetica, Arial, sans-serif',
+    fontFamily: [
+        'Open Sans',
+        'Helvetica',
+        'Arial',
+        'sans-serif'
+      ].join(','),
 
     h1: {
       fontSize: baseTheme.typography.pxToRem(40),
@@ -58,8 +52,6 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [cerealFontFace],
-
         'html, body, #___gatsby, #gatsby-focus-wrapper': {
           [baseTheme.breakpoints.up('md')]: {
             height: '100vh',
