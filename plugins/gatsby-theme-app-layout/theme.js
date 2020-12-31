@@ -104,18 +104,22 @@ const theme = createMuiTheme({
 
     h1: {
       fontSize: baseTheme.typography.pxToRem(40),
+      fontWeight: 400,
     },
 
     h2: {
       fontSize: baseTheme.typography.pxToRem(24),
+      fontWeight: 400,
     },
 
     h3: {
       fontSize: baseTheme.typography.pxToRem(20),
+      fontWeight: 400,
     },
 
     h4: {
       fontSize: baseTheme.typography.pxToRem(16),
+      fontWeight: 400,
     },
 
     body1: {
