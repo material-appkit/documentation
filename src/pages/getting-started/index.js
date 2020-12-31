@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from 'layout/Layout';
 
 import CodeView from 'components/CodeView';
+import Quickstart from 'components/Quickstart';
 
 import {
   ContentHeading,
@@ -26,7 +28,17 @@ const MuiLablLink = <Link href="https://www.npmjs.com/package/@material-ui/lab">
 const MuiSnackbarLink = <Link href="https://material-ui.com/components/snackbars/#snackbar">Snackbar</Link>
 const NotistackLink = <Link href="https://iamhosseindhv.com/notistack/demos">notistack</Link>
 
+const styles = makeStyles((theme) => ({
+  quickstartList: {
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    }
+  }
+}));
+
 function GettingStartedPage(props) {
+  const classes = styles();
+
   return (
     <Layout
       showBackButton={false}
@@ -47,11 +59,22 @@ function GettingStartedPage(props) {
           </Paragraph>
 
           <Paragraph>
-            To get an even better idea of all the goodness in store, test drive the {ExamplesLink} to
-            to see how the various AppKit components may be used in concert.
+            To get an even better idea of all the goodness in store, test drive
+            the {ExamplesLink} to see how the various AppKit components may be used in concert.
             Once you've completed your evaluation and are ready to take the plunge, fire up your
             favorite editor and let's get started!
           </Paragraph>
+        </ContentSection>
+
+        <ContentSection>
+          <ContentHeading id="installation" underline>
+            Quickstart
+          </ContentHeading>
+          <Paragraph>
+            Those who'd rather shoot first and ask questions later can get straight to business
+            with one of the following starter projects.
+          </Paragraph>
+          <Quickstart listClassName={classes.quickstartList} />
         </ContentSection>
 
         <ContentSection>

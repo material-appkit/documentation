@@ -2,115 +2,25 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from 'layout/Layout';
 
 import CodeView from 'components/CodeView';
+import Quickstart from 'components/Quickstart';
 
-import { ContentHeading } from 'components/typography';
+import {
+  ContentHeading,
+  Link,
+} from 'components/typography';
 import { COMMON_PAGE_PROPS } from 'variables';
 import { fileContent } from 'util/shortcuts';
 
 import ApplicationLogo from 'media/application-logo.svg';
-import CRALogo from 'media/cra-logo.svg';
-import GatsbyLogo from 'media/gatsby-logo.svg';
 
-//------------------------------------------------------------------------------
-const quickstartStyles = makeStyles((theme) => ({
-  listItemIcon: {
-    marginRight: theme.spacing(1),
-  },
 
-  quickstartLinkContainer: {
-    margin: theme.spacing(0.5, 0),
-  },
-
-  link: {
-    marginRight: theme.spacing(1),
-  }
-}));
-
-function Quickstart() {
-  const classes = quickstartStyles();
-
-  return (
-    <>
-      <ContentHeading>
-        Quickstart
-      </ContentHeading>
-      <Typography>
-        Start coding immediately using one of the following project templates:
-      </Typography>
-
-      <List>
-        <ListItem disableGutters>
-          <ListItemIcon className={classes.listItemIcon}>
-            <img alt="Create-React-App Logo" src={CRALogo} width="90px" height="100%" />
-          </ListItemIcon>
-          <ListItemText
-            disableTypography
-            primary={<Typography variant="h3">Create React App</Typography>}
-            secondary={(
-              <div className={classes.quickstartLinkContainer}>
-                <Link
-                  className={classes.link}
-                  href="https://github.com/material-appkit/quickstart-create-react-app"
-                >
-                  Source
-                </Link>
-
-                <Link
-                  className={classes.link}
-                  href="https://cra.quickstart.material-appkit.com/"
-                >
-                  Demo
-                </Link>
-              </div>
-            )}
-          />
-        </ListItem>
-
-        <ListItem disableGutters>
-          <ListItemIcon
-            className={classes.listItemIcon}
-            style={{ padding: 6 }}
-          >
-            <img alt="Gatsby Logo" src={GatsbyLogo} width="78" height="100%" />
-          </ListItemIcon>
-          <ListItemText
-            disableTypography
-            primary={(<Typography variant="h3">Gatsby</Typography>)}
-            secondary={(
-              <div className={classes.quickstartLinkContainer}>
-                <Link
-                  href="https://github.com/material-appkit/quickstart-gatsby"
-                  className={classes.link}>
-                  Source
-                </Link>
-
-                <Link
-                  href="https://gatsby.quickstart.material-appkit.com"
-                  className={classes.link}
-                >
-                  Demo
-                </Link>
-              </div>
-            )}
-          />
-        </ListItem>
-      </List>
-    </>
-  );
-}
-
-//------------------------------------------------------------------------------
 const styles = makeStyles((theme) => ({
   contentContainer: {
     padding: theme.spacing(4, 2, 2),
@@ -231,6 +141,12 @@ function HomePage(props) {
               </article>
 
               <article className={classes.instructionArticle}>
+                <ContentHeading>
+                  Quickstart
+                </ContentHeading>
+                <Typography>
+                  Start coding immediately using one of the following project templates:
+                </Typography>
                 <Quickstart />
               </article>
             </section>
