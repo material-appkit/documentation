@@ -89,7 +89,7 @@ function Quickstart(props) {
 
                 <Link onClick={() => {
                   setWizardConfig({
-                    title: "Grab n' Go",
+                    title: "CRA Quickstart",
                     steps: [{
                       title: 'Choose Project Name',
                       nextButton: null,
@@ -137,7 +137,7 @@ function Quickstart(props) {
 
                 <Link onClick={() => {
                   setWizardConfig({
-                    title: "Grab n' Go",
+                    title: "Gatsby Quickstart",
                   })
                 }}>
                   Wizard
