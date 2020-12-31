@@ -1,33 +1,31 @@
 import clsx from 'clsx';
 
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-
-import Button from '@material-ui/core/Button';
+import React, { useEffect, useState } from 'react';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import CodeView from 'components/CodeView';
-import WizardDialog from 'components/WizardDialog';
+import SnackbarManager from '@material-appkit/core/managers/SnackbarManager';
+import WizardDialog from '@material-appkit/core/components/WizardDialog';
+import { slugify } from '@material-appkit/core/util/string';
 
+import CodeView from 'components/CodeView';
 import { Link } from 'components/typography';
 
 import CRALogo from 'media/cra-logo.svg';
 import GatsbyLogo from 'media/gatsby-logo.svg';
 
-const command = `curl -L https://github.com/material-appkit/quickstart-create-react-app/archive/main.zip --output material-appkit-cra.zip &&\\
-unzip material-appkit-cra.zip &&\\
-rm material-appkit-cra.zip &&\\
-mv quickstart-create-react-app-main my-app &&\\
-cd my-app &&\\
-npm install &&\\
-npm start
-`;
+const PROJECT_REPO_MAP = {
+  CRA: 'quickstart-create-react-app',
+  Gatsby: 'quickstart-gatsby',
+
+};
 
 const styles = makeStyles((theme) => ({
   list: {
@@ -51,16 +49,51 @@ const styles = makeStyles((theme) => ({
   }
 }));
 
+const generateCommand = (type, title) => {
+  const repoName = PROJECT_REPO_MAP[type];
+  const archiveURL = `https://github.com/material-appkit/${repoName}/archive/main.zip`;
+  const archiveFilename = `${repoName}.zip`;
+  const appSlug = slugify(title);
+
+  return `curl -L ${archiveURL} --output ${archiveFilename} &&\\
+  unzip ${archiveFilename} &&\\
+  rm ${archiveFilename} &&\\
+  mv ${repoName}-main ${appSlug} &&\\
+  cd ${appSlug} &&\\
+  npm install &&\\
+  npm start
+  `;
+};
+
 function Quickstart(props) {
   const classes = styles();
 
-  const [wizardConfig, setWizardConfig] = useState(null);
+  const [wizardType, setWizardType] = useState(null);
+  const [projectTitle, setProjectTitle] = useState('');
 
-  const handleWizardDialogDismiss = (result) => {
-    console.log(result);
-    setWizardConfig(null);
+  const [command, setCommand] = useState(null);
+
+  useEffect(() => {
+    if ((wizardType && projectTitle)) {
+      setCommand(generateCommand(wizardType, projectTitle));
+    } else {
+      setCommand(null);
+    }
+  }, [wizardType, projectTitle]);
+
+  const handleWizardDialogDismiss = (flag) => {
+    setWizardType(null);
+    setProjectTitle('');
+
+    if (flag) {
+      navigator.clipboard.writeText(command).then(() => {
+        SnackbarManager.info('Command copied to clipboard');
+      }).catch(() => {
+        SnackbarManager.error('Unable to access clipboard');
+      });
+    }
   };
-  
+
   return (
     <>
       <List className={clsx(classes.list, props.listClassName)}>
@@ -87,22 +120,11 @@ function Quickstart(props) {
                   Demo
                 </Link>
 
-                <Link onClick={() => {
-                  setWizardConfig({
-                    title: "CRA Quickstart",
-                    steps: [{
-                      title: 'Choose Project Name',
-                      nextButton: null,
-                      dialogProps: {
-                        maxWidth: "xs",
-                        fullWidth: true,
-                      }
-                    }, {
-                      title: 'Command',
-                      nextButton: null,
-                    }]
-                  })
-                }}>
+                <Link
+                  onClick={() => {
+                    setWizardType('CRA')
+                  }}
+                >
                   Wizard
                 </Link>
               </div>
@@ -135,11 +157,11 @@ function Quickstart(props) {
                   Demo
                 </Link>
 
-                <Link onClick={() => {
-                  setWizardConfig({
-                    title: "Gatsby Quickstart",
-                  })
-                }}>
+                <Link
+                  onClick={() => {
+                    setWizardType('Gatsby')
+                  }}
+                >
                   Wizard
                 </Link>
               </div>
@@ -148,15 +170,42 @@ function Quickstart(props) {
         </ListItem>
       </List>
 
-      {wizardConfig &&
+      {wizardType &&
         <WizardDialog
           maxWidth="md"
           onDismiss={handleWizardDialogDismiss}
           open
-          {...wizardConfig}
-        >
-          <CodeView language="bash">{command}</CodeView>
-        </WizardDialog>
+          steps={[
+            {
+              content: (
+                <TextField
+                  helperText={projectTitle ? `Root Directory: ${slugify(projectTitle)}` : null}
+                  fullWidth
+                  onChange={(e) => setProjectTitle(e.target.value)}
+                  placeholder="New Project Title"
+                  variant="outlined"
+                  value={projectTitle}
+                />
+              ),
+              dialogProps: {
+                maxWidth: "xs",
+                fullWidth: true,
+              },
+              title: 'Choose Project Name',
+              valid: Boolean(command),
+            },
+            {
+              commitButtonTitle: 'Copy to Clipboard',
+              content: command ? (
+                <CodeView language="bash">
+                  {command}
+                </CodeView>
+              ) : null,
+              title: 'Command',
+            },
+          ]}
+          title={`${wizardType} Quickstart`}
+        />
       }
     </>
   );

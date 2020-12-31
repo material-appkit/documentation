@@ -20,6 +20,10 @@ const theme = createMuiTheme({
   },
 
   typography: {
+    button: {
+      textTransform: 'none',
+    },
+
     fontFamily: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'].join(','),
 
     h1: {
