@@ -12,8 +12,6 @@ const styles = makeStyles((theme) => ({
 
   navLink: {
     marginLeft: theme.spacing(1),
-    width: 48,
-    height: 48,
   },
 
   image: {
