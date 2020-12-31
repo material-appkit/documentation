@@ -18,7 +18,7 @@ import { COMMON_PAGE_PROPS } from 'variables';
 import paths from 'paths';
 
 const APIReferenceLink = <Link component={GatsbyLink} to={paths.api.index}>API Reference</Link>;
-const ExamplesLink = <Link component={GatsbyLink} to={paths.examples.index}>starter applications</Link>;
+const ExamplesLink = <Link component={GatsbyLink} to={paths.examples.index}>demo applications</Link>;
 
 const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core">@material-ui/core</Link>;
 const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons">@material-ui/icons</Link>;
@@ -39,22 +39,17 @@ function GettingStartedPage(props) {
             Getting started
           </PageTitle>
           <Paragraph>
-            When considering the adoption of a third-party toolkit into your workflow, the first
-            thing you should ask yourself is, <em>"Will my dependence on these tools ultimately help
-            or hinder the long-term growth of my application?"</em>. It is a heavyweight decision
-            that will impact you, your team, and your company for years to come and should hence be
-            made with a certain degree of caution.
+            When considering the adoption of a third-party toolkit, it is helpful to begin with
+            a cursory review of the {APIReferenceLink} which details all of the available components
+            and utilities. If you're new to the Material-UI community you should first head over to
+            their own documentation pages to find out what it has to offer, then come back here
+            and see what Material-AppKit provides above and beyond that solid foundation.
           </Paragraph>
 
           <Paragraph>
-            A good way to begin this evaluation is with a cursory review of the {APIReferenceLink}
-            which details all of the available components and utilities. Try out the examples to see
-            things in action, then fire up one of the {ExamplesLink} to get an idea of how the
-            various components may be used in concert.
-          </Paragraph>
-
-          <Paragraph>
-            Once you've completed this evaluation and are ready to take the plunge, fire your
+            To get an even better idea of all the goodness in store, test drive the {ExamplesLink} to
+            to see how the various AppKit components may be used in concert.
+            Once you've completed your evaluation and are ready to take the plunge, fire up your
             favorite editor and let's get started!
           </Paragraph>
         </ContentSection>
