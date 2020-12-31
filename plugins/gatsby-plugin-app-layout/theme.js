@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import AirbnbCerealBlack from './font/AirbnbCerealBook.woff';
+import AirbnbCerealBook from './font/AirbnbCerealBook.woff';
 
 const APP_BAR_HEIGHT = 56;
 const NAVBAR_WIDTH = 220;
@@ -12,8 +12,8 @@ const cerealFontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   src: `
-    local('AirbnbCerealBlack'),
-    url(${AirbnbCerealBlack}) format('woff')
+    local('AirbnbCerealBook'),
+    url(${AirbnbCerealBook}) format('woff')
   `,
 };
 
