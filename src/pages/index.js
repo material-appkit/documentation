@@ -144,7 +144,7 @@ function HomePage(props) {
                 <ContentHeading>
                   Quickstart
                 </ContentHeading>
-                <Typography>
+                <Typography gutterBottom>
                   Start coding immediately using one of the following project templates:
                 </Typography>
                 <Quickstart />

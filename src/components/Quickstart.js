@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -14,6 +16,10 @@ import CRALogo from 'media/cra-logo.svg';
 import GatsbyLogo from 'media/gatsby-logo.svg';
 
 const styles = makeStyles((theme) => ({
+  list: {
+    padding: 0,
+  },
+
   listItem: {
     padding: 0,
   },
@@ -35,7 +41,7 @@ function Quickstart(props) {
   const classes = styles();
 
   return (
-    <List className={props.listClassName}>
+    <List className={clsx(classes.list, props.listClassName)}>
       <ListItem className={classes.listItem}>
         <ListItemIcon className={classes.listItemIcon}>
           <img alt="Create-React-App Logo" src={CRALogo} width="90px" height="100%" />
