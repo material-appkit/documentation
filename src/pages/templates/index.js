@@ -1,13 +1,16 @@
 import React from 'react';
 
-// import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
 
 import Layout from 'layout/Layout';
 
+import QuickstartItem from 'components/QuickstartItem';
+
 import {
-  PageTitle,
   ContentHeading,
   ContentSection,
+  PageTitle,
+  Paragraph,
 } from 'components/typography';
 
 import { COMMON_PAGE_PROPS } from 'variables';
@@ -25,15 +28,15 @@ function ExamplesPage(props) {
         </PageTitle>
 
         <ContentSection>
-          <ContentHeading>
-            PWA Skeleton
-          </ContentHeading>
+          <List disablePadding>
+            <QuickstartItem type="CRA" />
+          </List>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading>
-            Gatsby Skeleton
-          </ContentHeading>
+          <List disablePadding>
+            <QuickstartItem type="Gatsby" />
+          </List>
         </ContentSection>
       </main>
     </Layout>
