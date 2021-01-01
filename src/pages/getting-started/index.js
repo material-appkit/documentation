@@ -21,7 +21,6 @@ import paths from 'paths';
 const MUIDocumentationLink = <Link href="https://material-ui.com/getting-started/learn/" variant="button">documentation pages</Link>;
 const APIReferenceLink = <Link to={paths.api.index} variant="button">API Reference</Link>;
 const TemplatesLink = <Link to={paths.templates.index} variant="button">project templates</Link>;
-const ExamplesLink = <Link to={paths.templates.index} variant="button">examples</Link>;
 
 const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core" variant="button">@material-ui/core</Link>;
 const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons" variant="button">@material-ui/icons</Link>;
@@ -73,8 +72,11 @@ function GettingStartedPage(props) {
           </ContentHeading>
           <Paragraph>
             Those who prefer to shoot first and ask questions later can get straight to business
-            using one the following pre-configured project templates. Visit the {ExamplesLink} page to
-            learn more about the base configuration of each of these templates.
+            using one the following pre-configured project templates.
+            The <strong>"Command"</strong> link below may be used to generate a one-off command
+            to retrieve, install, and run a new project.
+            To learn more about the default configuration of each of these templates, visit
+            the {TemplatesLink} page.
           </Paragraph>
           <Quickstart listClassName={classes.quickstartList} />
         </ContentSection>
@@ -113,6 +115,19 @@ function GettingStartedPage(props) {
           <ContentHeading id="usage" underline>
             Usage
           </ContentHeading>
+          <Paragraph>
+            If you're already familiar with Material-UI you should hit the ground running with
+            Material-AppKit. It follows the same general paradigm in terms of the way components
+            are imported, instantiated, and styled. Consult the {APIReferenceLink} pages for detailed
+            information on the available properties, styling hooks, function arguments, etc.
+          </Paragraph>
+
+          <Paragraph>
+            The majority of available components and utilities are prepared for use straight out of
+            the box. Those that require bootstrapping (ex: NavManager, SnackbarManager) include
+            a detailed description of these requirements on their associated documentation pages.
+          </Paragraph>
+
         </ContentSection>
       </main>
     </Layout>

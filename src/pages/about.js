@@ -7,9 +7,10 @@ import Layout from 'layout/Layout';
 import { COMMON_PAGE_PROPS } from 'variables';
 
 import {
-  PageTitle,
   ContentHeading,
   ContentSection,
+  PageTitle,
+  Paragraph,
 } from 'components/typography';
 
 
@@ -29,6 +30,9 @@ function AboutPage(props) {
           <ContentHeading>
             Motivation
           </ContentHeading>
+          <Paragraph>
+            Material-AppKit aims to strike a fair balance between convention and configuration.
+          </Paragraph>
         </ContentSection>
 
         <ContentSection>

@@ -191,7 +191,7 @@ function Quickstart(props) {
               ),
             },
             {
-              title: 'Launch Cmd',
+              title: 'Get Command',
               commitButtonTitle: 'Copy to Clipboard',
               content: command ? (
                 <CodeView language="bash">
