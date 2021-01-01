@@ -20,7 +20,8 @@ import paths from 'paths';
 
 const MUIDocumentationLink = <Link href="https://material-ui.com/getting-started/learn/" variant="button">documentation pages</Link>;
 const APIReferenceLink = <Link to={paths.api.index} variant="button">API Reference</Link>;
-const ExamplesLink = <Link to={paths.examples.index} variant="button">demo applications</Link>;
+const TemplatesLink = <Link to={paths.templates.index} variant="button">project templates</Link>;
+const ExamplesLink = <Link to={paths.templates.index} variant="button">examples</Link>;
 
 const MuiCoreLink = <Link href="https://www.npmjs.com/package/@material-ui/core" variant="button">@material-ui/core</Link>;
 const MuiIconsLink = <Link href="https://www.npmjs.com/package/@material-ui/icons" variant="button">@material-ui/icons</Link>;
@@ -59,8 +60,8 @@ function GettingStartedPage(props) {
           </Paragraph>
 
           <Paragraph>
-            To get an even better idea of all the goodness in store, test drive
-            the {ExamplesLink} to see how the various AppKit components may be used in concert.
+            To get an even better idea of all the goodness in store, review the {TemplatesLink} to
+            see how the various AppKit components may be used in concert.
             Once you've completed your evaluation and are ready to take the plunge, fire up your
             favorite editor and let's get started!
           </Paragraph>
@@ -71,8 +72,9 @@ function GettingStartedPage(props) {
             Quickstart
           </ContentHeading>
           <Paragraph>
-            Those who'd rather shoot first and ask questions later can get straight to business
-            with one of the following starter projects.
+            Those who prefer to shoot first and ask questions later can get straight to business
+            using one the following pre-configured project templates. Visit the {ExamplesLink} page to
+            learn more about the base configuration of each of these templates.
           </Paragraph>
           <Quickstart listClassName={classes.quickstartList} />
         </ContentSection>

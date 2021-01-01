@@ -13,9 +13,9 @@ export default {
     { name: "Utilities",   path: "utilities" }
   ]},
 
-  { name: "Examples", path: "examples", children: [
-    { name: "PWA Skeleton", anchor: "pwa-skeleton" },
-    { name: "Gatsby Skeleton", anchor: "gatsby-skeleton" }
+  { name: "Project Templates", path: "templates", children: [
+    { name: "Create React App", anchor: "cra-starter" },
+    { name: "Gatsby", anchor: "gatsby-starter" }
   ]},
 
   { name: "About", path: "about", children: [

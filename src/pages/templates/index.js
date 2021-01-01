@@ -21,7 +21,7 @@ function ExamplesPage(props) {
     >
       <main>
         <PageTitle>
-          Examples
+          Project Templates
         </PageTitle>
 
         <ContentSection>

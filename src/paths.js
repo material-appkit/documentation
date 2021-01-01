@@ -10,7 +10,7 @@ export default {
     index: '',
   }),
 
-  examples: include('/examples/', {
+  templates: include('/templates/', {
     index: '',
   }),
 
