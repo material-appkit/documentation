@@ -2,14 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Grid from '@material-ui/core/Grid';
-
+import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from 'layout/Layout';
 
 import CodeView from 'components/CodeView';
-import Quickstart from 'components/Quickstart';
+import QuickstartItem from 'components/QuickstartItem';
 
 import {
   ContentHeading,
@@ -147,7 +147,10 @@ function HomePage(props) {
                 <Typography gutterBottom>
                   Start coding immediately using one of the following project templates:
                 </Typography>
-                <Quickstart />
+                <List disablePadding>
+                  <QuickstartItem type="CRA" />
+                  <QuickstartItem type="Gatsby" />
+                </List>
               </article>
             </section>
           </Grid>

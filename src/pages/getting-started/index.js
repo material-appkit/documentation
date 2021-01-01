@@ -1,11 +1,12 @@
 import React from 'react';
 
+import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from 'layout/Layout';
 
 import CodeView from 'components/CodeView';
-import Quickstart from 'components/Quickstart';
+import QuickstartItem from 'components/QuickstartItem';
 
 import {
   ContentHeading,
@@ -30,6 +31,8 @@ const NotistackLink = <Link href="https://iamhosseindhv.com/notistack/demos" var
 
 const styles = makeStyles((theme) => ({
   quickstartList: {
+    padding: 0,
+
     [theme.breakpoints.up('md')]: {
       display: 'flex',
     }
@@ -78,7 +81,10 @@ function GettingStartedPage(props) {
             To learn more about the default configuration of each of these templates, visit
             the {TemplatesLink} page.
           </Paragraph>
-          <Quickstart listClassName={classes.quickstartList} />
+          <List className={classes.quickstartList}>
+            <QuickstartItem type="CRA" />
+            <QuickstartItem type="Gatsby" />
+          </List>
         </ContentSection>
 
         <ContentSection>
