@@ -108,24 +108,21 @@ function Quickstart(props) {
               <div className={classes.quickstartLinkContainer}>
                 <Link
                   className={classes.link}
-                  href="https://github.com/material-appkit/quickstart-create-react-app"
-                >
-                  Source
-                </Link>
-
-                <Link
-                  className={classes.link}
                   href="https://cra.quickstart.material-appkit.com/"
                 >
                   Demo
                 </Link>
-
                 <Link
-                  onClick={() => {
-                    setWizardType('CRA')
-                  }}
+                  className={classes.link}
+                  onClick={() => setWizardType('CRA')}
                 >
-                  Wizard
+                  Command
+                </Link>
+                <Link
+                  className={classes.link}
+                  href="https://github.com/material-appkit/quickstart-create-react-app"
+                >
+                  Source
                 </Link>
               </div>
             )}
@@ -145,24 +142,23 @@ function Quickstart(props) {
             secondary={(
               <div className={classes.quickstartLinkContainer}>
                 <Link
-                  href="https://github.com/material-appkit/quickstart-gatsby"
-                  className={classes.link}>
-                  Source
-                </Link>
-
-                <Link
-                  href="https://gatsby.quickstart.material-appkit.com"
                   className={classes.link}
+                  href="https://gatsby.quickstart.material-appkit.com"
                 >
                   Demo
                 </Link>
-
                 <Link
-                  onClick={() => {
-                    setWizardType('Gatsby')
-                  }}
+                  className={classes.link}
+
+                  onClick={() => setWizardType('Gatsby')}
                 >
-                  Wizard
+                  Command
+                </Link>
+                <Link
+                  className={classes.link}
+                  href="https://github.com/material-appkit/quickstart-gatsby"
+                >
+                  Source
                 </Link>
               </div>
             )}
@@ -177,31 +173,31 @@ function Quickstart(props) {
           open
           steps={[
             {
+              title: 'Project Title',
+              valid: Boolean(command),
+              dialogProps: {
+                maxWidth: "xs",
+                fullWidth: true,
+              },
               content: (
                 <TextField
                   helperText={projectTitle ? `Root Directory: ${slugify(projectTitle)}` : null}
                   fullWidth
                   onChange={(e) => setProjectTitle(e.target.value)}
-                  placeholder="New Project Title"
+                  placeholder="My New Project Title"
                   variant="outlined"
                   value={projectTitle}
                 />
               ),
-              dialogProps: {
-                maxWidth: "xs",
-                fullWidth: true,
-              },
-              title: 'Choose Project Name',
-              valid: Boolean(command),
             },
             {
+              title: 'Launch Cmd',
               commitButtonTitle: 'Copy to Clipboard',
               content: command ? (
                 <CodeView language="bash">
                   {command}
                 </CodeView>
               ) : null,
-              title: 'Command',
             },
           ]}
           title={`${wizardType} Quickstart`}
