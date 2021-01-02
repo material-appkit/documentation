@@ -121,8 +121,8 @@ function AboutPage(props) {
                 primary="Stability"
                 secondary="
                   In order to establish and maintain a sense of trust and confidence in a
-                  software system, every effort must be made to ensure that its users are enabled
-                  to accomplish tasks with no amount of unanticipated interruption.
+                  software system, every effort must be made to ensure that its users are permitted
+                  to accomplish tasks without any amount of unanticipated interruption.
                 "
               />
             </ListItem>
@@ -159,7 +159,10 @@ function AboutPage(props) {
           </List>
 
           <Paragraph>
-            By relying on these tenets as the basis of all design decisions
+            By relying on these tenets as the basis of all architectural and design decisions, in
+            turn they become inherent characteristics of each and every Material-AppKit component.
+            Developers are therefore spared the challenge of determining on their own how best to
+            endow their applications with such essential qualities.
           </Paragraph>
         </ContentSection>
 
