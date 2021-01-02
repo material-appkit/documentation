@@ -43,11 +43,7 @@ function GettingStartedPage(props) {
   const classes = styles();
 
   return (
-    <Layout
-      showBackButton={false}
-      title="Getting Started"
-      {...props}
-    >
+    <Layout title="Getting Started" {...props}>
       <main>
         <ContentSection>
           <PageTitle>

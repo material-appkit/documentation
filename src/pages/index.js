@@ -89,7 +89,6 @@ function HomePage(props) {
   return (
     <Layout
       contentContainerClassName={classes.contentContainer}
-      showBackButton={false}
       title="Introduction"
       {...props}
     >

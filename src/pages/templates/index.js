@@ -17,11 +17,7 @@ import { COMMON_PAGE_PROPS } from 'variables';
 
 function ExamplesPage(props) {
   return (
-    <Layout
-      showBackButton={false}
-      title="Examples"
-      {...props}
-    >
+    <Layout title="Examples" {...props}>
       <main>
         <PageTitle>
           Project Templates

@@ -13,26 +13,22 @@ import { COMMON_PAGE_PROPS } from 'variables';
 
 function ReferencePage(props) {
   return (
-    <Layout
-      showBackButton={false}
-      title="API Reference"
-      {...props}
-    >
+    <Layout title="API Reference" {...props}>
       <main>
         <ContentSection>
-          <ContentHeading>
+          <ContentHeading id="components">
             Components
           </ContentHeading>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading>
+          <ContentHeading id="managers">
             Managers
           </ContentHeading>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading>
+          <ContentHeading id="utilities">
             Utilities
           </ContentHeading>
         </ContentSection>

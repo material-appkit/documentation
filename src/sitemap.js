@@ -8,9 +8,9 @@ export default {
   ]},
 
   { name: "API Reference",   path: "api", children: [
-    { name: "Components",   path: "components" },
-    { name: "Managers",   path: "managers" },
-    { name: "Utilities",   path: "utilities" }
+    { name: "Components",   anchor: "components" },
+    { name: "Managers",   anchor: "managers" },
+    { name: "Utilities",   anchor: "utilities" }
   ]},
 
   { name: "Project Templates", path: "templates", children: [

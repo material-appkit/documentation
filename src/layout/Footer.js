@@ -25,6 +25,7 @@ const styles = makeStyles((theme) => ({
 
   copyright: {
     fontSize: theme.typography.pxToRem(14),
+    lineHeight: 1.43,
   },
 
   linkList: {

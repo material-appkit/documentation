@@ -214,7 +214,7 @@ Layout.propTypes = {
 
 Layout.defaultProps = {
   fixedHeader: true,
-  showBackButton: true,
+  showBackButton: false,
   loading: false,
 };
 

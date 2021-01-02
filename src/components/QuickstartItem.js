@@ -63,10 +63,6 @@ const generateCommand = (type, title) => {
 
 
 const styles = makeStyles((theme) => ({
-  listItem: {
-    padding: 0,
-  },
-
   listItemIcon: {
     marginRight: theme.spacing(1),
   },
@@ -120,7 +116,7 @@ function QuickstartItem({ type }) {
   };
 
   return (
-    <ListItem className={classes.listItem}>
+    <ListItem disableGutters>
       <ListItemIcon
         className={classes.listItemIcon}
         style={listItemIconStyle || {}}
