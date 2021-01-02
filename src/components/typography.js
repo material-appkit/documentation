@@ -35,14 +35,17 @@ const contentHeadingStyles = makeStyles((theme) => ({
   typography: {
     marginBottom: theme.spacing(1),
 
-    [theme.breakpoints.up('md')]: {
-      '&::before': {
-        content: '" "',
-        display: 'block',
+    '&::before': {
+      content: '" "',
+      display: 'block',
+      height: theme.spacing(2),
+      marginTop: -theme.spacing(2),
+      pointerEvents: 'none',
+      visibility: 'hidden',
+
+      [theme.breakpoints.up('md')]: {
         height: theme.appbar.height + theme.spacing(2),
         marginTop: -(theme.appbar.height + theme.spacing(2)),
-        pointerEvents: 'none',
-        visibility: 'hidden',
       },
     },
   },
