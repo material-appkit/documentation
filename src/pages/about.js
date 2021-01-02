@@ -46,13 +46,14 @@ const styles = makeStyles((theme) => ({
 
 function AboutPage(props) {
   const classes = styles();
+  const title = 'About Material-AppKit';
 
   return (
-    <Layout title="About" {...props}>
+    <Layout title={title} {...props}>
       <main>
         <ContentSection>
           <PageTitle>
-            About Material-AppKit
+            {title}
           </PageTitle>
           <Paragraph>
             Times have never been better for front-end web developers. In recent years we have
@@ -134,7 +135,7 @@ function AboutPage(props) {
               <ListItemText
                 primary="Uniformity"
                 secondary="
-                  When performing a new task it is human nature to identify patterns which, once
+                  When performing a task it is human nature to identify patterns which, once
                   recognized, enable them to repeat that task and others like it with an increasing
                   sense of ease. Uniformity of appearance and behavior will aid new users in
                   acquainting themselves with an application's feature set while reducing
