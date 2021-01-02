@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NoIE from './no-ie.jpg';
+import NoIE from './no-ie.png';
 import FirefoxIcon from './firefox.png';
 import GoogleChromeIcon from './google-chrome.png';
 import MicrosoftEdgeIcon from './microsoft-edge.png';
