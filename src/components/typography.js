@@ -6,7 +6,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import Box from '@material-ui/core/Box';
 import MuiLink from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 //------------------------------------------------------------------------------
 export const PageTitle = withStyles((theme) => ({
@@ -31,14 +31,35 @@ export const PageTitle = withStyles((theme) => ({
 
 
 //------------------------------------------------------------------------------
-const CONTENT_HEADING_FONT_SIZES = {
-  'h1': 24,
-  'h2': 20,
-  'h3': 18,
-  'h4': 16,
-};
+const contentHeadingStyles = makeStyles((theme) => ({
+  typography: {
+    marginBottom: theme.spacing(1),
+
+    '&::before': {
+      content: '" "',
+      display: 'block',
+      height: theme.appbar.height + theme.spacing(2),
+      marginTop: -(theme.appbar.height + theme.spacing(2)),
+      pointerEvents: 'none',
+      visibility: 'hidden',
+    },
+  },
+
+  underline: {
+    borderBottom: `1px solid #424242`,
+    paddingBottom: theme.spacing(0.5),
+  },
+
+  h1: { fontSize: theme.typography.pxToRem(24) },
+  h2: { fontSize: theme.typography.pxToRem(20) },
+  h3: { fontSize: theme.typography.pxToRem(18) },
+  h4: { fontSize: theme.typography.pxToRem(16) },
+}));
+
 
 export function ContentHeading(props) {
+  const classes = contentHeadingStyles();
+
   const {
     children,
     underline,
@@ -47,19 +68,15 @@ export function ContentHeading(props) {
   } = props;
   const _variant = variant || 'h2';
 
-  const style = {
-    fontSize: CONTENT_HEADING_FONT_SIZES[_variant],
-    marginBottom: 8,
-  };
+  const classNames = [classes.typography, classes[_variant]];
 
   if (underline) {
-    style.borderBottom = `1px solid #424242`;
-    style.paddingBottom = 4;
+    classNames.push(classes.underline);
   }
 
   return (
     <Typography
-      style={style}
+      className={clsx(classNames)}
       variant={_variant}
       {...typographyProps}
     >
