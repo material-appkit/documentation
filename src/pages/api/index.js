@@ -16,19 +16,19 @@ function ReferencePage(props) {
     <Layout title="API Reference" {...props}>
       <main>
         <ContentSection>
-          <ContentHeading id="components">
+          <ContentHeading id="components" underline>
             Components
           </ContentHeading>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading id="managers">
+          <ContentHeading id="managers" underline>
             Managers
           </ContentHeading>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading id="utilities">
+          <ContentHeading id="utilities" underline>
             Utilities
           </ContentHeading>
         </ContentSection>
