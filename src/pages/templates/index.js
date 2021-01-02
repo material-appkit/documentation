@@ -7,10 +7,8 @@ import Layout from 'layout/Layout';
 import QuickstartItem from 'components/QuickstartItem';
 
 import {
-  ContentHeading,
   ContentSection,
   PageTitle,
-  Paragraph,
 } from 'components/typography';
 
 import { COMMON_PAGE_PROPS } from 'variables';

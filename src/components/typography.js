@@ -91,13 +91,13 @@ export const Paragraph = withStyles((theme) => ({
   typography: {
     lineHeight: 1.7,
   }
-}))((props) => {
+}))(({ children, classes, className, disableGutterBottom }) => {
   return (
     <Typography
-      className={clsx(props.classes.typography, props.className)}
-      gutterBottom
+      className={clsx(classes.typography, className)}
+      gutterBottom={!disableGutterBottom}
     >
-      {props.children}
+      {children}
     </Typography>
   );
 });
