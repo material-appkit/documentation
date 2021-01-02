@@ -71,12 +71,12 @@ function AboutPage(props) {
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading underline>
+          <ContentHeading id="motivation" underline>
             Motivation
           </ContentHeading>
           <Paragraph>
             Application developers wish to concern themselves as much as possible with the end goal
-            of providing their end users with the means to create and consume content. It just so
+            of providing their users with a means to create and consume content. It just so
             happens that along the way they are often required to produce the necessary gadgetry
             required to achieve this goal.
           </Paragraph>
@@ -92,19 +92,27 @@ function AboutPage(props) {
             By gathering these various abstract implementations into a single, neatly packaged
             bundle and making it available to the wider development community, it is the author's
             hope that others will benefit from the ability to dedicate their time and effort toward
-            the solving of real-world problems rather than the design and construction of a typical
-            mousetrap.
+            the solving of real-world problems rather than the design and construction of yet
+            another ordinary mousetrap.
           </Paragraph>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading underline>
-            Design Philosophy
+          <ContentHeading id="philosophy" underline>
+            Philosophy
           </ContentHeading>
           <Paragraph>
-            Material-AppKit aims to strike a fair balance between convention and configuration.
+            Material-AppKit aims to strike a fair balance between convention and configuration. Its
+            conventions provide the degree of abstraction necessary to accommodate the majority of
+            standard use cases, while its configuration options address the inevitable need to
+            customize behavior and appearance inside of any particular context.
           </Paragraph>
-          <List disablePadding>
+          <Paragraph disableGutterBottom>
+            Looking closely you will find that every exceptional piece of software is founded upon
+            a principle set of qualities, including:
+          </Paragraph>
+
+          <List>
             <ListItem className={classes.checkListItem}>
               <ListItemIcon className={classes.checklistItemIcon}>
                 <AssignmentTurnedInIcon />
@@ -113,8 +121,8 @@ function AboutPage(props) {
                 primary="Stability"
                 secondary="
                   In order to establish and maintain a sense of trust and confidence in a
-                  software system, every effort must be made to ensure that they are repeatedly
-                  enabled to accomplish their task without any amount of unanticipated interruption.
+                  software system, every effort must be made to ensure that its users are enabled
+                  to accomplish tasks with no amount of unanticipated interruption.
                 "
               />
             </ListItem>
@@ -142,16 +150,21 @@ function AboutPage(props) {
               <ListItemText
                 primary="Simplicity"
                 secondary="
-
+                  Subconsciously, humans expect the ability to accomplish their tasks with a minimal
+                  series of actions. Exceptional software succeeds in providing this facility
+                  through the reduction of tasks into their simplest form of complexity.
                 "
               />
             </ListItem>
-
           </List>
+
+          <Paragraph>
+            By relying on these tenets as the basis of all design decisions
+          </Paragraph>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading underline>
+          <ContentHeading id="author" underline>
             The Author
           </ContentHeading>
         </ContentSection>

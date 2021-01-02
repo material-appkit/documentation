@@ -66,7 +66,7 @@ function GettingStartedPage(props) {
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading id="installation" underline>
+          <ContentHeading id="quickstart" underline>
             Quickstart
           </ContentHeading>
           <Paragraph>

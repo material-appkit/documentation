@@ -3,6 +3,7 @@ export default {
   { name: "Introduction", path: "" },
 
   { name: "Getting Started", path: "getting-started", children: [
+    { name: "Quickstart", anchor: "quickstart" },
     { name: "Installation", anchor: "installation" },
     { name: "Usage", anchor: "usage" },
   ]},
@@ -20,7 +21,7 @@ export default {
 
   { name: "About", path: "about", children: [
       { name: "Motivation", anchor: "motivation" },
-      { name: "Design Philosphy", anchor: "philosophy" },
+      { name: "Philosphy", anchor: "philosophy" },
       { name: "The Author", anchor: "author" }
     ]}
 ]}
