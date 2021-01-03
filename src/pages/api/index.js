@@ -50,7 +50,7 @@ export default APIReferencePage;
 
 export const query = graphql`
   query {
-    utils: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^util/"}, name: {eq: "NotificationCenter"}}) {
+    utils: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^util/"}}) {
       nodes {
         childrenDocumentationJs {
           ...DocumentationJsFragment,
