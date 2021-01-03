@@ -20,20 +20,15 @@ import {
 } from 'components/typography';
 
 const DryPrincipleLink = <Link href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" variant="button">DRY Principle</Link>;
-
+const LinkedInLink = <Link href="https://www.linkedin.com/in/allan-hart/" variant="button">LinkedIn</Link>;
 
 const styles = makeStyles((theme) => ({
-  dl: {
-    margin: 0,
-    padding: theme.spacing(1, 2),
-  },
-
   strong: {
     fontWeight: 600,
   },
 
   checkListItem: {
-    padding: '0 4px',
+    padding: theme.spacing(0, 0.5),
   },
 
   checklistItemIcon: {
@@ -171,6 +166,28 @@ function AboutPage(props) {
           <ContentHeading id="author" underline>
             The Author
           </ContentHeading>
+          <Paragraph>
+            My name is Allan Hart and I am a full-stack engineer currently specializing in web
+            application development. I strongly support the movement toward a free and open Internet
+            and it is in that spirit that I've chosen to publish Material-AppKit. It is my hope that
+            the React community will come to recognize it as a thing of quality and consider it a
+            boon to their productivity.
+          </Paragraph>
+          <Paragraph>
+            Within the realm of software development, the mantra <em>"Work Smarter, Not
+            Harder"</em> translates loosely to <em>"Write Once, Run Anywhere"</em>. Since
+            receiving my BSc. in Computer Science from the University of Calgary in 2005 I
+            have followed the evolution of web technology and gradually come to believe that the
+            browser is the most pracical (and often ideal) platform for the delivery of
+            consumer-based software. Unless an organization has limitless development resources
+            with which to play, they have little choice but to embrace to this notion.
+          </Paragraph>
+          <Paragraph>
+            As a freelance "digital nomad" I am always on the lookout for small teams with big
+            ideas on how to improve the world through the use of technology. If you (or someone you
+            know) are in search of a partner to drive the software side of a promising new venture,
+            please feel free to get in touch via {LinkedInLink}.
+          </Paragraph>
         </ContentSection>
       </main>
     </Layout>
