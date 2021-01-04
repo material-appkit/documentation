@@ -35,19 +35,19 @@ const contentHeadingStyles = makeStyles((theme) => ({
   typography: {
     marginBottom: theme.spacing(1),
 
-    '&::before': {
-      content: '" "',
-      display: 'block',
-      height: theme.spacing(2),
-      marginTop: -theme.spacing(2),
-      pointerEvents: 'none',
-      visibility: 'hidden',
-
-      [theme.breakpoints.up('md')]: {
-        height: theme.appbar.height + theme.spacing(2),
-        marginTop: -(theme.appbar.height + theme.spacing(2)),
-      },
-    },
+    // '&::before': {
+    //   content: '" "',
+    //   display: 'block',
+    //   height: theme.spacing(2),
+    //   marginTop: -theme.spacing(2),
+    //   pointerEvents: 'none',
+    //   visibility: 'hidden',
+    //
+    //   [theme.breakpoints.up('md')]: {
+    //     height: theme.appbar.height + theme.spacing(2),
+    //     marginTop: -(theme.appbar.height + theme.spacing(2)),
+    //   },
+    // },
   },
 
   underline: {
@@ -55,10 +55,10 @@ const contentHeadingStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(0.5),
   },
 
-  h1: { fontSize: theme.typography.pxToRem(24) },
-  h2: { fontSize: theme.typography.pxToRem(20) },
-  h3: { fontSize: theme.typography.pxToRem(18) },
-  h4: { fontSize: theme.typography.pxToRem(16) },
+  // h1: { fontSize: theme.typography.pxToRem(24) },
+  // h2: { fontSize: theme.typography.pxToRem(20) },
+  // h3: { fontSize: theme.typography.pxToRem(18) },
+  // h4: { fontSize: theme.typography.pxToRem(16) },
 }));
 
 

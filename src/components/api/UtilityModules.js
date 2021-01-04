@@ -7,35 +7,62 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
+
+import { arrayToObject } from '@material-appkit/core/util/array';
 
 import { ContentHeading } from 'components/typography';
 
 //------------------------------------------------------------------------------
 const utilityModuleStyles = makeStyles((theme) => ({
-  article: {
+  listItem: {
     marginBottom: theme.spacing(2),
-  }
+    padding: 0,
+  },
 }));
 
 
 function MemberList({ directory, members }) {
   const classes = utilityModuleStyles();
 
+
   return (
     <List disablePadding>
-      {members.map((member, i) => (
-        <ListItem
-          disableGutters
-          key={i}
-        >
-          <ListItemText
-            primary={member.name}
-            primaryTypographyProps={{ variant: 'h4' }}
-          />
-        </ListItem>
-      ))}
+      {members.map((member) => {
+        const headingId = `${directory}/${member.name}`;
+
+        const tags = arrayToObject(member.tags, 'title');
+
+        let secondary = null;
+        if (tags.summary) {
+          secondary = (
+            <Typography variant="body2">
+              {tags.summary.description}
+            </Typography>
+          );
+        }
+
+        return (
+          <ListItem
+            className={classes.listItem}
+            disableGutters
+            key={member.name}
+          >
+            <ListItemText
+              primary={
+                <Link href={`#${headingId}`}>
+                  <ContentHeading id={headingId} variant="h4">
+                    {member.name}
+                  </ContentHeading>
+                </Link>
+              }
+              secondary={secondary}
+            />
+          </ListItem>
+        );
+      })}
     </List>
   )
 }
@@ -53,7 +80,8 @@ const styles = makeStyles((theme) => ({
   },
 
   moduleHeading: {
-    padding: theme.spacing(0.5, 0),
+    marginBottom: theme.spacing(1),
+    padding: '5px 0',
   },
 }));
 

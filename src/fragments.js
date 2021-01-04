@@ -3,8 +3,8 @@ import { graphql } from 'gatsby';
 export const JSDocFragment = graphql`
   fragment DocumentationJsFragment on DocumentationJs {
     description {
-      childMarkdownRemark {
-        html
+      internal {
+        content
       }
     }
     kind
@@ -14,6 +14,10 @@ export const JSDocFragment = graphql`
       type {
         name
       }
+    }
+    tags {
+      title
+      description
     }
   }
 `;
