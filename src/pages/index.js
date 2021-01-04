@@ -11,10 +11,7 @@ import Layout from 'layout/Layout';
 import CodeView from 'components/CodeView';
 import QuickstartItem from 'components/QuickstartItem';
 
-import {
-  ContentHeading,
-  Link,
-} from 'components/typography';
+import { ContentHeading, Link } from 'components/typography';
 import { COMMON_PAGE_PROPS } from 'variables';
 import { fileContent } from 'util/shortcuts';
 

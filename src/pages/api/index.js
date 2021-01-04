@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-
+import groupBy from 'lodash.groupby';
 
 import Layout from 'layout/Layout';
 
@@ -9,9 +9,19 @@ import {
   ContentSection,
 } from 'components/typography';
 
-import UtilitiesList from 'components/api/UtilitiesList';
+import UtilityModules from 'components/api/UtilityModules';
 
 import { COMMON_PAGE_PROPS } from 'variables';
+
+
+function filterAndGroupNodes(nodes) {
+  const filteredNodes = nodes.filter((node) => (
+    node.childrenDocumentationJs.length > 0
+  ));
+
+  return groupBy(filteredNodes, 'relativeDirectory');
+}
+
 
 function APIReferencePage(props) {
   const { data, ...rest } = props;
@@ -35,8 +45,8 @@ function APIReferencePage(props) {
           <ContentHeading id="utilities" underline>
             Utilities
           </ContentHeading>
-          <UtilitiesList
-            source={data.utils.nodes}
+          <UtilityModules
+            modules={filterAndGroupNodes(data.utils.nodes)}
           />
         </ContentSection>
       </main>
@@ -59,7 +69,6 @@ export const query = graphql`
           }
         }
         relativeDirectory
-        name
       }
     }  
   }
