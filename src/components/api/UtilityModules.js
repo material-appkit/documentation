@@ -67,6 +67,8 @@ function UtilityModules({ modules }) {
   moduleDirectories.forEach((directory) => {
     membersMap[directory] = [].concat.apply([], modules[directory].map(
       (m) => m.childrenDocumentationJs
+    )).sort((a, b) => (
+      a.name.toLowerCase() < b.name.toLowerCase()
     ));
   });
 
