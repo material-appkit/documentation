@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
@@ -21,17 +20,27 @@ const utilityModuleStyles = makeStyles((theme) => ({
 }));
 
 
-function UtilityModule({ directory, members }) {
+function MemberList({ directory, members }) {
   const classes = utilityModuleStyles();
 
-  console.log(members);
-
   return (
-    "list of members"
-  );
+    <List disablePadding>
+      {members.map((member, i) => (
+        <ListItem
+          disableGutters
+          key={i}
+        >
+          <ListItemText
+            primary={member.name}
+            primaryTypographyProps={{ variant: 'h4' }}
+          />
+        </ListItem>
+      ))}
+    </List>
+  )
 }
 
-UtilityModule.propTypes = {
+MemberList.propTypes = {
   directory: PropTypes.string.isRequired,
   members: PropTypes.array.isRequired,
 };
@@ -64,7 +73,12 @@ function UtilityModules({ modules }) {
   return (
     <List component="section" disablePadding>
       {moduleDirectories.map((directory) => (
-        <ListItem component="article" key={directory} disableGutters>
+        <ListItem
+          component="article"
+          disableGutters
+          divider
+          key={directory}
+        >
           <ListItemIcon className={classes.listItemIcon}>
             <IconButton
               color="primary"
@@ -88,7 +102,7 @@ function UtilityModules({ modules }) {
               </Link>
             }
             secondary={
-              <UtilityModule
+              <MemberList
                 directory={directory}
                 members={membersMap[directory]}
               />

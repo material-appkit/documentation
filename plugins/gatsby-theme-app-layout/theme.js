@@ -45,6 +45,11 @@ const theme = createMuiTheme({
       fontSize: baseTheme.typography.pxToRem(16),
       fontWeight: 400,
     },
+
+    h5: {
+      fontSize: baseTheme.typography.pxToRem(14),
+      fontWeight: 400,
+    },
   },
 
   overrides: {
