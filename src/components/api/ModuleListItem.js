@@ -1,19 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import IconButton from '@material-ui/core/IconButton';
+import Avatar from '@material-ui/core/Avatar';
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 import { arrayToObject } from '@material-appkit/core/util/array';
-
-import { ContentHeading } from 'components/typography';
 
 //------------------------------------------------------------------------------
 const utilityModuleStyles = makeStyles((theme) => ({
@@ -53,9 +49,9 @@ function MemberList({ directory, members }) {
             <ListItemText
               primary={
                 <Link href={`#${headingId}`}>
-                  <ContentHeading id={headingId} variant="h4">
+                  <Typography id={headingId} variant="h4">
                     {member.name}
-                  </ContentHeading>
+                  </Typography>
                 </Link>
               }
               secondary={secondary}
@@ -74,54 +70,58 @@ MemberList.propTypes = {
 
 
 const styles = makeStyles((theme) => ({
-  listItemIcon: {
-    alignSelf: 'flex-start',
-    minWidth: 36,
+  listItem: {
+    alignItems: 'flex-start',
+    flexDirection: 'column',
   },
 
-  moduleHeading: {
-    marginBottom: theme.spacing(1),
-    padding: '5px 0',
+  header: {
+    alignItems: 'center',
+    display: 'flex',
+    width: '100%',
   },
+
+  avatar: {
+    backgroundColor: theme.palette.primary.main,
+    marginRight: theme.spacing(1),
+  },
+
 }));
 
 function ModuleListItem({ directory, members }) {
   const classes = styles();
-    
+
   return (
     <ListItem
+      className={classes.listItem}
       component="article"
       disableGutters
       divider
     >
-      <ListItemIcon className={classes.listItemIcon}>
-        <IconButton
-          color="primary"
+      <header className={classes.header}>
+        <Avatar
+          className={classes.avatar}
+          component={Link}
           href={`#${directory}`}
+          underline="none"
+          variant="square"
         >
-          <BookmarkIcon />
-        </IconButton>
-      </ListItemIcon>
+          M
+        </Avatar>
 
-      <ListItemText
-        disableTypography
-        primary={
-          <Link href={`#${directory}`}>
-            <ContentHeading
-              className={classes.moduleHeading}
-              id={directory}
-              variant="h3"
-            >
-              {directory}
-            </ContentHeading>
-          </Link>
-        }
-        secondary={
-          <MemberList
-            directory={directory}
-            members={members}
-          />
-        }
+        <Link href={`#${directory}`}>
+          <Typography
+            id={directory}
+            variant="h3"
+          >
+            {directory}
+          </Typography>
+        </Link>
+      </header>
+
+      <MemberList
+        directory={directory}
+        members={members}
       />
     </ListItem>
   );
