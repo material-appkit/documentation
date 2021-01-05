@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { arrayToObject } from '@material-appkit/core/util/array';
+import { valueForKeyPath } from '@material-appkit/core/util/object';
+
+import MarkdownView from 'components/MarkdownView';
 
 import ListItemHeader from './ListItemHeader';
 
@@ -25,17 +27,7 @@ function ClassListItem({ url, representedObject }) {
   const classes = styles();
 
   const tags = arrayToObject(representedObject.tags, 'title');
-
-
-  let summary = null;
-  if (tags.summary) {
-    summary = (
-      <Typography variant="body2">
-        {tags.summary.description}
-      </Typography>
-    );
-  }
-
+  const summary = valueForKeyPath(tags, 'summary.description');
 
   return (
     <ListItem className={classes.listItem}>
@@ -45,7 +37,9 @@ function ClassListItem({ url, representedObject }) {
         url={url}
       />
       <div className={classes.listItemContent}>
-        {summary}
+        {summary &&
+          <MarkdownView markdown={summary} />
+        }
       </div>
     </ListItem>
   );

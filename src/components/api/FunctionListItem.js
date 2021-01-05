@@ -4,9 +4,12 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 
-import ListItemHeader from './ListItemHeader';
-
+import { arrayToObject } from '@material-appkit/core/util/array';
 import { valueForKeyPath } from '@material-appkit/core/util/object';
+
+import MarkdownView from 'components/MarkdownView';
+
+import ListItemHeader from './ListItemHeader';
 
 const styles = makeStyles((theme) => ({
   listItem: {
@@ -23,6 +26,9 @@ const styles = makeStyles((theme) => ({
 function FunctionListItem({ url, representedObject }) {
   const classes = styles();
 
+  const tags = arrayToObject(representedObject.tags, 'title');
+  const summary = valueForKeyPath(tags, 'summary.description');
+
   let paramList = [];
   if (representedObject.params) {
     paramList = representedObject.params.map((param) => (
@@ -31,14 +37,21 @@ function FunctionListItem({ url, representedObject }) {
   }
 
   const returnType = valueForKeyPath(representedObject, 'returns.type.name') || '*';
+  const signature = `${representedObject.name}(${paramList.join(', ')}):${returnType}`;
+
 
   return (
     <ListItem className={classes.listItem}>
       <ListItemHeader
-        heading={`${representedObject.name}(${paramList.join(', ')}):${returnType}`}
+        heading={signature}
         kind="function"
         url={url}
       />
+      <div className={classes.listItemContent}>
+        {summary &&
+          <MarkdownView markdown={summary} />
+        }
+      </div>
     </ListItem>
   );
 }
