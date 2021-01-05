@@ -1,11 +1,11 @@
 import React from 'react';
 
-import AppWrapper from './src/layout/AppWrapper';
+import Application from './src/Application';
 
 export const wrapRootElement = ({ element }) => {
   return (
-    <AppWrapper rootElement={element}>
+    <Application>
       {element}
-    </AppWrapper>
+    </Application>
   );
 };
