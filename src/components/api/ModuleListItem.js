@@ -22,9 +22,7 @@ const styles = makeStyles((theme) => ({
     padding: 0,
 
     '&:not(:last-child)': {
-      borderBottom: `1px solid ${theme.palette.divider}`,
-      paddingBottom: theme.spacing(3),
-      marginBottom: theme.spacing(3),
+      marginBottom: theme.spacing(4),
     },
   },
 }));

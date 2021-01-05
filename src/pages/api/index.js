@@ -21,19 +21,19 @@ function APIReferencePage(props) {
     <Layout title="API Reference" {...rest}>
       <main>
         <ContentSection>
-          <ContentHeading id="components" underline>
+          <ContentHeading id="components">
             Components
           </ContentHeading>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading id="managers" underline>
+          <ContentHeading id="managers">
             Managers
           </ContentHeading>
         </ContentSection>
 
         <ContentSection>
-          <ContentHeading id="utilities" underline>
+          <ContentHeading id="utilities">
             Utilities
           </ContentHeading>
           <UtilityModuleList

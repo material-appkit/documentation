@@ -20,6 +20,13 @@ const styles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     padding: theme.spacing(1, 0, 0),
+    width: '100%',
+  },
+
+  moduleHeader: {
+    backgroundColor: theme.palette.grey[200],
+    borderBottom: `2px solid ${theme.palette.grey[400]}`,
+    paddingBottom: theme.spacing(1),
   },
 
   codeHeading: {
@@ -49,13 +56,15 @@ const styles = makeStyles((theme) => ({
 function ListItemHeader({ kind, heading, url }) {
   const classes = styles();
 
-  let headingClassName = null;
-  if (kind !== 'module') {
-    headingClassName = classes.codeHeading;
-  }
+  let headerClassNames = [classes.header];
 
-  return (
-    <header className={classes.header}>
+  let avatar = null;
+  let headingClassName = null;
+  if (kind === 'module') {
+    headerClassNames.push(classes.moduleHeader);
+  } else {
+    headingClassName = classes.codeHeading;
+    avatar = (
       <Avatar
         className={clsx([
           classes.avatar,
@@ -66,6 +75,13 @@ function ListItemHeader({ kind, heading, url }) {
       >
         {kind[0].toUpperCase()}
       </Avatar>
+    );
+
+  }
+
+  return (
+    <header className={clsx(headerClassNames)}>
+      {avatar}
 
       <Link href={url}>
         <Typography
