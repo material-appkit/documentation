@@ -25,7 +25,11 @@ const styles = makeStyles((theme) => ({
 
     '& p': {
       ...theme.typography.body1,
-      margin: theme.spacing(0, 0, 2),
+      margin: 0,
+
+      '&:not(:last-child)': {
+        marginBottom: theme.spacing(2),
+      },
     },
 
     '& ul': {
