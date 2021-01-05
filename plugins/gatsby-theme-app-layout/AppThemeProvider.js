@@ -1,4 +1,5 @@
 import '@fontsource/open-sans';
+import '@fontsource/cascadia-code';
 
 import PropTypes from 'prop-types';
 import React from 'react';
