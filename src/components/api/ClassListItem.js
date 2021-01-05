@@ -25,10 +25,10 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function ClassListItem({ modulePath, representedObject }) {
+function ClassListItem({ modulePath, representedObject, urlPrefix }) {
   const classes = styles();
 
-  const url = `/api/${modulePath}/#${representedObject.name}`;
+  const url = urlPrefix + representedObject.name;
 
   const tags = arrayToObject(representedObject.tags, 'title');
   const summary = valueForKeyPath(tags, 'summary.description');
@@ -57,6 +57,7 @@ function ClassListItem({ modulePath, representedObject }) {
                   key={`${url}/${node.name}`}
                   modulePath={modulePath}
                   representedObject={node}
+                  urlPrefix={`${url}/`}
                 />
               );
             })}
@@ -70,6 +71,7 @@ function ClassListItem({ modulePath, representedObject }) {
 ClassListItem.propTypes = {
   modulePath: PropTypes.string.isRequired,
   representedObject: PropTypes.object.isRequired,
+  urlPrefix: PropTypes.string.isRequired,
 };
 
 export default ClassListItem;

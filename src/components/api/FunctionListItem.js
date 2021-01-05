@@ -23,10 +23,11 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function FunctionListItem({ modulePath, representedObject }) {
+function FunctionListItem({ modulePath, representedObject, urlPrefix }) {
   const classes = styles();
 
-  const url = `/api/${modulePath}/#${representedObject.name}`;
+  const url = urlPrefix + representedObject.name;
+
 
   const tags = arrayToObject(representedObject.tags, 'title');
   const summary = valueForKeyPath(tags, 'summary.description');
