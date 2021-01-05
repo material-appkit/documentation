@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{nTQ7:function(n,e,t){"use strict";t.r(e);var a=t("q1tI"),o=t.n(a),c=t("5w8u"),s=t("8TZf");t("fqwK");e.default=function(n){return o.a.createElement(c.a,Object.assign({showBackButton:!1,title:"Components"},n),o.a.createElement("main",null,o.a.createElement(s.d,null,"Components")))}}}]);
