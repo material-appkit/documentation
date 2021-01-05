@@ -12,13 +12,14 @@ const styles = makeStyles((theme) => ({
   header: {
     alignItems: 'center',
     display: 'flex',
-    padding: theme.spacing(1, 0),
+    padding: theme.spacing(1, 0, 0),
   },
 
   avatar: {
+    fontSize: theme.typography.pxToRem(16),
+    height: theme.spacing(3),
     marginRight: theme.spacing(1),
-    width: 28,
-    height: 28,
+    width: theme.spacing(3),
   },
 
   moduleAvatar: {

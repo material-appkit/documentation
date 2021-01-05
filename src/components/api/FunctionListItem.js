@@ -8,8 +8,14 @@ import ListItemHeader from './ListItemHeader';
 
 const styles = makeStyles((theme) => ({
   listItem: {
-    padding: 0,
-  }
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+    padding: theme.spacing(1, 0),
+  },
+
+  listItemContent: {
+    paddingLeft: theme.spacing(4),
+  },
 }));
 
 function FunctionListItem({ modulePath, representedObject }) {

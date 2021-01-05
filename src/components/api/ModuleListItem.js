@@ -67,7 +67,6 @@ MemberList.propTypes = {
 const styles = makeStyles((theme) => ({
   listItem: {
     alignItems: 'flex-start',
-
     flexDirection: 'column',
     padding: 0,
 
@@ -89,7 +88,7 @@ function ModuleListItem({ modulePath, members }) {
     >
       <ListItemHeader
         kind="module"
-        heading={modulePath}
+        heading={`@material-appkit/core/${modulePath}`}
         url={modulePath}
       />
 
