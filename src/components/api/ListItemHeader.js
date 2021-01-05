@@ -44,18 +44,11 @@ function ListItemHeader({ kind, heading, url }) {
 
   let headingVariant = 'h4';
   const headingClassNames = [];
-
-  switch (kind) {
-    case 'module':
-      headingVariant = 'h3';
-      break;
-    case 'function':
-      headingClassNames.push(classes.codeHeading);
-      break;
-    default:
-      break;
+  if (kind === 'module') {
+    headingVariant = 'h3';
+  } else {
+    headingClassNames.push(classes.codeHeading);
   }
-
 
   return (
     <header className={classes.header}>
