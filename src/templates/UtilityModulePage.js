@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 
 import Layout from 'layout/Layout';
 
@@ -22,19 +21,3 @@ function UtilityModulePage(props) {
 UtilityModulePage.propTypes = COMMON_PAGE_PROPS;
 
 export default UtilityModulePage;
-
-export const query = graphql`
-  query {
-    utils: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^util/"}}) {
-      nodes {
-        childrenDocumentationJs {
-          ...DocumentationJsFragment,
-          childrenDocumentationJs {
-            ...DocumentationJsFragment,
-          }
-        }
-        relativeDirectory
-      }
-    }  
-  }
-`;
