@@ -17,12 +17,14 @@ const styles = makeStyles((theme) => ({
 function ClassListItem({ modulePath, representedObject }) {
   const classes = styles();
 
+  const url = `${modulePath}/${representedObject.name}`;
+
   return (
     <ListItem className={classes.listItem}>
       <ListItemHeader
         heading={representedObject.name}
         kind="class"
-        url={`${modulePath}/${representedObject.name}`}
+        url={url}
       />
     </ListItem>
   );

@@ -67,8 +67,15 @@ MemberList.propTypes = {
 const styles = makeStyles((theme) => ({
   listItem: {
     alignItems: 'flex-start',
+
     flexDirection: 'column',
     padding: 0,
+
+    '&:not(:last-child)': {
+      borderBottom: `1px solid ${theme.palette.divider}`,
+      paddingBottom: theme.spacing(3),
+      marginBottom: theme.spacing(3),
+    },
   },
 }));
 
@@ -79,7 +86,6 @@ function ModuleListItem({ modulePath, members }) {
     <ListItem
       className={classes.listItem}
       component="article"
-      divider
     >
       <ListItemHeader
         kind="module"
