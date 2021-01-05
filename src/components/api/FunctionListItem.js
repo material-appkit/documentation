@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import ListItemHeader from './ListItemHeader';
 
+import { valueForKeyPath } from '@material-appkit/core/util/object';
+
 const styles = makeStyles((theme) => ({
   listItem: {
     alignItems: 'flex-start',
@@ -21,11 +23,19 @@ const styles = makeStyles((theme) => ({
 function FunctionListItem({ url, representedObject }) {
   const classes = styles();
 
-  const heading = `${representedObject.name}(foo, bar)`;
+  let paramList = [];
+  if (representedObject.params) {
+    paramList = representedObject.params.map((param) => (
+      `${param.name}:${valueForKeyPath(param, 'type.name') || '*'}`
+    ));
+  }
+
+  const returnType = valueForKeyPath(representedObject, 'returns.type.name') || '*';
+
   return (
     <ListItem className={classes.listItem}>
       <ListItemHeader
-        heading={heading}
+        heading={`${representedObject.name}(${paramList.join(', ')}):${returnType}`}
         kind="function"
         url={url}
       />

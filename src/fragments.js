@@ -19,6 +19,11 @@ export const JSDocFragment = graphql`
       title
       description
     }
+    returns {
+      type {
+        name
+      }
+    }    
   }
 `;
 
