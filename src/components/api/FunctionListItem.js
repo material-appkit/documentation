@@ -18,23 +18,24 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function FunctionListItem({ modulePath, representedObject }) {
+function FunctionListItem({ url, representedObject }) {
   const classes = styles();
 
+  const heading = `${representedObject.name}(foo, bar)`;
   return (
     <ListItem className={classes.listItem}>
       <ListItemHeader
-        heading={representedObject.name}
+        heading={heading}
         kind="function"
-        url={`/api/${modulePath}/#${representedObject.name}`}
+        url={url}
       />
     </ListItem>
   );
 }
 
 FunctionListItem.propTypes = {
-  modulePath: PropTypes.string.isRequired,
   representedObject: PropTypes.object.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default FunctionListItem;

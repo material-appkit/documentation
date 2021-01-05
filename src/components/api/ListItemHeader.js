@@ -15,6 +15,10 @@ const styles = makeStyles((theme) => ({
     padding: theme.spacing(1, 0, 0),
   },
 
+  heading: {
+    fontFamily: "'Cascadia Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+  },
+
   avatar: {
     fontSize: theme.typography.pxToRem(16),
     height: theme.spacing(3),
@@ -53,7 +57,11 @@ function ListItemHeader({ kind, heading, url }) {
       </Avatar>
 
       <Link href={url}>
-        <Typography id={url} variant={headingVariant}>
+        <Typography
+          id={url}
+          variant={headingVariant}
+          className={classes.heading}
+        >
           {heading}
         </Typography>
       </Link>

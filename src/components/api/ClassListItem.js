@@ -21,7 +21,7 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function ClassListItem({ modulePath, representedObject }) {
+function ClassListItem({ url, representedObject }) {
   const classes = styles();
 
   const tags = arrayToObject(representedObject.tags, 'title');
@@ -42,7 +42,7 @@ function ClassListItem({ modulePath, representedObject }) {
       <ListItemHeader
         heading={representedObject.name}
         kind="class"
-        url={`/api/${modulePath}/#${representedObject.name}`}
+        url={url}
       />
       <div className={classes.listItemContent}>
         {summary}
@@ -52,8 +52,8 @@ function ClassListItem({ modulePath, representedObject }) {
 }
 
 ClassListItem.propTypes = {
-  modulePath: PropTypes.string.isRequired,
   representedObject: PropTypes.object.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default ClassListItem;

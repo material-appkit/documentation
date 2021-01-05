@@ -15,7 +15,7 @@ import { COMMON_PAGE_PROPS } from 'variables';
 
 function ExamplesPage(props) {
   return (
-    <Layout title="Examples" {...props}>
+    <Layout title="Project Templates" {...props}>
       <main>
         <PageTitle>
           Project Templates

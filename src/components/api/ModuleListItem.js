@@ -102,7 +102,7 @@ function ModuleListItem({ modulePath, members }) {
           return (
             <ListItemComponent
               key={`${modulePath}/${member.name}`}
-              modulePath={modulePath}
+              url={`/api/${modulePath}/#${member.name}`}
               representedObject={member}
             />
           );
