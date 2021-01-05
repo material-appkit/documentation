@@ -89,7 +89,7 @@ function ModuleListItem({ modulePath, members }) {
       <ListItemHeader
         kind="module"
         heading={`@material-appkit/core/${modulePath}`}
-        url={modulePath}
+        url={`/api/${modulePath}`}
       />
 
       <List disablePadding>

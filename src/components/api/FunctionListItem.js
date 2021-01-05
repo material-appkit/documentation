@@ -26,7 +26,7 @@ function FunctionListItem({ modulePath, representedObject }) {
       <ListItemHeader
         heading={representedObject.name}
         kind="function"
-        url={`${modulePath}/${representedObject.name}`}
+        url={`/api/${modulePath}/#${representedObject.name}`}
       />
     </ListItem>
   );

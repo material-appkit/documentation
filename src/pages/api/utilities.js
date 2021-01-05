@@ -14,26 +14,14 @@ import { COMMON_PAGE_PROPS } from 'variables';
 import UtilityModuleList from 'components/api/UtilityModuleList';
 
 
-function APIReferencePage(props) {
+function UtilitiesPage(props) {
   const { data, ...rest } = props;
 
   return (
-    <Layout title="API Reference" {...rest}>
+    <Layout title="Utilities" {...rest}>
       <main>
         <ContentSection>
           <ContentHeading id="components" underline>
-            Components
-          </ContentHeading>
-        </ContentSection>
-
-        <ContentSection>
-          <ContentHeading id="managers" underline>
-            Managers
-          </ContentHeading>
-        </ContentSection>
-
-        <ContentSection>
-          <ContentHeading id="utilities" underline>
             Utilities
           </ContentHeading>
           <UtilityModuleList
@@ -45,9 +33,9 @@ function APIReferencePage(props) {
   );
 }
 
-APIReferencePage.propTypes = COMMON_PAGE_PROPS;
+UtilitiesPage.propTypes = COMMON_PAGE_PROPS;
 
-export default APIReferencePage;
+export default UtilitiesPage;
 
 export const query = graphql`
   query {

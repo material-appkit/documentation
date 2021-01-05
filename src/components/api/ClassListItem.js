@@ -42,7 +42,7 @@ function ClassListItem({ modulePath, representedObject }) {
       <ListItemHeader
         heading={representedObject.name}
         kind="class"
-        url={`${modulePath}/${representedObject.name}`}
+        url={`/api/${modulePath}/#${representedObject.name}`}
       />
       <div className={classes.listItemContent}>
         {summary}

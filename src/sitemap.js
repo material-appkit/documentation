@@ -8,10 +8,10 @@ export default {
     { name: "Usage", anchor: "usage" },
   ]},
 
-  { name: "API Reference",   path: "api", children: [
-    { name: "Components",   anchor: "components" },
-    { name: "Managers",   anchor: "managers" },
-    { name: "Utilities",   anchor: "utilities" }
+  { name: "API Reference", path: "api", children: [
+    { name: "Components", path: "components" },
+    { name: "Managers", path: "managers" },
+    { name: "Utilities", path: "utilities" }
   ]},
 
   { name: "Project Templates", path: "templates", children: [

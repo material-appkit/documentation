@@ -46,15 +46,13 @@ function ListItemHeader({ kind, heading, url }) {
           classes.avatar,
           classes[`${kind}Avatar`],
         ])}
-        component={Link}
-        href={`#${url}`}
         underline="none"
         variant="square"
       >
         {kind[0].toUpperCase()}
       </Avatar>
 
-      <Link href={`#${url}`}>
+      <Link href={url}>
         <Typography id={url} variant={headingVariant}>
           {heading}
         </Typography>

@@ -11,47 +11,31 @@ import {
 import { filterAndGroupNodes } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
-import UtilityModuleList from 'components/api/UtilityModuleList';
 
-
-function APIReferencePage(props) {
+function ManagersPage(props) {
   const { data, ...rest } = props;
 
   return (
-    <Layout title="API Reference" {...rest}>
+    <Layout title="Managers" {...rest}>
       <main>
         <ContentSection>
           <ContentHeading id="components" underline>
-            Components
-          </ContentHeading>
-        </ContentSection>
-
-        <ContentSection>
-          <ContentHeading id="managers" underline>
             Managers
           </ContentHeading>
-        </ContentSection>
 
-        <ContentSection>
-          <ContentHeading id="utilities" underline>
-            Utilities
-          </ContentHeading>
-          <UtilityModuleList
-            modules={filterAndGroupNodes(data.utils.nodes)}
-          />
         </ContentSection>
       </main>
     </Layout>
   );
 }
 
-APIReferencePage.propTypes = COMMON_PAGE_PROPS;
+ManagersPage.propTypes = COMMON_PAGE_PROPS;
 
-export default APIReferencePage;
+export default ManagersPage;
 
 export const query = graphql`
   query {
-    utils: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^util/"}}) {
+    utils: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^managers/"}}) {
       nodes {
         childrenDocumentationJs {
           ...DocumentationJsFragment,
