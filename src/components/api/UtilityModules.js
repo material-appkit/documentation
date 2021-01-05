@@ -6,11 +6,11 @@ import List from '@material-ui/core/List';
 import ModuleListItem from './ModuleListItem';
 
 function UtilityModules({ modules }) {
-  const moduleDirectories = Object.keys(modules).sort();
-  
+  const modulePaths = Object.keys(modules).sort();
+
   const membersMap = {};
 
-  moduleDirectories.forEach((directory) => {
+  modulePaths.forEach((directory) => {
     membersMap[directory] = [].concat.apply([], modules[directory].map(
       (m) => m.childrenDocumentationJs
     )).sort((a, b) => (
@@ -20,11 +20,11 @@ function UtilityModules({ modules }) {
 
   return (
     <List component="section" disablePadding>
-      {moduleDirectories.map((directory) => (
+      {modulePaths.map((path) => (
         <ModuleListItem
-          directory={directory}
-          key={directory}
-          members={membersMap[directory]}
+          modulePath={path}
+          key={path}
+          members={membersMap[path]}
         />
       ))}
     </List>
