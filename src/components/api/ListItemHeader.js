@@ -8,6 +8,13 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+const HEADING_VARIANT_MAP = {
+  "module": 'h3',
+  "class":  'h4',
+  "function": 'h5',
+
+};
+
 const styles = makeStyles((theme) => ({
   header: {
     alignItems: 'center',
@@ -42,12 +49,9 @@ const styles = makeStyles((theme) => ({
 function ListItemHeader({ kind, heading, url }) {
   const classes = styles();
 
-  let headingVariant = 'h4';
-  const headingClassNames = [];
-  if (kind === 'module') {
-    headingVariant = 'h3';
-  } else {
-    headingClassNames.push(classes.codeHeading);
+  let headingClassName = null;
+  if (kind !== 'module') {
+    headingClassName = classes.codeHeading;
   }
 
   return (
@@ -66,8 +70,8 @@ function ListItemHeader({ kind, heading, url }) {
       <Link href={url}>
         <Typography
           id={url}
-          variant={headingVariant}
-          className={clsx(headingClassNames)}
+          variant={HEADING_VARIANT_MAP[kind]}
+          className={headingClassName}
         >
           {heading}
         </Typography>

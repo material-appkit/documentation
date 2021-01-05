@@ -23,8 +23,10 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function FunctionListItem({ url, representedObject }) {
+function FunctionListItem({ modulePath, representedObject }) {
   const classes = styles();
+
+  const url = `/api/${modulePath}/#${representedObject.name}`;
 
   const tags = arrayToObject(representedObject.tags, 'title');
   const summary = valueForKeyPath(tags, 'summary.description');
@@ -57,8 +59,8 @@ function FunctionListItem({ url, representedObject }) {
 }
 
 FunctionListItem.propTypes = {
+  modulePath: PropTypes.string.isRequired,
   representedObject: PropTypes.object.isRequired,
-  url: PropTypes.string.isRequired,
 };
 
 export default FunctionListItem;

@@ -5,8 +5,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 
-
-
 import ClassListItem from './ClassListItem';
 import FunctionListItem from './FunctionListItem';
 import ListItemHeader from './ListItemHeader';
@@ -16,53 +14,6 @@ const LIST_ITEM_TYPE_MAP = {
   "function": FunctionListItem,
 };
 
-/*
-function MemberList({ modulePath, members }) {
-  const classes = utilityModuleStyles();
-
-  return (
-    <List disablePadding>
-      {members.map((member) => {
-        const headingId = `${modulePath}/${member.name}`;
-        const tags = arrayToObject(member.tags, 'title');
-
-        let secondary = null;
-        if (tags.summary) {
-          secondary = (
-            <Typography variant="body2">
-              {tags.summary.description}
-            </Typography>
-          );
-        }
-
-        return (
-          <ListItem
-            className={classes.listItem}
-            disableGutters
-            key={member.name}
-          >
-            <ListItemText
-              primary={
-                <Link href={`#${headingId}`}>
-                  <Typography id={headingId} variant="h4">
-                    {member.name}
-                  </Typography>
-                </Link>
-              }
-              secondary={secondary}
-            />
-          </ListItem>
-        );
-      })}
-    </List>
-  )
-}
-
-MemberList.propTypes = {
-  modulePath: PropTypes.string.isRequired,
-  members: PropTypes.array.isRequired,
-};
-*/
 
 const styles = makeStyles((theme) => ({
   listItem: {
@@ -103,6 +54,7 @@ function ModuleListItem({ modulePath, members }) {
             <ListItemComponent
               key={`${modulePath}/${member.name}`}
               url={`/api/${modulePath}/#${member.name}`}
+              modulePath={modulePath}
               representedObject={member}
             />
           );

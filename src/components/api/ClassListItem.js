@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -10,6 +11,7 @@ import { valueForKeyPath } from '@material-appkit/core/util/object';
 import MarkdownView from 'components/MarkdownView';
 
 import ListItemHeader from './ListItemHeader';
+import FunctionListItem from './FunctionListItem';
 
 const styles = makeStyles((theme) => ({
   listItem: {
@@ -23,11 +25,17 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function ClassListItem({ url, representedObject }) {
+function ClassListItem({ modulePath, representedObject }) {
   const classes = styles();
+
+  const url = `/api/${modulePath}/#${representedObject.name}`;
 
   const tags = arrayToObject(representedObject.tags, 'title');
   const summary = valueForKeyPath(tags, 'summary.description');
+
+  const methodNodes = representedObject.childrenDocumentationJs.filter(
+    (node) => node.kind === 'function'
+  );
 
   return (
     <ListItem className={classes.listItem}>
@@ -40,14 +48,28 @@ function ClassListItem({ url, representedObject }) {
         {summary &&
           <MarkdownView markdown={summary} />
         }
+
+        {methodNodes.length > 0 &&
+          <List disablePadding>
+            {methodNodes.map((node) => {
+               return (
+                <FunctionListItem
+                  key={`${url}/${node.name}`}
+                  modulePath={modulePath}
+                  representedObject={node}
+                />
+              );
+            })}
+          </List>
+        }
       </div>
     </ListItem>
   );
 }
 
 ClassListItem.propTypes = {
+  modulePath: PropTypes.string.isRequired,
   representedObject: PropTypes.object.isRequired,
-  url: PropTypes.string.isRequired,
 };
 
 export default ClassListItem;

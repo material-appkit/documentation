@@ -8,7 +8,6 @@ import {
   ContentSection,
 } from 'components/typography';
 
-// import { filterAndGroupNodes } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
 function UtilitiesModulePage(props) {
