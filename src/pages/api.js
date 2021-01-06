@@ -33,7 +33,7 @@ function ModuleHeader({ path }) {
   return (
     <header className={classes.header}>
       <Link to={`/api/${path}`}>
-        <Typography variant="h3" className={classes.heading}>
+        <Typography variant="h2" className={classes.heading}>
           @material-appkit/core/{path}
         </Typography>
       </Link>
