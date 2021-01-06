@@ -3,19 +3,18 @@ import { graphql } from 'gatsby';
 
 import Layout from 'layout/Layout';
 
-import { COMMON_PAGE_PROPS } from 'variables';
 import { extractComponentsAndMembers } from 'util/shortcuts';
+import { COMMON_PAGE_PROPS } from 'variables';
 
 import ClassListItem from 'components/api/ClassListItem';
 import FunctionListItem from 'components/api/FunctionListItem';
 import ModuleListView from 'components/api/ModuleListView';
 
-
-function APIReferencePage(props) {
+function ModulePage(props) {
   const moduleMap = extractComponentsAndMembers(props.data.allFile.nodes);
 
   return (
-    <Layout title="API Reference" {...props}>
+    <Layout title={props.pageContext.modulePath} {...props}>
       <main>
         <ModuleListView
           moduleMap={moduleMap}
@@ -29,13 +28,13 @@ function APIReferencePage(props) {
   );
 }
 
-APIReferencePage.propTypes = COMMON_PAGE_PROPS;
+ModulePage.propTypes = COMMON_PAGE_PROPS;
 
-export default APIReferencePage;
+export default ModulePage;
 
 export const query = graphql`
-  query {
-    allFile(filter: {sourceInstanceName: {eq: "source"}}) {
+  query moduleNodes($modulePath: String) {
+    allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {eq: $modulePath}}) {
       nodes {
         ...DocumentationNode
       }

@@ -7,14 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import ModuleHeader from './ModuleHeader';
 
-import ClassListItem from './ClassListItem';
-import FunctionListItem from './FunctionListItem';
-
-const LIST_ITEM_TYPE_MAP = {
-  "class":  ClassListItem,
-  "function": FunctionListItem,
-};
-
 const styles = makeStyles((theme) => ({
   moduleList: {
     padding: 0,
@@ -36,7 +28,7 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function ModuleListView({ moduleMap }) {
+function ModuleListView({ listItemComponents, moduleMap }) {
   const classes = styles();
 
   const modulePaths = Object.keys(moduleMap).sort();
@@ -62,7 +54,7 @@ function ModuleListView({ moduleMap }) {
 
           <List className={classes.memberList}>
             {moduleMap[modulePath].members.map((member) => {
-              const ListItemComponent = LIST_ITEM_TYPE_MAP[member.kind];
+              const ListItemComponent = listItemComponents[member.kind];
               if (!ListItemComponent) {
                 return null;
               }
@@ -84,6 +76,7 @@ function ModuleListView({ moduleMap }) {
 }
 
 ModuleListView.propTypes = {
+  listItemComponents: PropTypes.object.isRequired,
   moduleMap: PropTypes.object.isRequired,
 };
 

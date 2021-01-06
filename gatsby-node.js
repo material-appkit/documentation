@@ -23,9 +23,9 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
 };
 
 
-const utilityModulesQuery = `
-  query utilityModulesQuery {
-    allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^util/"}}) {
+const sourceNodeQuery = `
+  query {
+    allFile(filter: {sourceInstanceName: {eq: "source"}}) {
       nodes {
         relativeDirectory
       }
@@ -36,9 +36,9 @@ const utilityModulesQuery = `
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const utilityModuleTemplate = path.resolve('src/templates/UtilityModulePage.js');
+  const ModulePage = path.resolve('src/templates/ModulePage.js');
 
-  graphql(utilityModulesQuery).then((result) => {
+  graphql(sourceNodeQuery).then((result) => {
     if (result.errors) {
       throw result.errors;
     }
@@ -50,11 +50,13 @@ exports.createPages = ({ graphql, actions }) => {
     modulePaths.forEach((modulePath) => {
       createPage({
         path: `/api/${modulePath}/`,
-        component: utilityModuleTemplate,
+        component: ModulePage,
         context: {
           modulePath
         }
       });
     });
+
+    // TODO: Create an individual page for each React component
   });
 };
