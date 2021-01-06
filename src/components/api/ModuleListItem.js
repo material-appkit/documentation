@@ -42,7 +42,7 @@ function ModuleListItem({ moduleHeadingProps, modulePath, members }) {
         moduleHeadingProps={moduleHeadingProps}
       />
 
-      <List disablePadding>
+      <List disablePadding style={{ width: '100%' }}>
         {members.map((member) => {
           const ListItemComponent = LIST_ITEM_TYPE_MAP[member.kind];
           if (!ListItemComponent) {

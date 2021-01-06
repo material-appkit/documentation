@@ -17,8 +17,6 @@ const HEADING_VARIANT_MAP = {
 
 const styles = makeStyles((theme) => ({
   header: {
-    alignItems: 'center',
-    display: 'flex',
     padding: theme.spacing(1, 0, 0),
     width: '100%',
   },
@@ -29,9 +27,11 @@ const styles = makeStyles((theme) => ({
 
   codeHeading: {
     fontFamily: "'Cascadia Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+    lineHeight: 1.7,
   },
 
   avatar: {
+    float: 'left',
     fontSize: theme.typography.pxToRem(16),
     height: theme.spacing(3),
     marginRight: theme.spacing(1),
@@ -67,6 +67,7 @@ function ListItemHeader(props) {
 
   let headingProps = {
     id: url,
+    noWrap: true,
     variant: HEADING_VARIANT_MAP[kind],
     ...moduleHeadingProps
   };

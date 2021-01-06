@@ -14,6 +14,10 @@ import ListItemHeader from './ListItemHeader';
 import FunctionListItem from './FunctionListItem';
 
 const styles = makeStyles((theme) => ({
+  list: {
+    width: '100%',
+  },
+
   listItem: {
     alignItems: 'flex-start',
     flexDirection: 'column',
@@ -22,6 +26,7 @@ const styles = makeStyles((theme) => ({
 
   listItemContent: {
     paddingLeft: theme.spacing(4),
+    width: '100%',
   },
 }));
 
@@ -50,7 +55,7 @@ function ClassListItem({ modulePath, representedObject, urlPrefix }) {
         }
 
         {methodNodes.length > 0 &&
-          <List disablePadding>
+          <List disablePadding className={classes.list}>
             {methodNodes.map((node) => {
                return (
                 <FunctionListItem

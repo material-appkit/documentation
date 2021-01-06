@@ -28,7 +28,6 @@ function FunctionListItem({ modulePath, representedObject, urlPrefix }) {
 
   const url = urlPrefix + representedObject.name;
 
-
   const tags = arrayToObject(representedObject.tags, 'title');
   const summary = valueForKeyPath(tags, 'summary.description');
 
@@ -39,9 +38,11 @@ function FunctionListItem({ modulePath, representedObject, urlPrefix }) {
     ));
   }
 
-  const returnType = valueForKeyPath(representedObject, 'returns.type.name') || '*';
+  let returnType = 'void';
+  if (representedObject.returns) {
+    returnType = valueForKeyPath(representedObject, 'returns.type.name') || '*'
+  }
   const signature = `${representedObject.name}(${paramList.join(', ')}):${returnType}`;
-
 
   return (
     <ListItem className={classes.listItem}>

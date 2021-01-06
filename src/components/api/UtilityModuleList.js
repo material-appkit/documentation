@@ -19,7 +19,7 @@ function UtilityModuleList({ modules, moduleHeadingProps }) {
   });
 
   return (
-    <List component="section" disablePadding>
+    <List component="section" disablePadding style={{ width: '100%' }}>
       {modulePaths.map((path) => (
         <ModuleListItem
           modulePath={path}
