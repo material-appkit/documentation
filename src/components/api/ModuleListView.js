@@ -21,8 +21,7 @@ const styles = makeStyles((theme) => ({
   },
 
   moduleListItem: {
-    alignItems: 'flex-start',
-    flexDirection: 'column',
+    display: 'block',
     marginBottom: theme.spacing(4),
     padding: 0,
   },
@@ -33,7 +32,7 @@ const styles = makeStyles((theme) => ({
   },
 
   memberList: {
-    width: '100%',
+    padding: 0,
   },
 }));
 
