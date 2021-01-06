@@ -1,9 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
 const path = require('path');
 const webpack = require('webpack');
 
@@ -30,7 +24,7 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
 
 
 const utilityModulesQuery = `
-  query loadUtilityModulesQuery {
+  query utilityModulesQuery {
     allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^util/"}}) {
       nodes {
         relativeDirectory

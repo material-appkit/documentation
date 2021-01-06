@@ -6,13 +6,13 @@ import Layout from 'layout/Layout';
 import { filterAndGroupNodes } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
-import UtilityModuleList from 'components/api/UtilityModuleList';
+import ModuleList from 'components/api/ModuleList';
 
-function UtilityModulePage(props) {
+function ModulePage(props) {
   return (
     <Layout title={props.pageContext.modulePath} {...props}>
       <main>
-        <UtilityModuleList
+        <ModuleList
           modules={filterAndGroupNodes(props.data.utils.nodes)}
         />
       </main>
@@ -20,9 +20,9 @@ function UtilityModulePage(props) {
   );
 }
 
-UtilityModulePage.propTypes = COMMON_PAGE_PROPS;
+ModulePage.propTypes = COMMON_PAGE_PROPS;
 
-export default UtilityModulePage;
+export default ModulePage;
 
 export const query = graphql`
   query utilityModuleNodes($modulePath: String) {

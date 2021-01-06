@@ -13,7 +13,7 @@ import {
 import { filterAndGroupNodes } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
-import UtilityModuleList from 'components/api/UtilityModuleList';
+import ModuleList from 'components/api/ModuleList';
 
 const styles = makeStyles((theme) => ({
   moduleHeading: {
@@ -40,13 +40,20 @@ function APIReferencePage(props) {
           <ContentHeading id="managers">
             Managers
           </ContentHeading>
+          <ModuleList
+            modules={filterAndGroupNodes(props.data.managers.nodes)}
+            moduleHeadingProps={{
+              className: classes.moduleHeading,
+              variant: 'h3',
+            }}
+          />
         </ContentSection>
 
         <ContentSection>
           <ContentHeading id="utilities">
             Utilities
           </ContentHeading>
-          <UtilityModuleList
+          <ModuleList
             modules={filterAndGroupNodes(props.data.utils.nodes)}
             moduleHeadingProps={{
               className: classes.moduleHeading,
@@ -65,6 +72,18 @@ export default APIReferencePage;
 
 export const query = graphql`
   query {
+    managers: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^managers/"}}) {
+      nodes {
+        childrenDocumentationJs {
+          ...DocumentationJsFragment,
+          childrenDocumentationJs {
+            ...DocumentationJsFragment,
+          }
+        }
+        relativeDirectory
+      }
+    }
+      
     utils: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^util/"}}) {
       nodes {
         childrenDocumentationJs {
