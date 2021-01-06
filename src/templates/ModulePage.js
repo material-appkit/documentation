@@ -6,12 +6,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from 'layout/Layout';
 
-import { extractComponentsAndMembers } from 'util/shortcuts';
+import { extractMembers } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
 import ClassListItem from 'components/api/ClassListItem';
 import FunctionListItem from 'components/api/FunctionListItem';
-import ModuleListView from 'components/api/ModuleListView';
+import MemberListView from 'components/api/MemberListView';
 
 
 const moduleHeaderStyles = makeStyles((theme) => ({
@@ -39,14 +39,14 @@ function ModuleHeader({ path }) {
 
 
 function ModulePage(props) {
-  const moduleMap = extractComponentsAndMembers(props.data.allFile.nodes);
+  const memberMap = extractMembers(props.data.allFile.nodes);
 
   return (
     <Layout title={props.pageContext.modulePath} {...props}>
       <main>
-        <ModuleListView
+        <MemberListView
           ModuleHeaderComponent={ModuleHeader}
-          moduleMap={moduleMap}
+          memberMap={memberMap}
           listItemComponents={{
             "class":  ClassListItem,
             "function": FunctionListItem,

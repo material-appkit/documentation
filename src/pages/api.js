@@ -8,12 +8,12 @@ import Layout from 'layout/Layout';
 import { Link } from 'components/typography';
 
 import { COMMON_PAGE_PROPS } from 'variables';
-import { extractComponentsAndMembers } from 'util/shortcuts';
+import { extractMembers } from 'util/shortcuts';
 
 import ClassListItem from 'components/api/ClassListItem';
 import ComponentListItem from 'components/api/ComponentListItem';
 import FunctionListItem from 'components/api/FunctionListItem';
-import ModuleListView from 'components/api/ModuleListView';
+import MemberListView from 'components/api/MemberListView';
 
 
 const moduleHeaderStyles = makeStyles((theme) => ({
@@ -25,7 +25,6 @@ const moduleHeaderStyles = makeStyles((theme) => ({
     borderBottom: `1px double ${theme.palette.divider}`,
     padding: theme.spacing(1, 0),
   },
-
 }));
 
 function ModuleHeader({ path }) {
@@ -44,14 +43,14 @@ function ModuleHeader({ path }) {
 
 
 function APIReferencePage(props) {
-  const moduleMap = extractComponentsAndMembers(props.data.allFile.nodes);
+  const memberMap = extractMembers(props.data.allFile.nodes);
 
   return (
     <Layout title="API Reference" {...props}>
       <main>
-        <ModuleListView
+        <MemberListView
           ModuleHeaderComponent={ModuleHeader}
-          moduleMap={moduleMap}
+          memberMap={memberMap}
           listItemComponents={{
             "component": ComponentListItem,
             "class":  ClassListItem,

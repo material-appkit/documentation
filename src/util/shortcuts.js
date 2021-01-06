@@ -30,7 +30,7 @@ export const fileContent = (nodes, filename) => {
 };
 
 
-export function extractComponentsAndMembers(nodes) {
+export function extractMembers(nodes) {
   const result = {};
 
   nodes.forEach((node) => {
@@ -40,22 +40,29 @@ export function extractComponentsAndMembers(nodes) {
       relativeDirectory,
     } = node;
     
+    if (!result[relativeDirectory]) {
+      result[relativeDirectory] = {
+        components: [],
+        classes: [],
+        functions: [],
+      };
+    }
+
     if (childrenComponentMetadata.length) {
-      if (!result[relativeDirectory]) {
-        result[relativeDirectory] = {
-          members: [],
-          components: [],
-        };
-      }
       result[relativeDirectory].components.splice(0, 0, ...childrenComponentMetadata);
-    } else if (childrenDocumentationJs.length) {
-      if (!result[relativeDirectory]) {
-        result[relativeDirectory] = {
-          members: [],
-          components: [],
-        };
-      }
-      result[relativeDirectory].members.splice(0, 0, ...childrenDocumentationJs);
+    } else {
+      childrenDocumentationJs.forEach((member) => {
+        switch (member.kind) {
+          case 'class':
+            result[relativeDirectory].classes.push(member);
+            break;
+          case 'function':
+            result[relativeDirectory].functions.push(member);
+            break;
+          default:
+            throw new Error('Unrecognized member kind');
+        }
+      });
     }
   });
 
