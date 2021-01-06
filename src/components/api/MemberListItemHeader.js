@@ -22,12 +22,9 @@ const HEADING_VARIANT_MAP = {
 
 const styles = makeStyles((theme) => ({
   header: {
+    alignItems: 'flex-start',
+    display: 'flex',
     padding: theme.spacing(1, 0, 0),
-    width: '100%',
-  },
-
-  headingLink: {
-    width: '100%',
   },
 
   codeHeading: {
@@ -36,7 +33,6 @@ const styles = makeStyles((theme) => ({
   },
 
   avatar: {
-    float: 'left',
     fontSize: theme.typography.pxToRem(16),
     height: theme.spacing(3),
     marginRight: theme.spacing(1),
@@ -81,7 +77,7 @@ function MemberListItemHeader(props) {
         {kind[0].toUpperCase()}
       </Avatar>
 
-      <Link href={url} className={classes.headingLink}>
+      <Link href={url}>
         <Typography {...headingProps}>
           {heading}
         </Typography>
