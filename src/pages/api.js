@@ -10,7 +10,6 @@ import {
   ContentSection,
 } from 'components/typography';
 
-import { filterAndGroupNodes } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
 import ModuleList from 'components/api/ModuleList';
@@ -41,7 +40,7 @@ function APIReferencePage(props) {
             Managers
           </ContentHeading>
           <ModuleList
-            modules={filterAndGroupNodes(props.data.managers.nodes)}
+            nodes={props.data.managers.nodes}
             moduleHeadingProps={{
               className: classes.moduleHeading,
               variant: 'h3',
@@ -54,7 +53,7 @@ function APIReferencePage(props) {
             Utilities
           </ContentHeading>
           <ModuleList
-            modules={filterAndGroupNodes(props.data.utils.nodes)}
+            nodes={props.data.utils.nodes}
             moduleHeadingProps={{
               className: classes.moduleHeading,
               variant: 'h3',

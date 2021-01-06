@@ -38,7 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const utilityModuleTemplate = path.resolve('src/templates/UtilityModulePage.js');
 
-  return graphql(utilityModulesQuery).then((result) => {
+  graphql(utilityModulesQuery).then((result) => {
     if (result.errors) {
       throw result.errors;
     }

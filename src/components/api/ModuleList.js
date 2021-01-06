@@ -1,3 +1,5 @@
+import groupBy from 'lodash.groupby';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -5,17 +7,21 @@ import List from '@material-ui/core/List';
 
 import ModuleListItem from './ModuleListItem';
 
-function ModuleList({ modules, moduleHeadingProps }) {
-  const modulePaths = Object.keys(modules).sort();
+function ModuleList({ moduleHeadingProps, nodes }) {
+  const filteredNodes = nodes.filter((node) => {
+    return node.childrenDocumentationJs.length > 0;
+  });
+
+  const nodesGroupedByPath = groupBy(filteredNodes, 'relativeDirectory');
+  const modulePaths = Object.keys(nodesGroupedByPath).sort();
 
   const membersMap = {};
-
   modulePaths.forEach((directory) => {
-    membersMap[directory] = [].concat.apply([], modules[directory].map(
+    const moduleList = nodesGroupedByPath[directory].map(
       (m) => m.childrenDocumentationJs
-    )).sort((a, b) => (
-      a.name.toLowerCase() < b.name.toLowerCase()
-    ));
+    );
+    membersMap[directory] = [].concat.apply([], moduleList)
+      .sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase());
   });
 
   return (
@@ -33,8 +39,8 @@ function ModuleList({ modules, moduleHeadingProps }) {
 }
 
 ModuleList.propTypes = {
-  modules: PropTypes.object.isRequired,
   moduleHeadingProps: PropTypes.object,
+  nodes: PropTypes.array.isRequired,
 };
 
 export default ModuleList;

@@ -1,5 +1,3 @@
-import groupBy from 'lodash.groupby';
-
 import { E_REQUEST_ABORTED } from 'variables';
 
 export function handleException(error, errorInfo) {
@@ -30,12 +28,3 @@ export const fileContent = (nodes, filename) => {
 
   return null;
 };
-
-
-export function filterAndGroupNodes(nodes) {
-  const filteredNodes = nodes.filter((node) => (
-    node.childrenDocumentationJs.length > 0
-  ));
-
-  return groupBy(filteredNodes, 'relativeDirectory');
-}
