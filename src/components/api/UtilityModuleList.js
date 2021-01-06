@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 
 import ModuleListItem from './ModuleListItem';
 
-function UtilityModuleList({ modules }) {
+function UtilityModuleList({ modules, moduleHeadingProps }) {
   const modulePaths = Object.keys(modules).sort();
 
   const membersMap = {};
@@ -25,6 +25,7 @@ function UtilityModuleList({ modules }) {
           modulePath={path}
           key={path}
           members={membersMap[path]}
+          moduleHeadingProps={moduleHeadingProps}
         />
       ))}
     </List>
@@ -33,6 +34,11 @@ function UtilityModuleList({ modules }) {
 
 UtilityModuleList.propTypes = {
   modules: PropTypes.object.isRequired,
+  moduleHeadingProps: PropTypes.object,
+};
+
+UtilityModuleList.defaultProps = {
+  moduleHeadingProps: {},
 };
 
 export default UtilityModuleList;

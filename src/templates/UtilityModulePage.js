@@ -1,18 +1,20 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import Layout from 'layout/Layout';
 
+import { filterAndGroupNodes } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
-import ModuleDetailView from 'components/api/ModuleDetailView';
+import UtilityModuleList from 'components/api/UtilityModuleList';
 
 function UtilityModulePage(props) {
-  const { data, ...rest } = props;
-
   return (
-    <Layout title="Util" {...rest}>
+    <Layout title={props.pageContext.modulePath} {...props}>
       <main>
-        <ModuleDetailView />
+        <UtilityModuleList
+          modules={filterAndGroupNodes(props.data.utils.nodes)}
+        />
       </main>
     </Layout>
   );
@@ -21,3 +23,19 @@ function UtilityModulePage(props) {
 UtilityModulePage.propTypes = COMMON_PAGE_PROPS;
 
 export default UtilityModulePage;
+
+export const query = graphql`
+  query utilityModuleNodes($modulePath: String) {
+    utils: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {eq: $modulePath}}) {
+      nodes {
+        childrenDocumentationJs {
+          ...DocumentationJsFragment,
+          childrenDocumentationJs {
+            ...DocumentationJsFragment,
+          }
+        }
+        relativeDirectory
+      }
+    }  
+  }
+`;

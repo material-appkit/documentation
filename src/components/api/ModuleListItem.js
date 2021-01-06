@@ -27,7 +27,7 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function ModuleListItem({ modulePath, members }) {
+function ModuleListItem({ moduleHeadingProps, modulePath, members }) {
   const classes = styles();
 
   return (
@@ -39,6 +39,7 @@ function ModuleListItem({ modulePath, members }) {
         kind="module"
         heading={`@material-appkit/core/${modulePath}`}
         url={`/api/${modulePath}`}
+        moduleHeadingProps={moduleHeadingProps}
       />
 
       <List disablePadding>
@@ -63,6 +64,7 @@ function ModuleListItem({ modulePath, members }) {
 }
 
 ModuleListItem.propTypes = {
+  moduleHeadingProps: PropTypes.object.isRequired,
   modulePath: PropTypes.string.isRequired,
   members: PropTypes.array.isRequired,
 };
