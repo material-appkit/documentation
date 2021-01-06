@@ -64,7 +64,7 @@ function ModuleListItem({ moduleHeadingProps, modulePath, members }) {
 }
 
 ModuleListItem.propTypes = {
-  moduleHeadingProps: PropTypes.object.isRequired,
+  moduleHeadingProps: PropTypes.object,
   modulePath: PropTypes.string.isRequired,
   members: PropTypes.array.isRequired,
 };

@@ -37,8 +37,4 @@ UtilityModuleList.propTypes = {
   moduleHeadingProps: PropTypes.object,
 };
 
-UtilityModuleList.defaultProps = {
-  moduleHeadingProps: {},
-};
-
 export default UtilityModuleList;

@@ -40,7 +40,7 @@ function FunctionListItem({ modulePath, representedObject, urlPrefix }) {
 
   let returnType = 'void';
   if (representedObject.returns) {
-    returnType = valueForKeyPath(representedObject, 'returns.type.name') || '*'
+    returnType = representedObject.returns[0].type.name || '*';
   }
   const signature = `${representedObject.name}(${paramList.join(', ')}):${returnType}`;
 

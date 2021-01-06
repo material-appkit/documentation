@@ -67,9 +67,9 @@ function ListItemHeader(props) {
 
   let headingProps = {
     id: url,
-    noWrap: true,
+
     variant: HEADING_VARIANT_MAP[kind],
-    ...moduleHeadingProps
+    ...(moduleHeadingProps || {})
   };
 
   if (kind !== 'module') {
@@ -105,12 +105,8 @@ function ListItemHeader(props) {
 ListItemHeader.propTypes = {
   heading: PropTypes.string.isRequired,
   kind: PropTypes.oneOf(['module', 'class', 'function']).isRequired,
-  moduleHeadingProps: PropTypes.object.isRequired,
+  moduleHeadingProps: PropTypes.object,
   url: PropTypes.string.isRequired,
-};
-
-ListItemHeader.defaultProps = {
-  moduleHeadingProps: {},
 };
 
 export default ListItemHeader;
