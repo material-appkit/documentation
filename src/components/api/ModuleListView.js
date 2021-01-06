@@ -5,8 +5,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 
-import ModuleHeader from './ModuleHeader';
-
 const styles = makeStyles((theme) => ({
   moduleList: {
     padding: 0,
@@ -18,18 +16,19 @@ const styles = makeStyles((theme) => ({
     padding: 0,
   },
 
-  moduleHeading: {
-    borderBottom: `1px double ${theme.palette.divider}`,
-    padding: theme.spacing(1, 0),
-  },
-
   memberList: {
     padding: 0,
   },
 }));
 
-function ModuleListView({ listItemComponents, moduleMap }) {
+function ModuleListView(props) {
   const classes = styles();
+
+  const {
+    listItemComponents,
+    ModuleHeaderComponent,
+    moduleMap,
+  } = props;
 
   const modulePaths = Object.keys(moduleMap).sort();
 
@@ -44,13 +43,7 @@ function ModuleListView({ listItemComponents, moduleMap }) {
           component="article"
           key={modulePath}
         >
-          <ModuleHeader
-            headingProps={{
-              className: classes.moduleHeading,
-              variant: 'h3',
-            }}
-            path={modulePath}
-          />
+          <ModuleHeaderComponent path={modulePath} />
 
           <List className={classes.memberList}>
             {moduleMap[modulePath].members.map((member) => {
@@ -77,6 +70,7 @@ function ModuleListView({ listItemComponents, moduleMap }) {
 
 ModuleListView.propTypes = {
   listItemComponents: PropTypes.object.isRequired,
+  ModuleHeaderComponent: PropTypes.elementType,
   moduleMap: PropTypes.object.isRequired,
 };
 
