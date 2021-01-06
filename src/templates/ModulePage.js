@@ -10,6 +10,7 @@ import { extractMembers } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
 import ClassListItem from 'components/api/ClassListItem';
+import ComponentListItem from 'components/api/ComponentListItem';
 import FunctionListItem from 'components/api/FunctionListItem';
 import MemberListView from 'components/api/MemberListView';
 
@@ -36,8 +37,6 @@ function ModuleHeader({ path }) {
   );
 }
 
-
-
 function ModulePage(props) {
   const memberMap = extractMembers(props.data.allFile.nodes);
 
@@ -48,6 +47,7 @@ function ModulePage(props) {
           ModuleHeaderComponent={ModuleHeader}
           memberMap={memberMap}
           listItemComponents={{
+            "component": ComponentListItem,
             "class":  ClassListItem,
             "function": FunctionListItem,
           }}

@@ -30,7 +30,7 @@ function ComponentListItem({ modulePath, representedObject, urlPrefix }) {
 }
 
 ComponentListItem.propTypes = {
-  component: PropTypes.object.isRequired,
+  representedObject: PropTypes.object.isRequired,
   modulePath: PropTypes.string.isRequired,
   urlPrefix: PropTypes.string.isRequired,
 };
