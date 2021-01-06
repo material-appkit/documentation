@@ -42,10 +42,10 @@ function MemberListView(props) {
           <List className={classes.list}>
             {memberMap[modulePath].components.map((component) => (
               <listItemComponents.component
-                component={component}
                 key={`${modulePath}/${component.displayName}`}
-                urlPrefix={`/api/${modulePath}/#`}
                 modulePath={modulePath}
+                representedObject={component}
+                urlPrefix={`/api/${modulePath}/`}
               />
             ))}
           </List>
@@ -54,18 +54,18 @@ function MemberListView(props) {
             {memberMap[modulePath].classes.map((member) => (
               <listItemComponents.class
                 key={`${modulePath}/${member.name}`}
-                urlPrefix={`/api/${modulePath}/#`}
                 modulePath={modulePath}
                 representedObject={member}
+                urlPrefix={`/api/${modulePath}/#`}
               />
             ))}
 
             {memberMap[modulePath].functions.map((member) => (
               <listItemComponents.function
                 key={`${modulePath}/${member.name}`}
-                urlPrefix={`/api/${modulePath}/#`}
                 modulePath={modulePath}
                 representedObject={member}
+                urlPrefix={`/api/${modulePath}/#`}
               />
             ))}
           </List>

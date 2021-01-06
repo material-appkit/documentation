@@ -8,7 +8,14 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import ReactLogo from 'media/react-logo.svg';
+
+const AVATAR_SRC_MAP = {
+  "component": ReactLogo,
+};
+
 const HEADING_VARIANT_MAP = {
+  "component": 'h4',
   "class":  'h4',
   "function": 'h5',
 };
@@ -56,24 +63,19 @@ function MemberListItemHeader(props) {
   } = props;
   
 
-  let headingProps = {
-    id: url,
 
+  const headingProps = {
+    className: classes.codeHeading,
+    id: url,
     variant: HEADING_VARIANT_MAP[kind],
     ...(moduleHeadingProps || {})
   };
 
-  headingProps.className = classes.codeHeading;
-
-
   return (
     <header className={classes.header}>
       <Avatar
-        className={clsx([
-          classes.avatar,
-          classes[`${kind}Avatar`],
-        ])}
-        underline="none"
+        className={clsx(classes.avatar, classes[`${kind}Avatar`])}
+        src={AVATAR_SRC_MAP[kind]}
         variant="square"
       >
         {kind[0].toUpperCase()}
@@ -91,7 +93,7 @@ function MemberListItemHeader(props) {
 
 MemberListItemHeader.propTypes = {
   heading: PropTypes.string.isRequired,
-  kind: PropTypes.oneOf(['module', 'class', 'function']).isRequired,
+  kind: PropTypes.oneOf(['component', 'class', 'function']).isRequired,
   moduleHeadingProps: PropTypes.object,
   url: PropTypes.string.isRequired,
 };

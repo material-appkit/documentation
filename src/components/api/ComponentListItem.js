@@ -4,17 +4,27 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles((theme) => ({
+import MemberListItemHeader from './MemberListItemHeader';
 
+const styles = makeStyles((theme) => ({
+  listItem: {
+    display: 'block',
+    padding: theme.spacing(1, 0),
+  },
 }));
 
-function ComponentListItem(props) {
+function ComponentListItem({ modulePath, representedObject, urlPrefix }) {
   const classes = styles();
 
-  const { component, modulePath, urlPrefix } = props;
+  const url = urlPrefix + representedObject.displayName;
+
   return (
-    <ListItem>
-      {component.displayName}
+    <ListItem className={classes.listItem}>
+      <MemberListItemHeader
+        heading={representedObject.displayName}
+        kind="component"
+        url={url}
+      />
     </ListItem>
   );
 }

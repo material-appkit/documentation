@@ -13,8 +13,7 @@ import MemberListItemHeader from './MemberListItemHeader';
 
 const styles = makeStyles((theme) => ({
   listItem: {
-    alignItems: 'flex-start',
-    flexDirection: 'column',
+    display: 'block',
     padding: theme.spacing(1, 0),
   },
 

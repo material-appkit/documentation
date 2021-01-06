@@ -14,19 +14,13 @@ import MemberListItemHeader from './MemberListItemHeader';
 import FunctionListItem from './FunctionListItem';
 
 const styles = makeStyles((theme) => ({
-  list: {
-    width: '100%',
-  },
-
   listItem: {
-    alignItems: 'flex-start',
-    flexDirection: 'column',
+    display: 'block',
     padding: theme.spacing(1, 0),
   },
 
   listItemContent: {
     paddingLeft: theme.spacing(4),
-    width: '100%',
   },
 }));
 
@@ -38,7 +32,7 @@ function ClassListItem({ modulePath, representedObject, urlPrefix }) {
   const tags = arrayToObject(representedObject.tags, 'title');
   const summary = valueForKeyPath(tags, 'summary.description');
 
-  const methodNodes = representedObject.childrenDocumentationJs.filter(
+  const functionNodes = representedObject.childrenDocumentationJs.filter(
     (node) => node.kind === 'function'
   );
 
@@ -54,20 +48,16 @@ function ClassListItem({ modulePath, representedObject, urlPrefix }) {
           <MarkdownView markdown={summary} />
         }
 
-        {methodNodes.length > 0 &&
-          <List disablePadding className={classes.list}>
-            {methodNodes.map((node) => {
-               return (
-                <FunctionListItem
-                  key={`${url}/${node.name}`}
-                  modulePath={modulePath}
-                  representedObject={node}
-                  urlPrefix={`${url}/`}
-                />
-              );
-            })}
-          </List>
-        }
+        <List disablePadding>
+          {functionNodes.map((node) => (
+            <FunctionListItem
+              key={`${url}/${node.name}`}
+              modulePath={modulePath}
+              representedObject={node}
+              urlPrefix={`${url}/`}
+            />
+          ))}
+        </List>
       </div>
     </ListItem>
   );
