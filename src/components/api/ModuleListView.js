@@ -6,17 +6,13 @@ import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles((theme) => ({
-  moduleList: {
+  list: {
     padding: 0,
   },
 
   moduleListItem: {
     display: 'block',
     marginBottom: theme.spacing(4),
-    padding: 0,
-  },
-
-  memberList: {
     padding: 0,
   },
 }));
@@ -34,7 +30,7 @@ function ModuleListView(props) {
 
   return (
     <List
-      className={classes.moduleList}
+      className={classes.list}
       component="section"
     >
       {modulePaths.map((modulePath) => (
@@ -45,12 +41,24 @@ function ModuleListView(props) {
         >
           <ModuleHeaderComponent path={modulePath} />
 
-          <List className={classes.memberList}>
+          <List className={classes.list}>
+            {moduleMap[modulePath].components.map((component) => {
+              const ComponentListItem = listItemComponents.component;
+
+              return (
+                <ComponentListItem
+                  component={component}
+                  key={`${modulePath}/${component.displayName}`}
+                  urlPrefix={`/api/${modulePath}/#`}
+                  modulePath={modulePath}
+                />
+              );
+            })}
+          </List>
+
+          <List className={classes.list}>
             {moduleMap[modulePath].members.map((member) => {
               const ListItemComponent = listItemComponents[member.kind];
-              if (!ListItemComponent) {
-                return null;
-              }
 
               return (
                 <ListItemComponent

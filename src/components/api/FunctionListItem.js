@@ -63,6 +63,7 @@ function FunctionListItem({ modulePath, representedObject, urlPrefix }) {
 FunctionListItem.propTypes = {
   modulePath: PropTypes.string.isRequired,
   representedObject: PropTypes.object.isRequired,
+  urlPrefix: PropTypes.string.isRequired,
 };
 
 export default FunctionListItem;

@@ -11,6 +11,7 @@ import { COMMON_PAGE_PROPS } from 'variables';
 import { extractComponentsAndMembers } from 'util/shortcuts';
 
 import ClassListItem from 'components/api/ClassListItem';
+import ComponentListItem from 'components/api/ComponentListItem';
 import FunctionListItem from 'components/api/FunctionListItem';
 import ModuleListView from 'components/api/ModuleListView';
 
@@ -52,6 +53,7 @@ function APIReferencePage(props) {
           ModuleHeaderComponent={ModuleHeader}
           moduleMap={moduleMap}
           listItemComponents={{
+            "component": ComponentListItem,
             "class":  ClassListItem,
             "function": FunctionListItem,
           }}
