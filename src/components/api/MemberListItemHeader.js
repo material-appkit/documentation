@@ -9,10 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const HEADING_VARIANT_MAP = {
-  "module": 'h1',
   "class":  'h4',
   "function": 'h5',
-
 };
 
 const styles = makeStyles((theme) => ({
@@ -38,10 +36,6 @@ const styles = makeStyles((theme) => ({
     width: theme.spacing(3),
   },
 
-  moduleAvatar: {
-    backgroundColor: theme.palette.primary.main,
-  },
-
   classAvatar: {
     backgroundColor: 'orange',
   },
@@ -51,7 +45,7 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function ListItemHeader(props) {
+function MemberListItemHeader(props) {
   const classes = styles();
 
   const {
@@ -60,10 +54,7 @@ function ListItemHeader(props) {
     moduleHeadingProps,
     url
   } = props;
-
-  let headerClassNames = [classes.header];
-
-  let avatar = null;
+  
 
   let headingProps = {
     id: url,
@@ -72,9 +63,11 @@ function ListItemHeader(props) {
     ...(moduleHeadingProps || {})
   };
 
-  if (kind !== 'module') {
-    headingProps.className = classes.codeHeading;
-    avatar = (
+  headingProps.className = classes.codeHeading;
+
+
+  return (
+    <header className={classes.header}>
       <Avatar
         className={clsx([
           classes.avatar,
@@ -85,12 +78,6 @@ function ListItemHeader(props) {
       >
         {kind[0].toUpperCase()}
       </Avatar>
-    );
-  }
-
-  return (
-    <header className={clsx(headerClassNames)}>
-      {avatar}
 
       <Link href={url} className={classes.headingLink}>
         <Typography {...headingProps}>
@@ -102,11 +89,11 @@ function ListItemHeader(props) {
   );
 }
 
-ListItemHeader.propTypes = {
+MemberListItemHeader.propTypes = {
   heading: PropTypes.string.isRequired,
   kind: PropTypes.oneOf(['module', 'class', 'function']).isRequired,
   moduleHeadingProps: PropTypes.object,
   url: PropTypes.string.isRequired,
 };
 
-export default ListItemHeader;
+export default MemberListItemHeader;

@@ -28,3 +28,36 @@ export const fileContent = (nodes, filename) => {
 
   return null;
 };
+
+
+export function extractComponentsAndMembers(nodes) {
+  const result = {};
+
+  nodes.forEach((node) => {
+    const {
+      childrenDocumentationJs,
+      childrenComponentMetadata,
+      relativeDirectory,
+    } = node;
+    
+    if (childrenComponentMetadata.length) {
+      if (!result[relativeDirectory]) {
+        result[relativeDirectory] = {
+          members: [],
+          components: [],
+        };
+      }
+      result[relativeDirectory].components.splice(0, 0, ...childrenComponentMetadata);
+    } else if (childrenDocumentationJs.length) {
+      if (!result[relativeDirectory]) {
+        result[relativeDirectory] = {
+          members: [],
+          components: [],
+        };
+      }
+      result[relativeDirectory].members.splice(0, 0, ...childrenDocumentationJs);
+    }
+  });
+
+  return result;
+}

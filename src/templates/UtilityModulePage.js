@@ -5,15 +5,11 @@ import Layout from 'layout/Layout';
 
 import { COMMON_PAGE_PROPS } from 'variables';
 
-import ModuleList from 'components/api/ModuleList';
-
 function ModulePage(props) {
   return (
     <Layout title={props.pageContext.modulePath} {...props}>
       <main>
-        <ModuleList
-          nodes={props.data.utils.nodes}
-        />
+
       </main>
     </Layout>
   );

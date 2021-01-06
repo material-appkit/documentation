@@ -10,7 +10,7 @@ import { valueForKeyPath } from '@material-appkit/core/util/object';
 
 import MarkdownView from 'components/MarkdownView';
 
-import ListItemHeader from './ListItemHeader';
+import MemberListItemHeader from './MemberListItemHeader';
 import FunctionListItem from './FunctionListItem';
 
 const styles = makeStyles((theme) => ({
@@ -44,7 +44,7 @@ function ClassListItem({ modulePath, representedObject, urlPrefix }) {
 
   return (
     <ListItem className={classes.listItem}>
-      <ListItemHeader
+      <MemberListItemHeader
         heading={representedObject.name}
         kind="class"
         url={url}

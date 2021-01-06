@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const JSDocFragment = graphql`
+export const JSDocFragments = graphql` 
   fragment DocumentationJsFragment on DocumentationJs {
     description {
       internal {
@@ -25,5 +25,22 @@ export const JSDocFragment = graphql`
       }
     }    
   }
+  
+  
+  fragment DocumentationNode on File {
+    childrenComponentMetadata {
+      displayName
+    }
+      
+    childrenDocumentationJs {
+      ...DocumentationJsFragment,
+      childrenDocumentationJs {
+        ...DocumentationJsFragment,
+      }
+    }    
+    
+    relativeDirectory
+    relativePath
+  }  
 `;
 

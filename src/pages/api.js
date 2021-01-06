@@ -1,65 +1,20 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { makeStyles } from '@material-ui/core/styles';
-
 import Layout from 'layout/Layout';
 
-import {
-  ContentHeading,
-  ContentSection,
-} from 'components/typography';
-
 import { COMMON_PAGE_PROPS } from 'variables';
+import { extractComponentsAndMembers } from 'util/shortcuts';
 
-import ModuleList from 'components/api/ModuleList';
-
-const styles = makeStyles((theme) => ({
-  moduleHeading: {
-    backgroundColor: theme.palette.grey[200],
-    borderBottom: `2px solid ${theme.palette.grey[400]}`,
-    padding: theme.spacing(1, 0),
-  },
-}));
-
+import ModuleListView from 'components/api/ModuleListView';
 
 function APIReferencePage(props) {
-  const classes = styles();
+  const moduleMap = extractComponentsAndMembers(props.data.allFile.nodes);
 
   return (
     <Layout title="API Reference" {...props}>
       <main>
-        <ContentSection>
-          <ContentHeading id="components">
-            Components
-          </ContentHeading>
-        </ContentSection>
-
-        <ContentSection>
-          <ContentHeading id="managers">
-            Managers
-          </ContentHeading>
-          <ModuleList
-            nodes={props.data.managers.nodes}
-            moduleHeadingProps={{
-              className: classes.moduleHeading,
-              variant: 'h3',
-            }}
-          />
-        </ContentSection>
-
-        <ContentSection>
-          <ContentHeading id="utilities">
-            Utilities
-          </ContentHeading>
-          <ModuleList
-            nodes={props.data.utils.nodes}
-            moduleHeadingProps={{
-              className: classes.moduleHeading,
-              variant: 'h3',
-            }}
-          />
-        </ContentSection>
+        <ModuleListView moduleMap={moduleMap} />
       </main>
     </Layout>
   );
@@ -71,27 +26,9 @@ export default APIReferencePage;
 
 export const query = graphql`
   query {
-    managers: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^managers/"}}) {
+    allFile(filter: {sourceInstanceName: {eq: "source"}}) {
       nodes {
-        childrenDocumentationJs {
-          ...DocumentationJsFragment,
-          childrenDocumentationJs {
-            ...DocumentationJsFragment,
-          }
-        }
-        relativeDirectory
-      }
-    }
-      
-    utils: allFile(filter: {sourceInstanceName: {eq: "source"}, relativeDirectory: {regex: "/^util/"}}) {
-      nodes {
-        childrenDocumentationJs {
-          ...DocumentationJsFragment,
-          childrenDocumentationJs {
-            ...DocumentationJsFragment,
-          }
-        }
-        relativeDirectory
+        ...DocumentationNode
       }
     }  
   }
