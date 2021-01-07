@@ -24,8 +24,7 @@ export const JSDocFragments = graphql`
         name
       }
     }    
-  }
-  
+  }  
   
   fragment DocumentationNode on File {
     childrenComponentMetadata {

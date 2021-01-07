@@ -8,11 +8,9 @@ export default {
     { name: "Usage", anchor: "usage" },
   ]},
 
-  { name: "API Reference", path: "api", children: [
-    { name: "Components", anchor: "components" },
-    { name: "Managers", anchor: "managers" },
-    { name: "Utilities", anchor: "utilities" }
-  ]},
+  { name: "API Reference", path: "api", children: [] },
+    // NOTE: The API reference links are constructed by the <Application>
+    // by querying the filesystem for paths to all source modules.
 
   { name: "Project Templates", path: "templates", children: [
     { name: "Create React App", anchor: "cra-starter" },

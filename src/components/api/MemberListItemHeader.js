@@ -22,9 +22,8 @@ const HEADING_VARIANT_MAP = {
 
 const styles = makeStyles((theme) => ({
   header: {
-    alignItems: 'flex-start',
     display: 'flex',
-    padding: theme.spacing(1, 0, 0),
+    padding: theme.spacing(0.5, 0),
   },
 
   codeHeading: {
