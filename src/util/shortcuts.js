@@ -48,22 +48,47 @@ export function extractMembers(nodes) {
       };
     }
 
+    const moduleMembers = result[relativeDirectory];
+
     if (childrenComponentMetadata.length) {
-      result[relativeDirectory].components.splice(0, 0, ...childrenComponentMetadata);
+      childrenComponentMetadata.forEach((component) => {
+        const isPublic = Boolean(component.doclets.find(
+          (doclet) => doclet.tag === 'public' && doclet.value === true
+        ));
+        if (isPublic) {
+          moduleMembers.components.push(component);
+        }
+      });
     } else {
       childrenDocumentationJs.forEach((member) => {
         switch (member.kind) {
           case 'class':
-            result[relativeDirectory].classes.push(member);
+            moduleMembers.classes.push(member);
             break;
           case 'function':
-            result[relativeDirectory].functions.push(member);
+            moduleMembers.functions.push(member);
             break;
           default:
             throw new Error('Unrecognized member kind');
         }
       });
     }
+  });
+
+
+  // Now that all the collections have been assembled,
+  // sort components and classes alphabetically by name.
+
+  // NOTE: Functions are already sorted in the order they
+  // appear within their module, so best leave them alone.
+  Object.values(result).forEach((moduleMembers) => {
+    moduleMembers.components.sort((a, b) => (
+      (a.displayName < b.displayName) ? -1 : 1
+    ));
+
+    moduleMembers.classes.sort((a, b) => (
+      a.name < b.name ? -1 : 1
+    ));
   });
 
   return result;

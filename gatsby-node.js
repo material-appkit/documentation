@@ -29,6 +29,7 @@ const sourceNodeQuery = `
       nodes {
         childrenComponentMetadata {
           displayName
+          doclets
         }      
         relativeDirectory
       }
@@ -64,13 +65,17 @@ exports.createPages = ({ graphql, actions }) => {
     // Create an individual page for each React component
     result.data.allFile.nodes.forEach((fileNode) => {
       fileNode.childrenComponentMetadata.forEach((componentNode) => {
-        createPage({
-          path: `/api/${fileNode.relativeDirectory}/${componentNode.displayName}/`,
-          component: ComponentPage,
-          context: {
-            componentName: componentNode.displayName,
-            modulePath: fileNode.relativeDirectory,
-          },
+        componentNode.doclets.forEach((doclet) => {
+          if (doclet.tag === 'public' && doclet.value === true) {
+            createPage({
+              path: `/api/${fileNode.relativeDirectory}/${componentNode.displayName}/`,
+              component: ComponentPage,
+              context: {
+                componentName: componentNode.displayName,
+                modulePath: fileNode.relativeDirectory,
+              },
+            });
+          }
         });
       });
     });

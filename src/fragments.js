@@ -29,6 +29,7 @@ export const JSDocFragments = graphql`
   fragment DocumentationNode on File {
     childrenComponentMetadata {
       displayName
+      doclets
     }
       
     childrenDocumentationJs {
