@@ -5,22 +5,22 @@ import Typography from '@material-ui/core/Typography';
 
 import Layout from 'layout/Layout';
 
-import { extractMembers } from 'util/shortcuts';
 import { COMMON_PAGE_PROPS } from 'variables';
 
 
 function ComponentPage(props) {
-  const { data, pageContext } = props;
+  const { pageContext } = props;
 
-  const memberMap = extractMembers(data.allFile.nodes);
-  console.log(memberMap);
+  const { componentName, modulePath } = pageContext;
 
   return (
     <Layout title={pageContext.modulePath} {...props}>
       <main>
-        <Typography variant="h1">
-          {pageContext.displayName}
-        </Typography>
+        <header>
+          <Typography variant="h1" gutterBottom>
+            @material-appkit/core/{modulePath}/{componentName}
+          </Typography>
+        </header>
       </main>
     </Layout>
   );

@@ -65,7 +65,7 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allFile.nodes.forEach((fileNode) => {
       fileNode.childrenComponentMetadata.forEach((componentNode) => {
         createPage({
-          path: `/api/${fileNode.relativeDirectory}/${componentNode.displayName}`,
+          path: `/api/${fileNode.relativeDirectory}/${componentNode.displayName}/`,
           component: ComponentPage,
           context: {
             componentName: componentNode.displayName,

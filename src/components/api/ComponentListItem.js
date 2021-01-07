@@ -16,14 +16,12 @@ const styles = makeStyles((theme) => ({
 function ComponentListItem({ modulePath, representedObject, urlPrefix }) {
   const classes = styles();
 
-  const url = urlPrefix + representedObject.displayName;
-
   return (
     <ListItem className={classes.listItem}>
       <MemberListItemHeader
         heading={representedObject.displayName}
         kind="component"
-        url={url}
+        url={`${urlPrefix}${representedObject.displayName}/`}
       />
     </ListItem>
   );

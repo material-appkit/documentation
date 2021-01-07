@@ -39,13 +39,12 @@ function buildSiteMap(modulePaths) {
 
 
   const apiReferenceNode = sitemap.children[API_REFERENCE_NODE_INDEX];
-  console.log(sitemap);
   Array.from(modulePaths).sort().forEach((modulePath, i) => {
     apiReferenceNode.children.push({
       id: `${API_REFERENCE_NODE_INDEX}.${i}`,
       name: modulePath,
       path: modulePath,
-      url: `/api/${modulePath}`,
+      url: `/api/${modulePath}/`,
     })
   });
 
