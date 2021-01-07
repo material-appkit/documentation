@@ -1,7 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const APP_BAR_HEIGHT = 56;
-const NAVBAR_WIDTH = 220;
+const NAVBAR_WIDTH = 240;
 const SIDEBAR_WIDTH = 260;
 
 const baseTheme = createMuiTheme();
