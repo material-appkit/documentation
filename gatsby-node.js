@@ -71,7 +71,7 @@ exports.createPages = ({ graphql, actions }) => {
               path: `/api/${fileNode.relativeDirectory}/${componentNode.displayName}/`,
               component: ComponentPage,
               context: {
-                componentName: componentNode.displayName,
+                displayName: componentNode.displayName,
                 modulePath: fileNode.relativeDirectory,
               },
             });
