@@ -12,7 +12,7 @@ export default {
     // NOTE: The API reference links are constructed by the <Application>
     // by querying the filesystem for paths to all source modules.
 
-  { name: "Project Templates", path: "templates", children: [
+  { name: "Project Templates", path: "projects", children: [
     { name: "Create React App", anchor: "cra-starter" },
     { name: "Gatsby", anchor: "gatsby-starter" }
   ]},

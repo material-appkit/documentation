@@ -39,7 +39,6 @@ export const JSDocFragments = graphql`
     }    
     
     relativeDirectory
-    relativePath
   }  
 `;
 

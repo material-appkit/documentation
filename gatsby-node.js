@@ -27,6 +27,9 @@ const sourceNodeQuery = `
   query {
     allFile(filter: {sourceInstanceName: {eq: "source"}}) {
       nodes {
+        childrenComponentMetadata {
+          displayName
+        }      
         relativeDirectory
       }
     }        
@@ -37,8 +40,9 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const ModulePage = path.resolve('src/templates/ModulePage.js');
+  const ComponentPage = path.resolve('src/templates/ComponentPage.js');
 
-  graphql(sourceNodeQuery).then((result) => {
+  return graphql(sourceNodeQuery).then((result) => {
     if (result.errors) {
       throw result.errors;
     }
@@ -57,6 +61,18 @@ exports.createPages = ({ graphql, actions }) => {
       });
     });
 
-    // TODO: Create an individual page for each React component
+    // Create an individual page for each React component
+    result.data.allFile.nodes.forEach((fileNode) => {
+      fileNode.childrenComponentMetadata.forEach((componentNode) => {
+        createPage({
+          path: `/api/${fileNode.relativeDirectory}/${componentNode.displayName}`,
+          component: ComponentPage,
+          context: {
+            componentName: componentNode.displayName,
+            modulePath: fileNode.relativeDirectory,
+          },
+        });
+      });
+    });
   });
 };

@@ -13,7 +13,7 @@ import {
 
 import { COMMON_PAGE_PROPS } from 'variables';
 
-function ProjectTemplatesPage(props) {
+function ProjectsPage(props) {
   return (
     <Layout title="Project Templates" {...props}>
       <main>
@@ -37,7 +37,7 @@ function ProjectTemplatesPage(props) {
   );
 }
 
-ProjectTemplatesPage.propTypes = COMMON_PAGE_PROPS;
+ProjectsPage.propTypes = COMMON_PAGE_PROPS;
 
-export default ProjectTemplatesPage;
+export default ProjectsPage;
 
