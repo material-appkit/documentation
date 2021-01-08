@@ -45,7 +45,7 @@ function MemberListView(props) {
                 key={`${modulePath}/${component.displayName}`}
                 modulePath={modulePath}
                 representedObject={component}
-                urlPrefix={`/api/${modulePath}/`}
+                urlPrefix={`/api/core/${modulePath}/`}
               />
             ))}
           </List>
@@ -56,7 +56,7 @@ function MemberListView(props) {
                 key={`${modulePath}/${member.name}`}
                 modulePath={modulePath}
                 representedObject={member}
-                urlPrefix={`/api/${modulePath}/#`}
+                urlPrefix={`/api/core/${modulePath}/#`}
               />
             ))}
 
@@ -65,7 +65,7 @@ function MemberListView(props) {
                 key={`${modulePath}/${member.name}`}
                 modulePath={modulePath}
                 representedObject={member}
-                urlPrefix={`/api/${modulePath}/#`}
+                urlPrefix={`/api/core/${modulePath}/#`}
               />
             ))}
           </List>

@@ -54,7 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     modulePaths.forEach((modulePath) => {
       createPage({
-        path: `/api/${modulePath}/`,
+        path: `/api/core/${modulePath}/`,
         component: ModulePage,
         context: {
           modulePath
@@ -68,7 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
         componentNode.doclets.forEach((doclet) => {
           if (doclet.tag === 'public' && doclet.value === true) {
             createPage({
-              path: `/api/${fileNode.relativeDirectory}/${componentNode.displayName}/`,
+              path: `/api/core/${fileNode.relativeDirectory}/${componentNode.displayName}/`,
               component: ComponentPage,
               context: {
                 displayName: componentNode.displayName,

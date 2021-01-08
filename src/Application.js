@@ -44,7 +44,7 @@ function buildSiteMap(modulePaths) {
       id: `${API_REFERENCE_NODE_INDEX}.${i}`,
       name: modulePath,
       path: modulePath,
-      url: `/api/${modulePath}/`,
+      url: `/api/core/${modulePath}/`,
     })
   });
 
